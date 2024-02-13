@@ -1,0 +1,36 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Update
+      run: sudo apt-get update
+    
+    - name: Get libs
+      run: sudo apt-get install gcc make xorg libxext-dev libbsd-dev
+
+    - name: Get submodules
+      run: git submodule update --init --recursive
+
+    - name: Make program
+      run: make
+
+    - name: Re-make program
+      run: make re
+
+    - name: View Contents of Libft
+      run: nm -C libs/libft/build/libft.a
+
+    - name: View Contents of minilibx
+      run: nm -C libs/minilibx/libmlx_Linux.a
