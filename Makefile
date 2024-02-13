@@ -19,18 +19,20 @@ MINI_LX_D = $(LIBS_D)/minilibx
 SRCS = $(SRC_DIR)/main.c
 OBJS = $(OBJ_DIR)/main.o
 
-MINI_LX = $(MINI_LX_D)/libmlx.a
+MINI_LX = $(MINI_LX_D)/libmlx_Linux.a
 LIBFT = $(LIBFT_D)/build/libft.a
-LIBS = -L$(LIBFT_D)/build -lft -L$(MINI_LX_D) -lmlx
+LIBS = -L$(LIBFT_D)/build -lft -L$(MINI_LX_D) -lmlx -lXext -lX11
 
 HEADERS = -I$(INC_DIR) -I$(LIBFT_D) -I$(MINI_LX_D)
 
 all: dir $(MINI_LX) $(NAME)
 
 $(MINI_LX):
-	@echo "[$(BLUE)SO_LONG$(NC)]   Building minilibX..."
+	@echo "[$(YELLOW)SO_LONG$(NC)]   Building minilibX..."
+	@echo "[======================================================================================]"
 	@$(MAKE) -s -C $(MINI_LX_D)
-
+	@echo "[======================================================================================]"
+	@echo "[$(BLUE)SO_LONG$(NC)]   Done bulding minilibX..."
 dir:
 	@if [ ! -d "obj" ]; then \
 		echo "[$(GREEN)SO_LONG$(NC)]   Creating obj directory..."; \
