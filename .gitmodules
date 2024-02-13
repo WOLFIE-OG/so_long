@@ -1,0 +1,6 @@
+[submodule "libs/minilibx"]
+	path = libs/minilibx
+	url = https://github.com/42Paris/minilibx-linux
+[submodule "libs/libft"]
+	path = libs/libft
+	url = https://github.com/WOLFIE-OG/libft
