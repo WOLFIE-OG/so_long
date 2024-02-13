@@ -14,6 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Get libs
+      run: sudo apt-get install gcc make xorg libxext-dev libbsd-dev
+
     - name: Get submodules
       run: git submodule update --init --recursive
 
