@@ -6,7 +6,7 @@ BLUE=\033[0;34m
 NC=\033[0m
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = so_long
 
 SRC_DIR = src
@@ -33,6 +33,7 @@ $(MINI_LX):
 	@$(MAKE) -s -C $(MINI_LX_D)
 	@echo "[======================================================================================]"
 	@echo "[$(BLUE)SO_LONG$(NC)]   Done bulding minilibX..."
+
 dir:
 	@if [ ! -d "obj" ]; then \
 		echo "[$(GREEN)SO_LONG$(NC)]   Creating obj directory..."; \
