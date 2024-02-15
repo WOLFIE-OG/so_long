@@ -48,7 +48,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/so_long.h
 	@echo "[$(GREEN)SO_LONG$(NC)]   Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c $(INC_DIR)/so_long.h| $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c $(INC_DIR)/so_long.h
 	@echo "[$(GREEN)SO_LONG$(NC)]   Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
