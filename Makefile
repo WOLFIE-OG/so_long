@@ -44,11 +44,11 @@ $(NAME): $(LIBFT) $(OBJS)
 	@echo "[$(GREEN)SO_LONG$(NC)]   Building $@..."
 	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/so_long.h
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "[$(GREEN)SO_LONG$(NC)]   Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c $(INC_DIR)/so_long.h
+$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c
 	@echo "[$(GREEN)SO_LONG$(NC)]   Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
