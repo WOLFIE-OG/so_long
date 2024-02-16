@@ -16,8 +16,14 @@ INC_DIR = include
 LIBFT_D = $(LIBS_D)/libft
 MINI_LX_D = $(LIBS_D)/minilibx
 
-SRCS = $(SRC_DIR)/main.c
-OBJS = $(OBJ_DIR)/main.o
+SRCS = 	$(SRC_DIR)/main.c			\
+		$(SRC_DIR)/init/game.c		\
+		$(SRC_DIR)/init/player.c	\
+		$(SRC_DIR)/movement/move.c
+OBJS = 	$(OBJ_DIR)/main.o			\
+		$(OBJ_DIR)/game.o		\
+		$(OBJ_DIR)/player.o	\
+		$(OBJ_DIR)/move.o
 
 MINI_LX = $(MINI_LX_D)/libmlx_Linux.a
 LIBFT = $(LIBFT_D)/build/libft.a

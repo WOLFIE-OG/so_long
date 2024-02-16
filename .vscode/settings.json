@@ -3,6 +3,10 @@
 		"*.c": "c",
 		"so_long.h": "c",
 		"time.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"mlx.h": "c",
+		"mlx_int.h": "c",
+		"random": "c",
+		"stdbool.h": "c"
 	}
 }
