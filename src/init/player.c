@@ -6,23 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/16 14:39:58 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/17 23:27:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
-
-static void	*lps(t_ctx *c, char *n, int w, int h)
-{
-	void	*i;
-
-	i = mlx_xpm_file_to_image(c->mlx_ctx, n, &w, &h);
-	if (!i)
-		exit(1);
-	ft_printf("Loaded: %s\n", n);
-	free(n);
-	return (i);
-}
 
 static void	sprites(t_ctx *ctx)
 {
@@ -49,6 +37,48 @@ static void	sprites(t_ctx *ctx)
 	ctx->player->sprites = s;
 }
 
+static void	sprites_extra(t_ctx *ctx)
+{
+	t_player_sprites	*s;
+	int					w;
+	int					h;
+	char				*dir;
+
+	s = ctx->player->sprites;
+	dir = "./res/tex/plr/";
+	w = 30;
+	h = 30;
+	s->down_left_alt = lps(ctx, ft_strjoin(dir, "down_left_alt.xpm"), w, h);
+	s->down_left = lps(ctx, ft_strjoin(dir, "down_left.xpm"), w, h);
+	s->up_left_alt = lps(ctx, ft_strjoin(dir, "up_left_alt.xpm"), w, h);
+	s->up_left = lps(ctx, ft_strjoin(dir, "up_left.xpm"), w, h);
+	s->down_right_alt = lps(ctx, ft_strjoin(dir, "down_right_alt.xpm"), w, h);
+	s->down_right = lps(ctx, ft_strjoin(dir, "down_right.xpm"), w, h);
+	s->up_right_alt = lps(ctx, ft_strjoin(dir, "up_right_alt.xpm"), w, h);
+	s->up_right = lps(ctx, ft_strjoin(dir, "up_right.xpm"), w, h);
+}
+
+static void	sprites_extra_extra(t_ctx *ctx)
+{
+	t_player_sprites	*s;
+	int					w;
+	int					h;
+	char				*dir;
+
+	s = ctx->player->sprites;
+	dir = "./res/tex/plr/";
+	w = 30;
+	h = 30;
+	s->bottom = lps(ctx, ft_strjoin(dir, "bottom.xpm"), w, h);
+	s->bottom_alt = lps(ctx, ft_strjoin(dir, "bottom_alt.xpm"), w, h);
+	s->side_l = lps(ctx, ft_strjoin(dir, "side_l.xpm"), w, h);
+	s->side_l_alt = lps(ctx, ft_strjoin(dir, "side_l_alt.xpm"), w, h);
+	s->side_r = lps(ctx, ft_strjoin(dir, "side_r.xpm"), w, h);
+	s->side_r_alt = lps(ctx, ft_strjoin(dir, "side_r_alt.xpm"), w, h);
+	s->top = lps(ctx, ft_strjoin(dir, "top.xpm"), w, h);
+	s->top_alt = lps(ctx, ft_strjoin(dir, "top_alt.xpm"), w, h);
+}
+
 static void	player(t_ctx *ctx)
 {
 	t_player			*player;
@@ -56,8 +86,8 @@ static void	player(t_ctx *ctx)
 	player = (t_player *)malloc(sizeof(t_player));
 	if (!player)
 		exit(1);
-	player->x = 0;
-	player->y = 0;
+	player->x = (WIDTH / 2);
+	player->y = (HEIGHT / 2);
 	player->direction = '0';
 	player->is_alt = 0;
 	ctx->player = player;
@@ -68,4 +98,6 @@ void	init_player(t_ctx *ctx)
 {
 	player(ctx);
 	sprites(ctx);
+	sprites_extra(ctx);
+	sprites_extra_extra(ctx);
 }

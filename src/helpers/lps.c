@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   lps.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/16 21:51:44 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/16 19:03:06 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/16 19:03:32 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-t_ctx	*init_main(void)
+void	*lps(t_ctx *c, char *n, int w, int h)
 {
-	t_ctx		*ctx;
+	void	*i;
 
-	ctx = (t_ctx *)malloc(sizeof(t_ctx));
-	ctx->mlx_ctx = mlx_init();
-	ctx->width = WIDTH;
-	ctx->height = HEIGHT;
-	ctx->root = mlx_new_window(ctx->mlx_ctx, ctx->width, ctx->height, TITLE);
-	ctx->game_running = 1;
-	ctx->put_i = &mlx_put_image_to_window;
-	ctx->des_i = &mlx_destroy_image;
-	return (ctx);
+	i = mlx_xpm_file_to_image(c->mlx_ctx, n, &w, &h);
+	if (!i)
+		exit(1);
+	ft_printf("Loaded: %s\n", n);
+	free(n);
+	return (i);
 }
