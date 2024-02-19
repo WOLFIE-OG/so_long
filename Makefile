@@ -16,27 +16,45 @@ INC_DIR = include
 LIBFT_D = $(LIBS_D)/libft
 MINI_LX_D = $(LIBS_D)/minilibx
 
-SRCS = 	$(SRC_DIR)/main.c					\
-		$(SRC_DIR)/init/game.c				\
-		$(SRC_DIR)/init/player.c			\
-		$(SRC_DIR)/movement/move.c			\
-		$(SRC_DIR)/movement/move_extra.c	\
-		$(SRC_DIR)/movement/check_border.c	\
-		$(SRC_DIR)/helpers/lps.c			\
-		$(SRC_DIR)/memory/sprites.c			\
-		$(SRC_DIR)/helpers/offsets.c		\
-		$(SRC_DIR)/helpers/key_validator.c	
+SRCS = 	$(SRC_DIR)/init.c						\
+		$(SRC_DIR)/init/i_game.c				\
+		$(SRC_DIR)/init/i_player.c				\
+		$(SRC_DIR)/init/i_world.c				\
+		$(SRC_DIR)/movement/mo_move.c			\
+		$(SRC_DIR)/movement/mo_move_extra.c		\
+		$(SRC_DIR)/movement/mo_check_border.c	\
+		$(SRC_DIR)/helpers/h_img_loader.c		\
+		$(SRC_DIR)/helpers/h_offsets.c			\
+		$(SRC_DIR)/helpers/h_key_validator.c	\
+		$(SRC_DIR)/helpers/h_close.c			\
+		$(SRC_DIR)/memory/m_sprites.c			\
+		$(SRC_DIR)/memory/m_player.c 			\
+		$(SRC_DIR)/memory/m_world.c				\
+		$(SRC_DIR)/memory/m_destroy.c 			\
+		$(SRC_DIR)/hooks/ho_input.c				\
+		$(SRC_DIR)/hooks/ho_update.c			\
+		$(SRC_DIR)/map/ma_load.c				\
+		$(SRC_DIR)/checks/c_check_images.c
 
-OBJS = 	$(OBJ_DIR)/main.o					\
-		$(OBJ_DIR)/game.o					\
-		$(OBJ_DIR)/player.o					\
-		$(OBJ_DIR)/move.o					\
-		$(OBJ_DIR)/move_extra.o				\
-		$(OBJ_DIR)/check_border.o			\
-		$(OBJ_DIR)/lps.o					\
-		$(OBJ_DIR)/sprites.o				\
-		$(OBJ_DIR)/offsets.o				\
-		$(OBJ_DIR)/key_validator.o		
+OBJS = 	$(OBJ_DIR)/init.o						\
+		$(OBJ_DIR)/i_game.o						\
+		$(OBJ_DIR)/i_player.o					\
+		$(OBJ_DIR)/i_world.o					\
+		$(OBJ_DIR)/mo_move.o					\
+		$(OBJ_DIR)/mo_move_extra.o				\
+		$(OBJ_DIR)/mo_check_border.o			\
+		$(OBJ_DIR)/h_img_loader.o				\
+		$(OBJ_DIR)/h_offsets.o					\
+		$(OBJ_DIR)/h_key_validator.o			\
+		$(OBJ_DIR)/h_close.o					\
+		$(OBJ_DIR)/m_sprites.o					\
+		$(OBJ_DIR)/m_player.o 					\
+		$(OBJ_DIR)/m_world.o					\
+		$(OBJ_DIR)/m_destroy.o		 			\
+		$(OBJ_DIR)/ho_input.o					\
+		$(OBJ_DIR)/ho_update.o					\
+		$(OBJ_DIR)/ma_load.o					\
+		$(OBJ_DIR)/c_check_images.o
 
 MINI_LX = $(MINI_LX_D)/libmlx_Linux.a
 LIBFT = $(LIBFT_D)/build/libft.a

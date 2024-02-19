@@ -8,6 +8,8 @@
 		"mlx_int.h": "c",
 		"random": "c",
 		"stdbool.h": "c",
-		"cmath": "c"
+		"cmath": "c",
+		"cstdlib": "c",
+		"memory_resource": "c"
 	}
 }

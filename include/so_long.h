@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 12:14:19 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/19 21:33:36 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 # include "../libs/libft/include/libft.h"
 # include "../libs/minilibx/mlx.h"
 # include "../libs/minilibx/mlx_int.h"
-# include <stdbool.h>
 # include <math.h>
 # ifndef TITLE
 #  define TITLE "Thanks for all the treats"
 # endif
 # ifndef WIDTH
-#  define WIDTH 1280
+#  define WIDTH 1088
 # endif
 # ifndef HEIGHT
-#  define HEIGHT 720
+#  define HEIGHT 192
 # endif
 # ifndef SPEED
-#  define SPEED 10
+#  define SPEED 32
 # endif
 
 enum e_key_binds
@@ -37,6 +36,14 @@ enum e_key_binds
 	KEY_LEFT = 97,
 	KEY_RIGHT = 100,
 	ESC = 65307
+};
+
+enum e_tiles
+{
+	WALL = '1',
+	COLLECT = 'C',
+	EXIT = 'E',
+	SPAWN = 'P'	
 };
 
 typedef struct s_player_sprites
@@ -68,18 +75,46 @@ typedef struct s_player_sprites
 	void	*top_alt;
 }	t_player_sprites;
 
+typedef struct s_vector2
+{
+	int	x;
+	int	y;
+} t_vector2;
+
+
+typedef	struct s_world_sprites
+{
+	void	*wall;
+}	t_world_sprites;
+
+typedef struct s_tile
+{
+	void		*sprite;
+	int			type;
+	t_vector2	*pos;
+	
+}	t_tile;
+
 typedef struct s_player
 {
 	t_player_sprites	*sprites;
-	int					x;
-	int					y;
+	t_vector2			*pos;
 	char				direction;
 	int					is_alt;
 }	t_player;
 
+typedef	struct s_world
+{
+	t_world_sprites	*sprites;
+	char			**map;
+}	t_world;
+
+
 typedef struct s_ctx
 {
 	t_player	*player;
+	t_world		*world;
+	char		**map;
 	void		*root;
 	int			width;
 	int			height;
@@ -88,7 +123,7 @@ typedef struct s_ctx
 	int			current_key;
 	int			(*put_i)(void *m, void *w, void *i, int x, int y);
 	int			(*des_i)(void *m, void *i);
-	int		speed;
+	int			speed;
 }	t_ctx;
 
 // Movement
@@ -111,15 +146,39 @@ void	init_player(t_ctx *ctx);
 // Helpers
 
 void	*lps(t_ctx *c, char *n, int w, int h);
+void	*les(t_ctx *c, char *n, int w, int h);
 int		check_border(t_ctx *ctx);
 
 void	free_sprites(t_ctx *ctx);
 void	free_sprites_extra(t_ctx *ctx);
 void	free_sprites_extra_extra(t_ctx *ctx);
+void	free_world_sprites(t_ctx *ctx);
 
 int		xp(t_ctx *c);
 int		yp(t_ctx *c);
 
 int		key_check(int key);
+
+int		key_press_handler(int key, t_ctx *ctx);
+int		key_release_handler(int key, t_ctx *ctx);
+
+int		update(t_ctx *ctx);
+
+void	free_player(t_ctx *ctx);
+
+int		close_program(t_ctx *ctx);
+
+char	**load_map(char *path);
+
+void	init_world(t_ctx *ctx);
+
+void	free_world(t_ctx *ctx);
+
+void	destroy(t_ctx *ctx, char *message, int type);
+
+void	check_sprites(t_ctx *ctx);
+void	check_sprites_extra(t_ctx *ctx);
+void	check_sprites_extra_extra(t_ctx *ctx);
+void	check_world_sprites(t_ctx *ctx);
 
 #endif

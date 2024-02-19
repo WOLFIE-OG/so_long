@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   mo_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:12:29 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/16 22:14:53 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/19 20:35:31 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	left(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->x > lround(0.02f * c->width))
-		p->x -= SPEED;
+	if (p->pos->x > SPEED / 2)
+		p->pos->x -= SPEED;
 	if (check_border(c) != 2)
 	{
 		if (p->is_alt)
@@ -47,8 +47,8 @@ void	right(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->x < c->width - lround(0.02f * c->width))
-		p->x += SPEED;
+	if (p->pos->x < c->width - SPEED)
+		p->pos->x += SPEED;
 	if (check_border(c) != 4)
 	{
 		if (p->is_alt)
@@ -65,8 +65,8 @@ void	up(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->y > lround(0.04f * c->height))
-		p->y -= SPEED;
+	if (p->pos->y > SPEED / 2)
+		p->pos->y -= SPEED;
 	if (check_border(c) != 1)
 	{
 		if (p->is_alt)
@@ -83,8 +83,8 @@ void	down(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->y < c->height - lround(0.02f * c->height))
-		p->y += SPEED;
+	if (p->pos->y < c->height - SPEED)
+		p->pos->y += SPEED;
 	if (check_border(c) != 3)
 	{
 		if (p->is_alt)

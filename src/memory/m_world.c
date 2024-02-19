@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   offsets.c                                          :+:      :+:    :+:   */
+/*   m_world.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 19:42:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/16 19:48:45 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/19 20:09:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	xp(t_ctx *c)
+void	free_world(t_ctx *ctx)
 {
-	return (c->player->x - 15);
+	if (ctx && ctx->world)
+	{
+		if (ctx->world->sprites)
+		{
+			free_world_sprites(ctx);
+			free(ctx->world->sprites);
+		}
+		free(ctx->world);
+	}
 }
 
-int	yp(t_ctx *c)
-{
-	return (c->player->y - 20);
-}

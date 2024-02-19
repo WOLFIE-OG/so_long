@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_border.c                                     :+:      :+:    :+:   */
+/*   mo_check_border.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:59:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/17 23:26:51 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/19 16:58:49 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	top(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->y < lround(0.04f * c->height))
+	if (p->pos->y < SPEED)
 	{
 		if (p->is_alt)
 			c->put_i(c->mlx_ctx, c->root, s->top_alt, xp(c), yp(c));
@@ -37,7 +37,7 @@ static int	side_l(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->x < lround(0.02f * c->width))
+	if (p->pos->x < SPEED)
 	{
 		if (p->is_alt)
 			c->put_i(c->mlx_ctx, c->root, s->side_l_alt, xp(c), yp(c));
@@ -55,7 +55,7 @@ static int	bottom(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->y > c->height - lround(0.02f * c->height))
+	if (p->pos->y == c->height - SPEED)
 	{
 		if (p->is_alt)
 			c->put_i(c->mlx_ctx, c->root, s->bottom_alt, xp(c), yp(c));
@@ -73,7 +73,7 @@ static int	side_r(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->x > c->width - lround(0.02f * c->width))
+	if (p->pos->x == c->width - SPEED)
 	{
 		if (p->is_alt)
 			c->put_i(c->mlx_ctx, c->root, s->side_r_alt, xp(c), yp(c));

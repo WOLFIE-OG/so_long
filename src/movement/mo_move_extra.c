@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_extra.c                                       :+:      :+:    :+:   */
+/*   mo_move_extra.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:12:29 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/16 22:31:00 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/19 16:57:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	up_left(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->x > lround(0.02f * c->width))
-		p->x -= SPEED;
-	if (p->y > lround(0.04f * c->height))
-		p->y -= SPEED;
+	if (p->pos->x > SPEED)
+		p->pos->x -= SPEED;
+	if (p->pos->y > 16)
+		p->pos->y -= SPEED;
 	if (p->is_alt)
 		c->put_i(c->mlx_ctx, c->root, s->up_left_alt, xp(c), yp(c));
 	else
@@ -36,10 +36,10 @@ void	up_right(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->x < c->width - lround(0.02f * c->width))
-		p->x += SPEED;
-	if (p->y > lround(0.04f * c->height))
-		p->y -= SPEED;
+	if (p->pos->x < c->width - SPEED)
+		p->pos->x += SPEED;
+	if (p->pos->y > 16)
+		p->pos->y -= SPEED;
 	if (p->is_alt)
 		c->put_i(c->mlx_ctx, c->root, s->up_right_alt, xp(c), yp(c));
 	else
@@ -53,10 +53,10 @@ void	down_left(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->x > lround(0.02f * c->width))
-		p->x -= SPEED;
-	if (p->y < c->height - lround(0.02f * c->height))
-		p->y += SPEED;
+	if (p->pos->x > SPEED)
+		p->pos->x -= SPEED;
+	if (p->pos->y < c->height - SPEED)
+		p->pos->y += SPEED;
 	if (p->is_alt)
 		c->put_i(c->mlx_ctx, c->root, s->down_left_alt, xp(c), yp(c));
 	else
@@ -70,10 +70,10 @@ void	down_right(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->x < c->width - lround(0.02f * c->width))
-		p->x += SPEED;
-	if (p->y < c->height - lround(0.02f * c->height))
-		p->y += SPEED;
+	if (p->pos->x < c->width - SPEED)
+		p->pos->x += SPEED;
+	if (p->pos->y < c->height - SPEED)
+		p->pos->y += SPEED;
 	if (p->is_alt)
 		c->put_i(c->mlx_ctx, c->root, s->down_right_alt, xp(c), yp(c));
 	else
