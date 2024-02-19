@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 21:33:36 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/19 21:54:35 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@
 # include <math.h>
 # ifndef TITLE
 #  define TITLE "Thanks for all the treats"
-# endif
-# ifndef WIDTH
-#  define WIDTH 1088
-# endif
-# ifndef HEIGHT
-#  define HEIGHT 192
 # endif
 # ifndef SPEED
 #  define SPEED 32

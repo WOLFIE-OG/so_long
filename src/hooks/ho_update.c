@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 21:43:06 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/19 21:54:49 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static void	draw_world(t_ctx *ctx)
 	int	w;
 	int	h;
 
-	w = WIDTH;
-	h = HEIGHT;
+	w = ctx->width;
+	h = ctx->height;
 	while (w)
 	{
 		ctx->put_i(ctx->mlx_ctx, ctx->root, ctx->world->sprites->wall, w - SPEED, 0);
