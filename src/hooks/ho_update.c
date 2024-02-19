@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 21:54:49 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/19 22:03:56 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,31 @@ static void	extended(t_ctx *ctx)
 	debug_text(ctx);
 }
 
-static void	draw_world(t_ctx *ctx)
-{
-	int	w;
-	int	h;
-
-	w = ctx->width;
-	h = ctx->height;
-	while (w)
-	{
-		ctx->put_i(ctx->mlx_ctx, ctx->root, ctx->world->sprites->wall, w - SPEED, 0);
-		w -= SPEED;
-	}
-	while (h)
-	{
-		ctx->put_i(ctx->mlx_ctx, ctx->root, ctx->world->sprites->wall, 0, h - SPEED);
-		h -= SPEED;
-	}
-}
+// static void	draw_world(t_ctx *ctx)
+// {
+// 	int	w;
+// 	int	h;
+// 
+// 	w = ctx->width;
+// 	h = ctx->height;
+// 	while (w)
+// 	{
+// 		ctx->put_i(ctx->mlx_ctx, ctx->root, ctx->world->sprites->wall, w - SPEED, 0);
+// 		w -= SPEED;
+// 	}
+// 	while (h)
+// 	{
+// 		ctx->put_i(ctx->mlx_ctx, ctx->root, ctx->world->sprites->wall, 0, h - SPEED);
+// 		h -= SPEED;
+// 	}
+// }
 
 int	update(t_ctx *ctx)
 {
 	if (!ctx->game_running)
 		return (0);
 	mlx_clear_window(ctx->mlx_ctx, ctx->root);
-	draw_world(ctx);
+	// draw_world(ctx);
 	if (ctx->player->direction == 'W')
 		up(ctx);
 	else if (ctx->player->direction == 'S')
