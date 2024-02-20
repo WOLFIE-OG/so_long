@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:14:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 21:44:28 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/20 15:34:57 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void	destroy(t_ctx *ctx, char *message, int type)
 			mlx_clear_window(ctx->mlx_ctx, ctx->root);
 			mlx_destroy_window(ctx->mlx_ctx, ctx->root);
 		}
-		if (ctx->map)
+		if (ctx->map && ctx->map->data)
 		{
-			ft_free_array(ctx->map, ft_strarraylen(ctx->map));
+			ft_free_array(ctx->map->data, ft_strarraylen(ctx->map->data));
+			free(ctx->map->data);
 			free(ctx->map);
 		}
 		mlx_destroy_display(ctx->mlx_ctx);

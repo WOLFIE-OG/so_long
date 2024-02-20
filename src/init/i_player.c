@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 21:47:24 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:44:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	sprites(t_ctx *c, int w, int h)
 {
 	t_player_sprites	*s;
+
 	s = malloc(sizeof(t_player_sprites));
 	c->player->sprites = s;
 	if (!s)

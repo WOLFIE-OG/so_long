@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 21:46:56 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:37:30 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@ static void	tile(t_ctx *c)
 {
 	int				w;
 	int				h;
-	t_world_sprites	*tile;
 
-	tile = malloc(sizeof(t_world_sprites));
-	c->world->sprites = tile;
-	if (!tile)
+	c->world->sprites = malloc(sizeof(t_world_sprites));
+	if (!c->world->sprites)
 		destroy(c, "Failed to alloc tile!", 1);
 	w = 32;
 	h = 32;
-	tile->wall = les(c, "wall.xpm", w, h);
+	c->world->sprites->wall = les(c, "wall.xpm", w, h);
 }
 
 static void	world(t_ctx *c)
@@ -43,4 +41,5 @@ void	init_world(t_ctx *ctx)
 	world(ctx);
 	tile(ctx);
 	check_world_sprites(ctx);
+	parse_map(ctx);
 }

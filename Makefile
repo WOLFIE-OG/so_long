@@ -34,6 +34,7 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/hooks/ho_input.c				\
 		$(SRC_DIR)/hooks/ho_update.c			\
 		$(SRC_DIR)/map/ma_load.c				\
+		$(SRC_DIR)/map/ma_parse.c				\
 		$(SRC_DIR)/checks/c_check_images.c
 
 OBJS = 	$(OBJ_DIR)/init.o						\
@@ -54,6 +55,7 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/ho_input.o					\
 		$(OBJ_DIR)/ho_update.o					\
 		$(OBJ_DIR)/ma_load.o					\
+		$(OBJ_DIR)/ma_parse.o					\
 		$(OBJ_DIR)/c_check_images.o
 
 MINI_LX = $(MINI_LX_D)/libmlx_Linux.a

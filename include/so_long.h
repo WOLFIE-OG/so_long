@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 21:54:35 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/20 17:44:03 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "../libs/libft/include/libft.h"
 # include "../libs/minilibx/mlx.h"
 # include "../libs/minilibx/mlx_int.h"
+# include <stdbool.h>
 # include <math.h>
 # ifndef TITLE
 #  define TITLE "Thanks for all the treats"
@@ -85,6 +86,7 @@ typedef struct s_tile
 {
 	void		*sprite;
 	int			type;
+	bool		hidden;
 	t_vector2	*pos;
 	
 }	t_tile;
@@ -97,18 +99,28 @@ typedef struct s_player
 	int					is_alt;
 }	t_player;
 
+typedef struct s_map
+{
+	int		rows;
+	int		columns;
+	char	**data;
+} t_map;
+
 typedef	struct s_world
 {
 	t_world_sprites	*sprites;
-	char			**map;
+	t_tile			**tiles;
+	int				init_l;
+	int				init_k;
 }	t_world;
 
 
 typedef struct s_ctx
 {
 	t_player	*player;
+	t_vector2	*start_pos;
 	t_world		*world;
-	char		**map;
+	t_map		*map;
 	void		*root;
 	int			width;
 	int			height;
@@ -163,6 +175,7 @@ void	free_player(t_ctx *ctx);
 int		close_program(t_ctx *ctx);
 
 char	**load_map(char *path);
+void	parse_map(t_ctx *ctx);
 
 void	init_world(t_ctx *ctx);
 
