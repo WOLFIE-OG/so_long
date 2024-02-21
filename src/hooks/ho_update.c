@@ -6,38 +6,29 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:53:55 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 22:15:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-static void	debug_text(t_ctx *c)
+static void	ui_text(t_ctx *c)
 {
 	char	*a;
 	char	*b;
-	char	*d;
-	char	*i;
-	char	*j;
-
-	i = ft_itoa(c->player->pos->x);
-	j = ft_itoa(c->player->pos->y);
-	a = ft_strjoin("X: ", i);
-	b = ft_strjoin(" Y: ", j);
-	d = ft_strjoin(a, b);
+	
+	a = ft_itoa(c->player->moves);
+	b = ft_strjoin("Moves: ", a);
 	free(a);
-	free(b);
-	free(i);
-	free(j);
 	mlx_string_put(
 		c->mlx_ctx,
 		c->root,
 		(c->width / 2) - SIZE,
 		c->height + SIZE / 2,
 		0xFFFFFF,
-		d
+		b
 		);
-	free(d);
+	free(b);
 }
 
 static void	alt_shift(t_ctx *c)
@@ -51,7 +42,7 @@ static void	alt_shift(t_ctx *c)
 static void	extended(t_ctx *c)
 {
 	alt_shift(c);
-	debug_text(c);
+	ui_text(c);
 }
 
 int	update(t_ctx *c)
@@ -60,26 +51,26 @@ int	update(t_ctx *c)
 		return (0);
 	mlx_clear_window(c->mlx_ctx, c->root);
 	draw_world(c);
-	if (c->player->direction == 'W')
+	if (c->player->direction == UP)
 		up(c);
-	else if (c->player->direction == 'S')
-		down(c);
-	else if (c->player->direction == 'A')
+	else if (c->player->direction == LEFT)
 		left(c);
-	else if (c->player->direction == 'D')
+	else if (c->player->direction == DOWN)
+		down(c);
+	else if (c->player->direction == RIGHT)
 		right(c);
-	else if (c->player->direction == '1')
+	else if (c->player->direction == UP_LEFT)
 		up_left(c);
-	else if (c->player->direction == '2')
+	else if (c->player->direction == UP_RIGHT)
 		up_right(c);
-	else if (c->player->direction == '3')
+	else if (c->player->direction == DOWN_LEFT)
 		down_left(c);
-	else if (c->player->direction == '4')
+	else if (c->player->direction == DOWN_RIGHT)
 		down_right(c);
 	else
 		idle(c);
 	// ft_printf("Current Tile: X: %d | Y: %d | Type: %c\n", c->player->current_tile->pos->x, c->player->current_tile->pos->y, c->player->current_tile->type);
 	extended(c);
-	usleep(166667);
+	usleep(166667 / 2);
 	return (0);
 }

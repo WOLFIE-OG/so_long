@@ -22,14 +22,15 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/init/i_world.c				\
 		$(SRC_DIR)/init/i_vector.c				\
 		$(SRC_DIR)/init/i_map.c					\
+		$(SRC_DIR)/init/i_map_data.c			\
 		$(SRC_DIR)/movement/mo_move.c			\
 		$(SRC_DIR)/movement/mo_move_extra.c		\
 		$(SRC_DIR)/movement/mo_check_border.c	\
 		$(SRC_DIR)/helpers/h_img_loader.c		\
-		$(SRC_DIR)/helpers/h_offsets.c			\
 		$(SRC_DIR)/helpers/h_key_validator.c	\
 		$(SRC_DIR)/helpers/h_close.c			\
 		$(SRC_DIR)/helpers/h_dimensions.c		\
+		$(SRC_DIR)/helpers/h_rendering.c 		\
 		$(SRC_DIR)/memory/m_sprites.c			\
 		$(SRC_DIR)/memory/m_player.c 			\
 		$(SRC_DIR)/memory/m_world.c				\
@@ -43,7 +44,9 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/checks/c_check_images.c		\
 		$(SRC_DIR)/checks/c_map.c				\
 		$(SRC_DIR)/rendering/r_world.c			\
-		$(SRC_DIR)/rendering/r_borders.c
+		$(SRC_DIR)/rendering/r_borders.c		\
+		$(SRC_DIR)/rendering/r_player.c			\
+		$(SRC_DIR)/rendering/r_player_extra.c
 
 OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/i_game.o						\
@@ -51,14 +54,15 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/i_world.o					\
 		$(OBJ_DIR)/i_vector.o 					\
 		$(OBJ_DIR)/i_map.o 						\
+		$(OBJ_DIR)/i_map_data.o 				\
 		$(OBJ_DIR)/mo_move.o					\
 		$(OBJ_DIR)/mo_move_extra.o				\
 		$(OBJ_DIR)/mo_check_border.o			\
 		$(OBJ_DIR)/h_img_loader.o				\
-		$(OBJ_DIR)/h_offsets.o					\
 		$(OBJ_DIR)/h_key_validator.o			\
 		$(OBJ_DIR)/h_close.o					\
 		$(OBJ_DIR)/h_dimensions.o				\
+		$(OBJ_DIR)/h_rendering.o 				\
 		$(OBJ_DIR)/m_sprites.o					\
 		$(OBJ_DIR)/m_player.o 					\
 		$(OBJ_DIR)/m_world.o					\
@@ -72,7 +76,9 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/c_check_images.o				\
 		$(OBJ_DIR)/c_map.o 						\
 		$(OBJ_DIR)/r_world.o					\
-		$(OBJ_DIR)/r_borders.o
+		$(OBJ_DIR)/r_borders.o					\
+		$(OBJ_DIR)/r_player.o					\
+		$(OBJ_DIR)/r_player_extra.o
 
 MINI_LX = $(MINI_LX_D)/libmlx_Linux.a
 LIBFT = $(LIBFT_D)/build/libft.a

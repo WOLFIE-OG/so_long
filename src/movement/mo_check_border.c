@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:59:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 19:01:59 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 22:08:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	top(t_ctx *c)
 {
-	t_player			*p;
-	t_vector2			*tl;
+	t_player	*p;
+	t_vector2	*tl;
 
 	p = c->player;
 	tl = p->current_tile->local_pos;
@@ -26,8 +26,8 @@ static int	top(t_ctx *c)
 
 static int	side_l(t_ctx *c)
 {
-	t_player			*p;
-	t_vector2			*tl;
+	t_player	*p;
+	t_vector2	*tl;
 
 	p = c->player;
 	tl = p->current_tile->local_pos;
@@ -38,8 +38,8 @@ static int	side_l(t_ctx *c)
 
 static int	bottom(t_ctx *c)
 {
-	t_player			*p;
-	t_vector2			*tl;
+	t_player	*p;
+	t_vector2	*tl;
 
 	p = c->player;
 	tl = p->current_tile->local_pos;
@@ -50,8 +50,8 @@ static int	bottom(t_ctx *c)
 
 static int	side_r(t_ctx *c)
 {
-	t_player			*p;
-	t_vector2			*tl;
+	t_player	*p;
+	t_vector2	*tl;
 
 	p = c->player;
 	tl = p->current_tile->local_pos;
@@ -60,14 +60,27 @@ static int	side_r(t_ctx *c)
 	return (0);
 }
 
-int	check_border(t_ctx *ctx)
+int	check_border(t_ctx *c)
 {
-	int	i;
+	int		i;
+	char	d;
 
-	i = top(ctx);
-	i += side_l(ctx);
-	i += bottom(ctx);
-	i += side_r(ctx);
-	ft_printf("%d | %c\n", i, ctx->player->direction);
+	d = c->player->direction;
+	i = (top(c) && d == UP);
+	i += (side_l(c) && d == LEFT);
+	i += (bottom(c) && d == DOWN);
+	i += (side_r(c) && d == RIGHT);
+	if (i > 0)
+	{
+		if (d == UP)
+			render_border_top(c);
+		else if (d == DOWN)
+			render_border_bottom(c);
+		else if (d == LEFT)
+			render_border_side_l(c);
+		else if (d== RIGHT)
+			render_border_side_r(c);
+		return (1);
+	}
 	return (0);
 }

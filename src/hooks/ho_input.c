@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:29:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:35:09 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 20:53:46 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ int	key_press_handler(int key, t_ctx *c)
 		return (0);
 	c->current_key += key;
 	if (c->current_key == KEY_UP)
-		c->player->direction = 'W';
+		c->player->direction = UP;
 	else if (c->current_key == KEY_DOWN)
-		c->player->direction = 'S';
+		c->player->direction = DOWN;
 	else if (c->current_key == KEY_LEFT)
-		c->player->direction = 'A';
+		c->player->direction = LEFT;
 	else if (c->current_key == KEY_RIGHT)
-		c->player->direction = 'D';
+		c->player->direction = RIGHT;
 	else if (c->current_key == KEY_UP + KEY_LEFT)
-		c->player->direction = '1';
+		c->player->direction = UP_LEFT;
 	else if (c->current_key == KEY_UP + KEY_RIGHT)
-		c->player->direction = '2';
+		c->player->direction = UP_RIGHT;
 	else if (c->current_key == KEY_DOWN + KEY_LEFT)
-		c->player->direction = '3';
+		c->player->direction = DOWN_LEFT;
 	else if (c->current_key == KEY_DOWN + KEY_RIGHT)
-		c->player->direction = '4';
+		c->player->direction = DOWN_RIGHT;
 	else if (c->current_key == ESC)
 		close_program(c);
 	return (0);

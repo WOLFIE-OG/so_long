@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:59:26 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 22:27:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ enum e_key_binds
 	KEY_LEFT = 97,
 	KEY_RIGHT = 100,
 	ESC = 65307
+};
+
+enum e_direction
+{
+	UP = 'W',
+	LEFT = 'A',
+	DOWN = 'S',
+	RIGHT = 'D',
+	UP_LEFT = '1',
+	UP_RIGHT = '2',
+	DOWN_LEFT = '3',
+	DOWN_RIGHT = '4'
 };
 
 enum e_tiles
@@ -102,6 +114,7 @@ typedef struct s_player
 	char				direction;
 	int					frame;
 	t_tile				*current_tile;
+	int					moves;
 }	t_player;
 
 typedef struct s_map
@@ -216,5 +229,19 @@ void		render_border_top(t_ctx *c);
 void		render_border_bottom(t_ctx *c);
 void		render_border_side_l(t_ctx *c);
 void		render_border_side_r(t_ctx *c);
+void		render_up(t_ctx *c);
+void		render_down(t_ctx *c);
+void		render_left(t_ctx *c);
+void		render_right(t_ctx *c);
+void		render_idle(t_ctx *c);
+void		render_up_left(t_ctx *c);
+void		render_up_right(t_ctx *c);
+void		render_down_left(t_ctx *c);
+void		render_down_right(t_ctx *c);
+
+void		put_img(t_ctx *c, void *img);
+
+void		init_array(t_ctx *c);
+
 
 #endif

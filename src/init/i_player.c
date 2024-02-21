@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:34:53 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 22:11:50 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static void	player(t_ctx *c)
 		destroy(c, "Failed to alloc vector2", 1);
 	c->player->direction = '0';
 	c->player->frame = 0;
+	c->player->moves = 0;
 	c->player->current_tile = NULL;
 	ft_printf("["BBLU"DEBUG"RESET"]		Created player\n");
 }
