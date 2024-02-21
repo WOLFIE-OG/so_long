@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:27:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 22:41:58 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ typedef struct s_player
 	int					frame;
 	t_tile				*current_tile;
 	int					moves;
+	int					coins_collected;
 }	t_player;
 
 typedef struct s_map

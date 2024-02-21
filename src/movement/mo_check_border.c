@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:59:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:08:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 22:37:10 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	check_border(t_ctx *c)
 			render_border_bottom(c);
 		else if (d == LEFT)
 			render_border_side_l(c);
-		else if (d== RIGHT)
+		else if (d == RIGHT)
 			render_border_side_r(c);
 		return (1);
 	}

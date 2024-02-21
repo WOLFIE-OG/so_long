@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:15:40 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 22:45:03 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ui_text(t_ctx *c)
 {
 	char	*a;
 	char	*b;
-	
+
 	a = ft_itoa(c->player->moves);
 	b = ft_strjoin("Moves: ", a);
 	free(a);
@@ -39,9 +39,22 @@ static void	alt_shift(t_ctx *c)
 		c->player->frame = 1;
 }
 
+static void	tile_detect(t_ctx *c)
+{
+	if (c->player->current_tile->type == COLLECT)
+	{
+		c->player->current_tile->hidden = 1;
+		c->player->coins_collected--;
+		c->map->coin_count--;
+	}
+	else if (c->player->current_tile->type == EXIT)
+		close_program(c);
+}
+
 static void	extended(t_ctx *c)
 {
 	alt_shift(c);
+	tile_detect(c);
 	ui_text(c);
 }
 
@@ -69,7 +82,6 @@ int	update(t_ctx *c)
 		down_right(c);
 	else
 		idle(c);
-	// ft_printf("Current Tile: X: %d | Y: %d | Type: %c\n", c->player->current_tile->pos->x, c->player->current_tile->pos->y, c->player->current_tile->type);
 	extended(c);
 	usleep(166667 / 2);
 	return (0);

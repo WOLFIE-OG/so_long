@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:11:50 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 22:43:38 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static void	player(t_ctx *c)
 	c->player->frame = 0;
 	c->player->moves = 0;
 	c->player->current_tile = NULL;
+	c->player->coins_collected = 0;
 	ft_printf("["BBLU"DEBUG"RESET"]		Created player\n");
 }
 
