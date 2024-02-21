@@ -6,39 +6,39 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 17:52:31 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:05:05 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-// static void	debug_text(t_ctx *ctx)
-// {
-// 	char	*a;
-// 	char	*b;
-// 	char	*c;
-// 	char	*i;
-// 	char	*j;
-// 
-// 	i = ft_itoa(ctx->player->pos->x);
-// 	j = ft_itoa(ctx->player->pos->y);
-// 	a = ft_strjoin("X: ", i);
-// 	b = ft_strjoin(" Y: ", j);
-// 	c = ft_strjoin(a, b);
-// 	free(a);
-// 	free(b);
-// 	free(i);
-// 	free(j);
-// 	mlx_string_put(
-// 		ctx->mlx_ctx,
-// 		ctx->root,
-// 		ctx->player->pos->x - SIZE,
-// 		ctx->player->pos->y - SIZE,
-// 		0x00bfff,
-// 		c
-// 		);
-// 	free(c);
-// }
+static void	debug_text(t_ctx *ctx)
+{
+	char	*a;
+	char	*b;
+	char	*c;
+	char	*i;
+	char	*j;
+
+	i = ft_itoa(ctx->player->pos->x);
+	j = ft_itoa(ctx->player->pos->y);
+	a = ft_strjoin("X: ", i);
+	b = ft_strjoin(" Y: ", j);
+	c = ft_strjoin(a, b);
+	free(a);
+	free(b);
+	free(i);
+	free(j);
+	mlx_string_put(
+		ctx->mlx_ctx,
+		ctx->root,
+		(ctx->width / 2) - SIZE,
+		ctx->height + SIZE / 2,
+		0xFFFFFF,
+		c
+		);
+	free(c);
+}
 
 static void	alt_shift(t_ctx *c)
 {
@@ -51,7 +51,7 @@ static void	alt_shift(t_ctx *c)
 static void	extended(t_ctx *c)
 {
 	alt_shift(c);
-	// debug_text(c);
+	debug_text(c);
 }
 
 int	update(t_ctx *ctx)

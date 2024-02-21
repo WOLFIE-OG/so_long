@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 17:54:52 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:04:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_ctx	*init_main(char *name)
 	if (!ctx->mlx_ctx)
 		destroy(ctx, "Failed to create mlx instance!", 1);
 	ft_printf("[DEBUG]		[%d x %d]\n", ctx->width, ctx->height);
-	ctx->root = mlx_new_window(ctx->mlx_ctx, ctx->width, ctx->height, TITLE);
+	ctx->root = mlx_new_window(ctx->mlx_ctx, ctx->width, ctx->height + SIZE / 2, TITLE);
 	if (!ctx->root)
 		destroy(ctx, "Failed to create window!", 1);
 	return (ctx);
