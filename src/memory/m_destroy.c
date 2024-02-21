@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:14:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:31:09 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:34:21 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,24 @@ static void	put_msg(bool is_error, char *message)
 		ft_printf("["BGRN"INFO"RESET"]		%s\n", message);
 }
 
-void	destroy(t_ctx *ctx, char *message, bool is_error)
+void	destroy(t_ctx *c, char *message, bool is_error)
 {
-	if (ctx)
+	if (c)
 	{
-		free_player(ctx);
-		free_world(ctx);
-		if (ctx->mlx_ctx)
+		free_player(c);
+		free_world(c);
+		if (c->mlx_ctx)
 		{
-			if (ctx->root)
+			if (c->root)
 			{
-				mlx_clear_window(ctx->mlx_ctx, ctx->root);
-				mlx_destroy_window(ctx->mlx_ctx, ctx->root);
+				mlx_clear_window(c->mlx_ctx, c->root);
+				mlx_destroy_window(c->mlx_ctx, c->root);
 			}
-			mlx_destroy_display(ctx->mlx_ctx);
-			free(ctx->mlx_ctx);
+			mlx_destroy_display(c->mlx_ctx);
+			free(c->mlx_ctx);
 		}
-		free_map(ctx);
-		free(ctx);
+		free_map(c);
+		free(c);
 	}
 	put_msg(is_error, message);
 	exit(EXIT_FAILURE);

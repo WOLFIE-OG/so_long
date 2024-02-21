@@ -6,23 +6,23 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:27:44 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:33:22 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	free_world(t_ctx *ctx)
+void	free_world(t_ctx *c)
 {
-	if (ctx->world)
+	if (c->world)
 	{
-		if (ctx->world->sprites)
+		if (c->world->sprites)
 		{
-			free_world_sprites(ctx);
-			free(ctx->world->sprites);
+			free_world_sprites(c);
+			free(c->world->sprites);
 		}
-		if (ctx->world->tiles)
-			free_tiles(ctx);
-		free(ctx->world);
+		if (c->world->tiles)
+			free_tiles(c);
+		free(c->world);
 	}
 }

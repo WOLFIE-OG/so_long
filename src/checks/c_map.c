@@ -6,24 +6,24 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 17:53:14 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:36:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-static void	check_char(t_ctx *ctx, char c)
+static void	check_char(t_ctx *c, char t)
 {
-	if (c == EMPTY)
-		ctx->map->empty_count++;
-	else if (c == COLLECT)
-		ctx->map->coin_count++;
-	else if (c == WALL)
-		ctx->map->wall_count++;
-	else if (c == SPAWN)
-		ctx->map->spawn_count++;
-	else if (c == EXIT)
-		ctx->map->exit_count++;
+	if (t == EMPTY)
+		c->map->empty_count++;
+	else if (t == COLLECT)
+		c->map->coin_count++;
+	else if (t == WALL)
+		c->map->wall_count++;
+	else if (t == SPAWN)
+		c->map->spawn_count++;
+	else if (t == EXIT)
+		c->map->exit_count++;
 	return ;
 }
 
@@ -80,18 +80,18 @@ static void	count_chars(t_ctx *c)
 	}
 }
 
-int	check_map(t_ctx *ctx)
+int	check_map(t_ctx *c)
 {
-	if (!check_width(ctx))
+	if (!check_width(c))
 		return (0);
-	if (!check_borders(ctx))
+	if (!check_borders(c))
 		return (0);
-	count_chars(ctx);
-	if (ctx->map->coin_count < 1)
+	count_chars(c);
+	if (c->map->coin_count < 1)
 		return (0);
-	else if (ctx->map->exit_count != 1)
+	else if (c->map->exit_count != 1)
 		return (0);
-	else if (ctx->map->spawn_count != 1)
+	else if (c->map->spawn_count != 1)
 		return (0);
 	return (1);
 }

@@ -42,7 +42,8 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/map/ma_parse.c				\
 		$(SRC_DIR)/checks/c_check_images.c		\
 		$(SRC_DIR)/checks/c_map.c				\
-		$(SRC_DIR)/rendering/r_world.c
+		$(SRC_DIR)/rendering/r_world.c			\
+		$(SRC_DIR)/rendering/r_borders.c
 
 OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/i_game.o						\
@@ -70,7 +71,8 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/ma_parse.o					\
 		$(OBJ_DIR)/c_check_images.o				\
 		$(OBJ_DIR)/c_map.o 						\
-		$(OBJ_DIR)/r_world.o
+		$(OBJ_DIR)/r_world.o					\
+		$(OBJ_DIR)/r_borders.o
 
 MINI_LX = $(MINI_LX_D)/libmlx_Linux.a
 LIBFT = $(LIBFT_D)/build/libft.a

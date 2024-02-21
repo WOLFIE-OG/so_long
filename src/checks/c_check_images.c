@@ -6,94 +6,94 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:18:23 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 16:09:10 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:36:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	check_sprites(t_ctx *ctx)
+void	check_sprites(t_ctx *c)
 {
-	if (ctx && ctx->player && ctx->player->sprites)
+	if (c && c->player && c->player->sprites)
 	{
-		if (!ctx->player->sprites->down_alt)
-			destroy(ctx, "down_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->down)
-			destroy(ctx, "down.xpm not found!", 1);
-		if (!ctx->player->sprites->idle)
-			destroy(ctx, "idle.xpm not found!", 1);
-		if (!ctx->player->sprites->left_alt)
-			destroy(ctx, "left_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->left)
-			destroy(ctx, "left.xpm not found!", 1);
-		if (!ctx->player->sprites->right_alt)
-			destroy(ctx, "right_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->right)
-			destroy(ctx, "right.xpm not found!", 1);
-		if (!ctx->player->sprites->up_alt)
-			destroy(ctx, "up_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->up)
-			destroy(ctx, "up.xpm not found!", 1);
+		if (!c->player->sprites->down_alt)
+			destroy(c, "down_alt.xpm not found!", 1);
+		if (!c->player->sprites->down)
+			destroy(c, "down.xpm not found!", 1);
+		if (!c->player->sprites->idle)
+			destroy(c, "idle.xpm not found!", 1);
+		if (!c->player->sprites->left_alt)
+			destroy(c, "left_alt.xpm not found!", 1);
+		if (!c->player->sprites->left)
+			destroy(c, "left.xpm not found!", 1);
+		if (!c->player->sprites->right_alt)
+			destroy(c, "right_alt.xpm not found!", 1);
+		if (!c->player->sprites->right)
+			destroy(c, "right.xpm not found!", 1);
+		if (!c->player->sprites->up_alt)
+			destroy(c, "up_alt.xpm not found!", 1);
+		if (!c->player->sprites->up)
+			destroy(c, "up.xpm not found!", 1);
 	}
 }
 
-void	check_sprites_extra(t_ctx *ctx)
+void	check_sprites_extra(t_ctx *c)
 {
-	if (ctx && ctx->player && ctx->player->sprites)
+	if (c && c->player && c->player->sprites)
 	{
-		if (!ctx->player->sprites->down_left_alt)
-			destroy(ctx, "down_left_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->down_left)
-			destroy(ctx, "down_left.xpm not found!", 1);
-		if (!ctx->player->sprites->down_right_alt)
-			destroy(ctx, "down_right_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->down_right)
-			destroy(ctx, "down_right.xpm not found!", 1);
-		if (!ctx->player->sprites->up_left_alt)
-			destroy(ctx, "up_left_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->up_left)
-			destroy(ctx, "up_left.xpm not found!", 1);
-		if (!ctx->player->sprites->up_right_alt)
-			destroy(ctx, "up_right_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->up_right)
-			destroy(ctx, "yp_right.xpm not found!", 1);
+		if (!c->player->sprites->down_left_alt)
+			destroy(c, "down_left_alt.xpm not found!", 1);
+		if (!c->player->sprites->down_left)
+			destroy(c, "down_left.xpm not found!", 1);
+		if (!c->player->sprites->down_right_alt)
+			destroy(c, "down_right_alt.xpm not found!", 1);
+		if (!c->player->sprites->down_right)
+			destroy(c, "down_right.xpm not found!", 1);
+		if (!c->player->sprites->up_left_alt)
+			destroy(c, "up_left_alt.xpm not found!", 1);
+		if (!c->player->sprites->up_left)
+			destroy(c, "up_left.xpm not found!", 1);
+		if (!c->player->sprites->up_right_alt)
+			destroy(c, "up_right_alt.xpm not found!", 1);
+		if (!c->player->sprites->up_right)
+			destroy(c, "yp_right.xpm not found!", 1);
 	}
 }
 
-void	check_sprites_extra_extra(t_ctx *ctx)
+void	check_sprites_extra_extra(t_ctx *c)
 {
-	if (ctx && ctx->player && ctx->player->sprites)
+	if (c && c->player && c->player->sprites)
 	{
-		if (!ctx->player->sprites->bottom_alt)
-			destroy(ctx, "bottom_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->bottom)
-			destroy(ctx, "bottom.xpm not found!", 1);
-		if (!ctx->player->sprites->top_alt)
-			destroy(ctx, "top_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->top)
-			destroy(ctx, "top.xpm not found!", 1);
-		if (!ctx->player->sprites->side_l_alt)
-			destroy(ctx, "side_l_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->side_l)
-			destroy(ctx, "side_l.xpm not found!", 1);
-		if (!ctx->player->sprites->side_r_alt)
-			destroy(ctx, "side_r_alt.xpm not found!", 1);
-		if (!ctx->player->sprites->side_r)
-			destroy(ctx, "side_r.xpm not found!", 1);
+		if (!c->player->sprites->bottom_alt)
+			destroy(c, "bottom_alt.xpm not found!", 1);
+		if (!c->player->sprites->bottom)
+			destroy(c, "bottom.xpm not found!", 1);
+		if (!c->player->sprites->top_alt)
+			destroy(c, "top_alt.xpm not found!", 1);
+		if (!c->player->sprites->top)
+			destroy(c, "top.xpm not found!", 1);
+		if (!c->player->sprites->side_l_alt)
+			destroy(c, "side_l_alt.xpm not found!", 1);
+		if (!c->player->sprites->side_l)
+			destroy(c, "side_l.xpm not found!", 1);
+		if (!c->player->sprites->side_r_alt)
+			destroy(c, "side_r_alt.xpm not found!", 1);
+		if (!c->player->sprites->side_r)
+			destroy(c, "side_r.xpm not found!", 1);
 	}
 }
 
-void	check_world_sprites(t_ctx *ctx)
+void	check_world_sprites(t_ctx *c)
 {
-	if (ctx && ctx->world && ctx->world->sprites)
+	if (c && c->world && c->world->sprites)
 	{
-		if (!ctx->world->sprites->wall)
-			destroy(ctx, "wall.xpm not found!", 1);
-		if (!ctx->world->sprites->coin)
-			destroy(ctx, "coin.xpm not found!", 1);
-		if (!ctx->world->sprites->exit)
-			destroy(ctx, "exit.xpm not found!", 1);
-		if (!ctx->world->sprites->spawn)
-			destroy(ctx, "spawn.xpm not found!", 1);
+		if (!c->world->sprites->wall)
+			destroy(c, "wall.xpm not found!", 1);
+		if (!c->world->sprites->coin)
+			destroy(c, "coin.xpm not found!", 1);
+		if (!c->world->sprites->exit)
+			destroy(c, "exit.xpm not found!", 1);
+		if (!c->world->sprites->spawn)
+			destroy(c, "spawn.xpm not found!", 1);
 	}
 }

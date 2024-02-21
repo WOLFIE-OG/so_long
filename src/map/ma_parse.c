@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:31:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 16:43:38 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:37:46 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,11 @@ static void	populate(t_ctx *c)
 	}
 }
 
-void	parse_map(t_ctx *ctx)
+void	parse_map(t_ctx *c)
 {
-	ctx->world->tiles = malloc(sizeof(t_tile *) * ctx->map->rows);
-	if (!ctx->world->tiles)
-		destroy(ctx, "Failed to tiles!", 1);
-	init_array(ctx);
-	populate(ctx);
+	c->world->tiles = malloc(sizeof(t_tile *) * c->map->rows);
+	if (!c->world->tiles)
+		destroy(c, "Failed to tiles!", 1);
+	init_array(c);
+	populate(c);
 }

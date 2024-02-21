@@ -6,48 +6,48 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:29:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 14:05:17 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:35:09 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	key_press_handler(int key, t_ctx *ctx)
+int	key_press_handler(int key, t_ctx *c)
 {
-	if (!ctx->game_running)
+	if (!c->game_running)
 		return (0);
 	if (!key_check(key))
 		return (0);
-	ctx->current_key += key;
-	if (ctx->current_key == KEY_UP)
-		ctx->player->direction = 'W';
-	else if (ctx->current_key == KEY_DOWN)
-		ctx->player->direction = 'S';
-	else if (ctx->current_key == KEY_LEFT)
-		ctx->player->direction = 'A';
-	else if (ctx->current_key == KEY_RIGHT)
-		ctx->player->direction = 'D';
-	else if (ctx->current_key == KEY_UP + KEY_LEFT)
-		ctx->player->direction = '1';
-	else if (ctx->current_key == KEY_UP + KEY_RIGHT)
-		ctx->player->direction = '2';
-	else if (ctx->current_key == KEY_DOWN + KEY_LEFT)
-		ctx->player->direction = '3';
-	else if (ctx->current_key == KEY_DOWN + KEY_RIGHT)
-		ctx->player->direction = '4';
-	else if (ctx->current_key == ESC)
-		close_program(ctx);
+	c->current_key += key;
+	if (c->current_key == KEY_UP)
+		c->player->direction = 'W';
+	else if (c->current_key == KEY_DOWN)
+		c->player->direction = 'S';
+	else if (c->current_key == KEY_LEFT)
+		c->player->direction = 'A';
+	else if (c->current_key == KEY_RIGHT)
+		c->player->direction = 'D';
+	else if (c->current_key == KEY_UP + KEY_LEFT)
+		c->player->direction = '1';
+	else if (c->current_key == KEY_UP + KEY_RIGHT)
+		c->player->direction = '2';
+	else if (c->current_key == KEY_DOWN + KEY_LEFT)
+		c->player->direction = '3';
+	else if (c->current_key == KEY_DOWN + KEY_RIGHT)
+		c->player->direction = '4';
+	else if (c->current_key == ESC)
+		close_program(c);
 	return (0);
 }
 
-int	key_release_handler(int key, t_ctx *ctx)
+int	key_release_handler(int key, t_ctx *c)
 {
-	if (!ctx->game_running)
+	if (!c->game_running)
 		return (0);
 	if (!key_check(key))
 		return (0);
-	if (ctx->current_key)
-		ctx->current_key -= key;
-	ctx->player->direction = '0';
+	if (c->current_key)
+		c->current_key -= key;
+	c->player->direction = '0';
 	return (0);
 }

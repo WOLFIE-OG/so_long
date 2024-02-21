@@ -6,25 +6,25 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:27:57 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:33:49 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	free_player(t_ctx *ctx)
+void	free_player(t_ctx *c)
 {
-	if (ctx->player)
+	if (c->player)
 	{
-		if (ctx->player->sprites)
+		if (c->player->sprites)
 		{
-			free_sprites(ctx);
-			free_sprites_extra(ctx);
-			free_sprites_extra_extra(ctx);
-			free(ctx->player->sprites);
+			free_sprites(c);
+			free_sprites_extra(c);
+			free_sprites_extra_extra(c);
+			free(c->player->sprites);
 		}
-		if (ctx->player->pos)
-			free(ctx->player->pos);
-		free(ctx->player);
+		if (c->player->pos)
+			free(c->player->pos);
+		free(c->player);
 	}
 }

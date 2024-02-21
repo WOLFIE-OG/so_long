@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:37:31 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:34:53 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,16 @@ static void	player(t_ctx *c)
 	ft_printf("["BBLU"DEBUG"RESET"]		Created player\n");
 }
 
-void	init_player(t_ctx *ctx)
+void	init_player(t_ctx *c)
 {
 	const int	w = SIZE;
 	const int	h = SIZE;
 
-	player(ctx);
-	sprites(ctx, w, h);
-	check_sprites(ctx);
-	sprites_extra(ctx, w, h);
-	check_sprites_extra(ctx);
-	sprites_extra_extra(ctx, w, h);
-	check_sprites_extra_extra(ctx);
+	player(c);
+	sprites(c, w, h);
+	check_sprites(c);
+	sprites_extra(c, w, h);
+	check_sprites_extra(c);
+	sprites_extra_extra(c, w, h);
+	check_sprites_extra_extra(c);
 }

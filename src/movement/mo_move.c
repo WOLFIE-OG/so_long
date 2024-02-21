@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:12:29 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:37:48 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:53:09 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ void	left(t_ctx *c)
 {
 	t_player			*p;
 	t_player_sprites	*s;
+	t_vector2			*tl;
 
 	p = c->player;
 	s = p->sprites;
-	if (p->pos->x > SIZE / 2)
-		p->pos->x -= SIZE;
-	if (check_border(c) != 2)
+	tl = p->current_tile->local_pos;
+	if (c->world->tiles[tl->y][tl->x - 1].type != WALL)
+		p->current_tile = &c->world->tiles[tl->y][tl->x - 1];
+	p->pos->x = p->current_tile->pos->x;
+	if (!check_border(c))
 	{
 		if (p->frame)
 			c->put_i(c->mlx_ctx, c->root, s->left_alt, xp(c), yp(c));
@@ -44,12 +47,15 @@ void	right(t_ctx *c)
 {
 	t_player			*p;
 	t_player_sprites	*s;
+	t_vector2			*tl;
 
 	p = c->player;
 	s = p->sprites;
-	if (p->pos->x < c->width - SIZE)
-		p->pos->x += SIZE;
-	if (check_border(c) != 4)
+	tl = p->current_tile->local_pos;
+	if (c->world->tiles[tl->y][tl->x + 1].type != WALL)
+		p->current_tile = &c->world->tiles[tl->y][tl->x + 1];
+	p->pos->x = p->current_tile->pos->x;
+	if (!check_border(c))
 	{
 		if (p->frame)
 			c->put_i(c->mlx_ctx, c->root, s->right_alt, xp(c), yp(c));
@@ -62,12 +68,15 @@ void	up(t_ctx *c)
 {
 	t_player			*p;
 	t_player_sprites	*s;
+	t_vector2			*tl;
 
 	p = c->player;
 	s = p->sprites;
-	if (p->pos->y > SIZE / 2)
-		p->pos->y -= SIZE;
-	if (check_border(c) != 1)
+	tl = p->current_tile->local_pos;
+	if (c->world->tiles[tl->y - 1][tl->x].type != WALL)
+		p->current_tile = &c->world->tiles[tl->y - 1][tl->x];
+	p->pos->y = p->current_tile->pos->y;
+	if (!check_border(c))
 	{
 		if (p->frame)
 			c->put_i(c->mlx_ctx, c->root, s->up_alt, xp(c), yp(c));
@@ -80,12 +89,15 @@ void	down(t_ctx *c)
 {
 	t_player			*p;
 	t_player_sprites	*s;
+	t_vector2			*tl;
 
 	p = c->player;
 	s = p->sprites;
-	if (p->pos->y < c->height - SIZE)
-		p->pos->y += SIZE;
-	if (check_border(c) != 3)
+	tl = p->current_tile->local_pos;
+	if (c->world->tiles[tl->y + 1][tl->x].type != WALL)
+		p->current_tile = &c->world->tiles[tl->y + 1][tl->x];
+	p->pos->y = p->current_tile->pos->y;
+	if (!check_border(c))
 	{
 		if (p->frame)
 			c->put_i(c->mlx_ctx, c->root, s->down_alt, xp(c), yp(c));
