@@ -1,0 +1,97 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   c_map.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/21 17:53:14 by otodd            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/so_long.h"
+
+static void	check_char(t_ctx *ctx, char c)
+{
+	if (c == EMPTY)
+		ctx->map->empty_count++;
+	else if (c == COLLECT)
+		ctx->map->coin_count++;
+	else if (c == WALL)
+		ctx->map->wall_count++;
+	else if (c == SPAWN)
+		ctx->map->spawn_count++;
+	else if (c == EXIT)
+		ctx->map->exit_count++;
+	return ;
+}
+
+static int	check_width(t_ctx *c)
+{
+	int	i;
+
+	i = 0;
+	while (c->map->data[i])
+		if (((int)ft_strlen_n(c->map->data[i++])) != c->map->columns)
+			return (0);
+	return (1);
+}
+
+static int	check_borders(t_ctx *c)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 1;
+	while (i < c->map->columns)
+	{
+		if (c->map->data[0][i] != WALL ||
+			c->map->data[c->map->rows - 1][i] != WALL)
+			return (0);
+		++i;
+	}
+	while (j < c->map->rows - 1)
+	{
+		if (c->map->data[j][0] != WALL ||
+			c->map->data[j][c->map->columns - 1] != WALL)
+			return (0);
+		++j;
+	}
+	return (1);
+}
+
+static void	count_chars(t_ctx *c)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < c->map->rows)
+	{
+		j = 0;
+		while (j < c->map->columns)
+		{
+			check_char(c, c->map->data[i][j]);
+			++j;
+		}
+		++i;
+	}
+}
+
+int	check_map(t_ctx *ctx)
+{
+	if (!check_width(ctx))
+		return (0);
+	if (!check_borders(ctx))
+		return (0);
+	count_chars(ctx);
+	if (ctx->map->coin_count < 1)
+		return (0);
+	else if (ctx->map->exit_count != 1)
+		return (0);
+	else if (ctx->map->spawn_count != 1)
+		return (0);
+	return (1);
+}

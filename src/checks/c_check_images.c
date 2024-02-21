@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:18:23 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/20 16:53:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 16:09:10 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,14 @@ void	check_sprites_extra_extra(t_ctx *ctx)
 void	check_world_sprites(t_ctx *ctx)
 {
 	if (ctx && ctx->world && ctx->world->sprites)
+	{
 		if (!ctx->world->sprites->wall)
 			destroy(ctx, "wall.xpm not found!", 1);
+		if (!ctx->world->sprites->coin)
+			destroy(ctx, "coin.xpm not found!", 1);
+		if (!ctx->world->sprites->exit)
+			destroy(ctx, "exit.xpm not found!", 1);
+		if (!ctx->world->sprites->spawn)
+			destroy(ctx, "spawn.xpm not found!", 1);
+	}
 }

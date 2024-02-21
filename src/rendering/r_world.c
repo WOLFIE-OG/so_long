@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_player.c                                         :+:      :+:    :+:   */
+/*   r_world.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:27:57 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/21 17:04:50 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/21 17:45:11 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	free_player(t_ctx *ctx)
+void	draw_world(t_ctx *c)
 {
-	if (ctx->player)
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < c->map->rows)
 	{
-		if (ctx->player->sprites)
+		j = 0;
+		while (j < c->map->columns)
 		{
-			free_sprites(ctx);
-			free_sprites_extra(ctx);
-			free_sprites_extra_extra(ctx);
-			free(ctx->player->sprites);
+			if (!c->world->tiles[i][j].hidden)
+				c->put_i(
+					c->mlx_ctx,
+					c->root,
+					c->world->tiles[i][j].sprite,
+					c->world->tiles[i][j].pos->x,
+					c->world->tiles[i][j].pos->y
+				);
+			j++;
 		}
-		if (ctx->player->pos)
-			free(ctx->player->pos);
-		free(ctx->player);
+		i++;
 	}
 }

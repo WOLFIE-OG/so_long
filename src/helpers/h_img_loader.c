@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 19:03:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 21:42:34 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 15:20:04 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*lps(t_ctx *c, char *n, int w, int h)
 	i = mlx_xpm_file_to_image(c->mlx_ctx, p, &w, &h);
 	if (!i)
 	{
-		ft_printf("["BRED"DEBUG"RESET"]	Not Loaded: %s\n", n);
+		ft_printf("["BRED"DEBUG"RESET"]		Not Loaded: %s\n", n);
 		free(p);
 		return (NULL);
 	}
@@ -39,7 +39,7 @@ void	*les(t_ctx *c, char *n, int w, int h)
 	i = mlx_xpm_file_to_image(c->mlx_ctx, p, &w, &h);
 	if (!i)
 	{
-		ft_printf("["BRED"DEBUG"RESET"]	Not Loaded: %s\n", n);
+		ft_printf("["BRED"DEBUG"RESET"]		Not Loaded: %s\n", n);
 		free(p);
 		return (NULL);
 	}

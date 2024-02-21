@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_player.c                                         :+:      :+:    :+:   */
+/*   h_dimensions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:27:57 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/21 17:02:18 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/21 17:45:32 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	free_player(t_ctx *ctx)
+int	get_height(t_ctx *c)
 {
-	if (ctx->player)
-	{
-		if (ctx->player->sprites)
-		{
-			free_sprites(ctx);
-			free_sprites_extra(ctx);
-			free_sprites_extra_extra(ctx);
-			free(ctx->player->sprites);
-		}
-		if (ctx->player->pos)
-			free(ctx->player->pos);
-		free(ctx->player);
-	}
+	return (ft_strarraylen(c->map->data));
+}
+
+int	get_width(t_ctx *c)
+{
+	return (ft_strlen_n(c->map->data[0]));
 }

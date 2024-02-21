@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:59:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 16:58:49 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 15:37:43 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static int	top(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->pos->y < SPEED)
+	if (p->pos->y < SIZE)
 	{
-		if (p->is_alt)
+		if (p->frame)
 			c->put_i(c->mlx_ctx, c->root, s->top_alt, xp(c), yp(c));
 		else
 			c->put_i(c->mlx_ctx, c->root, s->top, xp(c), yp(c));
@@ -37,9 +37,9 @@ static int	side_l(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->pos->x < SPEED)
+	if (p->pos->x < SIZE)
 	{
-		if (p->is_alt)
+		if (p->frame)
 			c->put_i(c->mlx_ctx, c->root, s->side_l_alt, xp(c), yp(c));
 		else
 			c->put_i(c->mlx_ctx, c->root, s->side_l, xp(c), yp(c));
@@ -55,9 +55,9 @@ static int	bottom(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->pos->y == c->height - SPEED)
+	if (p->pos->y == c->height - SIZE)
 	{
-		if (p->is_alt)
+		if (p->frame)
 			c->put_i(c->mlx_ctx, c->root, s->bottom_alt, xp(c), yp(c));
 		else
 			c->put_i(c->mlx_ctx, c->root, s->bottom, xp(c), yp(c));
@@ -73,9 +73,9 @@ static int	side_r(t_ctx *c)
 
 	p = c->player;
 	s = p->sprites;
-	if (p->pos->x == c->width - SPEED)
+	if (p->pos->x == c->width - SIZE)
 	{
-		if (p->is_alt)
+		if (p->frame)
 			c->put_i(c->mlx_ctx, c->root, s->side_r_alt, xp(c), yp(c));
 		else
 			c->put_i(c->mlx_ctx, c->root, s->side_r, xp(c), yp(c));

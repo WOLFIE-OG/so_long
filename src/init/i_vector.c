@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_player.c                                         :+:      :+:    :+:   */
+/*   i_vector.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:27:57 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/21 15:03:49 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/21 15:13:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	free_player(t_ctx *ctx)
+t_vector2	*init_vector2(void)
 {
-	if (ctx->player)
-	{
-		if (ctx->player->sprites)
-		{
-			free_sprites(ctx);
-			free_sprites_extra(ctx);
-			free_sprites_extra_extra(ctx);
-			free(ctx->player->sprites);
-		}
-		if (ctx->player->pos)
-			free(ctx->player->pos);
-		free(ctx->player);
-	}
+	t_vector2	*tmp;
+
+	tmp = malloc(sizeof(t_vector2));
+	if (!tmp)
+		return (NULL);
+	tmp->x = 0;
+	tmp->y = 0;
+	return (tmp);
 }

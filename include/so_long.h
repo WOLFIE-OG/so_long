@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/20 17:44:03 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/21 17:52:03 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@
 # include "../libs/minilibx/mlx.h"
 # include "../libs/minilibx/mlx_int.h"
 # include <stdbool.h>
-# include <math.h>
 # ifndef TITLE
 #  define TITLE "Thanks for all the treats"
 # endif
-# ifndef SPEED
-#  define SPEED 32
+# ifndef SIZE
+#  define SIZE 32
 # endif
 
 enum e_key_binds
@@ -35,10 +34,11 @@ enum e_key_binds
 
 enum e_tiles
 {
+	EMPTY = '0',
 	WALL = '1',
 	COLLECT = 'C',
 	EXIT = 'E',
-	SPAWN = 'P'	
+	SPAWN = 'P'
 };
 
 typedef struct s_player_sprites
@@ -80,14 +80,18 @@ typedef struct s_vector2
 typedef	struct s_world_sprites
 {
 	void	*wall;
+	void	*coin;
+	void	*exit;
+	void	*spawn;
 }	t_world_sprites;
 
 typedef struct s_tile
 {
 	void		*sprite;
 	int			type;
-	bool		hidden;
+	int		hidden;
 	t_vector2	*pos;
+	t_vector2	*local_pos;
 	
 }	t_tile;
 
@@ -96,13 +100,19 @@ typedef struct s_player
 	t_player_sprites	*sprites;
 	t_vector2			*pos;
 	char				direction;
-	int					is_alt;
+	int					frame;
+	t_tile				*current_tile;
 }	t_player;
 
 typedef struct s_map
 {
 	int		rows;
 	int		columns;
+	int		spawn_count;
+	int		exit_count;
+	int		coin_count;
+	int		wall_count;
+	int		empty_count;
 	char	**data;
 } t_map;
 
@@ -110,15 +120,14 @@ typedef	struct s_world
 {
 	t_world_sprites	*sprites;
 	t_tile			**tiles;
-	int				init_l;
-	int				init_k;
+	int				init_x;
+	int				init_y;
 }	t_world;
 
 
 typedef struct s_ctx
 {
 	t_player	*player;
-	t_vector2	*start_pos;
 	t_world		*world;
 	t_map		*map;
 	void		*root;
@@ -134,58 +143,72 @@ typedef struct s_ctx
 
 // Movement
 
-void	idle(t_ctx *c);
-void	up(t_ctx *c);
-void	down(t_ctx *c);
-void	left(t_ctx *c);
-void	right(t_ctx *c);
-void	up_left(t_ctx *c);
-void	up_right(t_ctx *c);
-void	down_left(t_ctx *c);
-void	down_right(t_ctx *c);
-
-// Init
-
-t_ctx	*init_main(void);
-void	init_player(t_ctx *ctx);
-
+void		idle(t_ctx *c);
+void		up(t_ctx *c);
+void		down(t_ctx *c);
+void		left(t_ctx *c);
+void		right(t_ctx *c);
+void		up_left(t_ctx *c);
+void		up_right(t_ctx *c);
+void		down_left(t_ctx *c);
+void		down_right(t_ctx *c);
+	
+// Init	
+	
+t_ctx		*init_main(char *name);
+void		init_player(t_ctx *ctx);
+	
 // Helpers
+	
+void		*lps(t_ctx *c, char *n, int w, int h);
+void		*les(t_ctx *c, char *n, int w, int h);
+int			check_border(t_ctx *ctx);
+	
+void		free_sprites(t_ctx *ctx);
+void		free_sprites_extra(t_ctx *ctx);
+void		free_sprites_extra_extra(t_ctx *ctx);
+void		free_world_sprites(t_ctx *ctx);
+	
+int			xp(t_ctx *c);
+int			yp(t_ctx *c);
+	
+int			key_check(int key);
+	
+int			key_press_handler(int key, t_ctx *ctx);
+int			key_release_handler(int key, t_ctx *ctx);
+	
+int			update(t_ctx *ctx);
+	
+void		free_player(t_ctx *ctx);
+	
+int			close_program(t_ctx *ctx);
+	
+char		**load_map(char *path);
+void		parse_map(t_ctx *ctx);
+	
+void		init_world(t_ctx *ctx);
+	
+void		free_world(t_ctx *ctx);
+void		free_tiles(t_ctx *ctx);
+	
+void		destroy(t_ctx *ctx, char *message, bool is_error);
+	
+void		check_sprites(t_ctx *ctx);
+void		check_sprites_extra(t_ctx *ctx);
+void		check_sprites_extra_extra(t_ctx *ctx);
+void		check_world_sprites(t_ctx *ctx);
 
-void	*lps(t_ctx *c, char *n, int w, int h);
-void	*les(t_ctx *c, char *n, int w, int h);
-int		check_border(t_ctx *ctx);
+t_vector2	*init_vector2(void);
 
-void	free_sprites(t_ctx *ctx);
-void	free_sprites_extra(t_ctx *ctx);
-void	free_sprites_extra_extra(t_ctx *ctx);
-void	free_world_sprites(t_ctx *ctx);
+void		free_map(t_ctx *ctx);
 
-int		xp(t_ctx *c);
-int		yp(t_ctx *c);
 
-int		key_check(int key);
+void		init_map(t_ctx *ctx, char *name);
 
-int		key_press_handler(int key, t_ctx *ctx);
-int		key_release_handler(int key, t_ctx *ctx);
+int			get_height(t_ctx *c);
+int			get_width(t_ctx *c);
 
-int		update(t_ctx *ctx);
-
-void	free_player(t_ctx *ctx);
-
-int		close_program(t_ctx *ctx);
-
-char	**load_map(char *path);
-void	parse_map(t_ctx *ctx);
-
-void	init_world(t_ctx *ctx);
-
-void	free_world(t_ctx *ctx);
-
-void	destroy(t_ctx *ctx, char *message, int type);
-
-void	check_sprites(t_ctx *ctx);
-void	check_sprites_extra(t_ctx *ctx);
-void	check_sprites_extra_extra(t_ctx *ctx);
-void	check_world_sprites(t_ctx *ctx);
+void		draw_world(t_ctx *c);
+int			check_map(t_ctx *ctx);
 
 #endif

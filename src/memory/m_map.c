@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_player.c                                         :+:      :+:    :+:   */
+/*   m_map.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 15:27:57 by otodd            ###   ########.fr       */
+/*   Created: 2024/02/21 15:29:22 by otodd             #+#    #+#             */
+/*   Updated: 2024/02/21 15:31:14 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	free_player(t_ctx *ctx)
+void	free_map(t_ctx *ctx)
 {
-	if (ctx->player)
+	if (ctx->map)
 	{
-		if (ctx->player->sprites)
+		if (ctx->map->data)
 		{
-			free_sprites(ctx);
-			free_sprites_extra(ctx);
-			free_sprites_extra_extra(ctx);
-			free(ctx->player->sprites);
+			ft_free_array(ctx->map->data, ft_strarraylen(ctx->map->data));
+			free(ctx->map->data);
 		}
-		if (ctx->player->pos)
-			free(ctx->player->pos);
-		free(ctx->player);
+		free(ctx->map);
 	}
 }
