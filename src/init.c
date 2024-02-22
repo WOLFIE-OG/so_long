@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:06:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:42:44 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 01:02:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int	main(int arg_n, char **arg_a)
 	mlx_hook(c->root, KeyRelease, KeyReleaseMask, key_release_handler, c);
 	mlx_hook(c->root, DestroyNotify, 0, close_program, c);
 	mlx_loop(c->mlx_ctx);
-	destroy(c, "Goodbye!", 0);
+	if (c->player->coins_collected != c->map->coin_count)
+	{
+		ft_printf("["BRED"INFO"RESET"]		");
+		ft_printf("You didn't collect all the coins!\n");
+	}
+	destroy(c, "Exiting...", 0);
 	return (0);
 }

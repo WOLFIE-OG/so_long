@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:45:03 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 01:05:21 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ui_text(t_ctx *c)
 		c->mlx_ctx,
 		c->root,
 		(c->width / 2) - SIZE,
-		c->height + SIZE / 2,
+		(c->height + SIZE / 2) - 5,
 		0xFFFFFF,
 		b
 		);
@@ -43,9 +43,18 @@ static void	tile_detect(t_ctx *c)
 {
 	if (c->player->current_tile->type == COLLECT)
 	{
-		c->player->current_tile->hidden = 1;
-		c->player->coins_collected--;
-		c->map->coin_count--;
+		if (!c->player->current_tile->hidden)
+		{
+			c->player->coins_collected++;
+			c->player->current_tile->hidden = 1;
+			ft_printf("["BGRN"INFO"RESET"]		You have collected [%d / %d]\n",
+				c->player->coins_collected, c->map->coin_count);
+			if (c->player->coins_collected == c->map->coin_count)
+			{
+				ft_printf("["BBLU"INFO"RESET"]		");
+				ft_printf("You have collected all the coins!\n");
+			}
+		}
 	}
 	else if (c->player->current_tile->type == EXIT)
 		close_program(c);
@@ -83,6 +92,6 @@ int	update(t_ctx *c)
 	else
 		idle(c);
 	extended(c);
-	usleep(166667 / 2);
+	usleep(166667);
 	return (0);
 }
