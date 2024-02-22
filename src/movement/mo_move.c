@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:12:29 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 14:26:42 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 19:48:41 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	idle(t_ctx *c)
 	render_idle(c);
 }
 
-void	left(t_ctx *c)
+void	left(t_ctx *c, bool render)
 {
 	t_player	*p;
 	t_vector2	*tl;
@@ -40,10 +40,11 @@ void	left(t_ctx *c)
 		c->player->moves++;
 	}
 	p->pos->x = p->current_tile->pos->x;
-	render_left(c);
+	if (render)
+		render_left(c);
 }
 
-void	right(t_ctx *c)
+void	right(t_ctx *c, bool render)
 {
 	t_player	*p;
 	t_vector2	*tl;
@@ -66,10 +67,11 @@ void	right(t_ctx *c)
 		c->player->moves++;
 	}
 	p->pos->x = p->current_tile->pos->x;
-	render_right(c);
+	if (render)
+		render_right(c);
 }
 
-void	up(t_ctx *c)
+void	up(t_ctx *c, bool render)
 {
 	t_player	*p;
 	t_vector2	*tl;
@@ -92,10 +94,11 @@ void	up(t_ctx *c)
 		c->player->moves++;
 	}
 	p->pos->y = p->current_tile->pos->y;
-	render_up(c);
+	if (render)
+		render_up(c);
 }
 
-void	down(t_ctx *c)
+void	down(t_ctx *c, bool render)
 {
 	t_player	*p;
 	t_vector2	*tl;
@@ -118,5 +121,6 @@ void	down(t_ctx *c)
 		c->player->moves++;
 	}
 	p->pos->y = p->current_tile->pos->y;
-	render_down(c);
+	if (render)
+		render_down(c);
 }

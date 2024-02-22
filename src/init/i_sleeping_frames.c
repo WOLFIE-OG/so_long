@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:32:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 14:13:37 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 19:55:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,6 @@ void	init_frames(t_ctx *c)
 	c->player->sleep_frames[16] = c->player->sprites->yawn;
 	c->player->sleep_frames[17] = c->player->sprites->yawn;
 	c->player->sleep_frames[18] = c->player->sprites->yawn;
+	c->player->sleep_frames[19] = c->player->sprites->yawn;
+	c->player->sleep_frames[20] = c->player->sprites->yawn;
 }

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 14:08:16 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 19:48:27 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,10 +170,10 @@ typedef struct s_ctx
 }	t_ctx;
 
 void		idle(t_ctx *c);
-void		up(t_ctx *c);
-void		down(t_ctx *c);
-void		left(t_ctx *c);
-void		right(t_ctx *c);
+void		up(t_ctx *c, bool render);
+void		down(t_ctx *c, bool render);
+void		left(t_ctx *c, bool render);
+void		right(t_ctx *c, bool render);
 void		up_left(t_ctx *c);
 void		up_right(t_ctx *c);
 void		down_left(t_ctx *c);
