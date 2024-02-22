@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:44:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:21:49 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:15:31 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,30 @@
 
 void	render_idle(t_ctx *c)
 {
-	if (!c->player->is_idle)
+	if (!c->player->is_tired)
 		put_img(c, c->player->sprites->idle);
 	else
 	{
-		usleep(500000);
-		if (c->player->frame)
-			put_img(c, c->player->sprites->sleept_alt);
-		else
-			put_img(c, c->player->sprites->sleep);
+		if (!c->player->played_anim)
+		{
+			if (c->player->sleep_frames_counter
+				!= c->player->sleep_frames_count)
+				put_img(c, c->player->sleep_frames[
+					c->player->sleep_frames_counter++]);
+			else
+			{
+				c->player->played_anim = true;
+				c->player->is_awake = false;
+			}
+		}
+		if (c->player->played_anim)
+		{
+			if (c->player->frame)
+				put_img(c, c->player->sprites->sleep_alt);
+			else
+				put_img(c, c->player->sprites->sleep);
+			usleep(50000);
+		}
 	}
 }
 

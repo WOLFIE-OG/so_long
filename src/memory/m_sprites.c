@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:53:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:20:09 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:10:18 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	free_sprites(t_ctx *c)
 		c->des_i(c->mlx_ctx, c->player->sprites->up_alt);
 	if (c->player->sprites->up)
 		c->des_i(c->mlx_ctx, c->player->sprites->up);
-	if (c->player->sprites->sleept_alt)
-		c->des_i(c->mlx_ctx, c->player->sprites->sleept_alt);
+	if (c->player->sprites->sleep_alt)
+		c->des_i(c->mlx_ctx, c->player->sprites->sleep_alt);
 	if (c->player->sprites->sleep)
 		c->des_i(c->mlx_ctx, c->player->sprites->sleep);
 }
@@ -56,6 +56,12 @@ void	free_sprites_extra(t_ctx *c)
 		c->des_i(c->mlx_ctx, c->player->sprites->up_right_alt);
 	if (c->player->sprites->up_right)
 		c->des_i(c->mlx_ctx, c->player->sprites->up_right);
+	if (c->player->sprites->yawn)
+		c->des_i(c->mlx_ctx, c->player->sprites->yawn);
+	if (c->player->sprites->lick)
+		c->des_i(c->mlx_ctx, c->player->sprites->lick);
+	if (c->player->sprites->awake)
+		c->des_i(c->mlx_ctx, c->player->sprites->awake);
 }
 
 void	free_sprites_extra_extra(t_ctx *c)
@@ -76,6 +82,10 @@ void	free_sprites_extra_extra(t_ctx *c)
 		c->des_i(c->mlx_ctx, c->player->sprites->side_r_alt);
 	if (c->player->sprites->side_r)
 		c->des_i(c->mlx_ctx, c->player->sprites->side_r);
+	if (c->player->sprites->scratch_alt)
+		c->des_i(c->mlx_ctx, c->player->sprites->scratch_alt);
+	if (c->player->sprites->scratch)
+		c->des_i(c->mlx_ctx, c->player->sprites->scratch);
 }
 
 void	free_world_sprites(t_ctx *c)

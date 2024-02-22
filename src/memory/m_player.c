@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:33:49 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:07:41 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	free_player(t_ctx *c)
 		}
 		if (c->player->pos)
 			free(c->player->pos);
+		if (c->player->sleep_frames)
+			free(c->player->sleep_frames);
 		free(c->player);
 	}
 }

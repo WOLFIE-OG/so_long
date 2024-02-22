@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:17:24 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:08:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,12 @@ typedef struct s_player_sprites
 	void	*top;
 	void	*top_alt;
 	void	*sleep;
-	void	*sleept_alt;
+	void	*sleep_alt;
+	void	*yawn;
+	void	*lick;
+	void	*scratch;
+	void	*scratch_alt;
+	void	*awake;
 }	t_player_sprites;
 
 typedef struct s_vector2
@@ -118,7 +123,12 @@ typedef struct s_player
 	int					moves;
 	int					coins_collected;
 	time_t				last_active_time;
-	bool				is_idle;
+	bool				is_tired;
+	bool				is_awake;
+	bool				played_anim;
+	t_player_sprites	**sleep_frames;
+	int					sleep_frames_count;
+	int					sleep_frames_counter;
 }	t_player;
 
 typedef struct s_map
@@ -216,5 +226,7 @@ void		render_down_right(t_ctx *c);
 void		put_img(t_ctx *c, void *img);
 void		init_array(t_ctx *c);
 void		idle_check(t_ctx *c);
+void		tile_detect(t_ctx *c);
+void		init_frames(t_ctx *c);
 
 #endif

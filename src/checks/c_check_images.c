@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:18:23 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:18:26 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:10:04 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_sprites(t_ctx *c)
 			destroy(c, "up_alt.xpm not found!", 1);
 		if (!c->player->sprites->up)
 			destroy(c, "up.xpm not found!", 1);
-		if (!c->player->sprites->sleept_alt)
+		if (!c->player->sprites->sleep_alt)
 			destroy(c, "sleep_alt.xpm not found!", 1);
 		if (!c->player->sprites->sleep)
 			destroy(c, "sleep.xpm not found!", 1);
@@ -60,7 +60,13 @@ void	check_sprites_extra(t_ctx *c)
 		if (!c->player->sprites->up_right_alt)
 			destroy(c, "up_right_alt.xpm not found!", 1);
 		if (!c->player->sprites->up_right)
-			destroy(c, "yp_right.xpm not found!", 1);
+			destroy(c, "up_right.xpm not found!", 1);
+		if (!c->player->sprites->yawn)
+			destroy(c, "yawn.xpm not found!", 1);
+		if (!c->player->sprites->lick)
+			destroy(c, "lick.xpm not found!", 1);
+		if (!c->player->sprites->awake)
+			destroy(c, "awake.xpm not found!", 1);
 	}
 }
 
@@ -84,6 +90,10 @@ void	check_sprites_extra_extra(t_ctx *c)
 			destroy(c, "side_r_alt.xpm not found!", 1);
 		if (!c->player->sprites->side_r)
 			destroy(c, "side_r.xpm not found!", 1);
+		if (!c->player->sprites->scratch_alt)
+			destroy(c, "scratch_alt.xpm not found!", 1);
+		if (!c->player->sprites->scratch)
+			destroy(c, "scratch.xpm not found!", 1);
 	}
 }
 

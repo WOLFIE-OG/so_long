@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:20:47 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:23:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,6 @@ static void	alt_shift(t_ctx *c)
 		c->player->frame = 0;
 	else
 		c->player->frame = 1;
-}
-
-static void	tile_detect(t_ctx *c)
-{
-	if (c->player->current_tile->type == COLLECT)
-	{
-		if (!c->player->current_tile->hidden)
-		{
-			c->player->coins_collected++;
-			c->player->current_tile->hidden = 1;
-			ft_printf("["BGRN"INFO"RESET"]		You have collected [%d / %d]\n",
-				c->player->coins_collected, c->map->coin_count);
-			if (c->player->coins_collected == c->map->coin_count)
-			{
-				ft_printf("["BBLU"INFO"RESET"]		");
-				ft_printf("You have collected all the coins!\n");
-			}
-		}
-	}
-	else if (c->player->current_tile->type == EXIT)
-		close_program(c);
 }
 
 static void	extended(t_ctx *c)

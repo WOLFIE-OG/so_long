@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:12:29 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:12:02 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:26:42 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,16 @@ void	left(t_ctx *c)
 	t_vector2	*tl;
 
 	p = c->player;
+	if (!p->is_awake)
+	{
+		put_img(c, c->player->sprites->awake);
+		p->is_awake = true;
+		return ;
+	}
 	tl = p->current_tile->local_pos;
-	p->is_idle = false;
+	p->is_tired = false;
+	p->played_anim = false;
+	p->sleep_frames_counter = 0;
 	time(&p->last_active_time);
 	if (c->world->tiles[tl->y][tl->x - 1].type != WALL)
 	{
@@ -39,10 +47,18 @@ void	right(t_ctx *c)
 {
 	t_player	*p;
 	t_vector2	*tl;
-	
+
 	p = c->player;
+	if (!p->is_awake)
+	{
+		put_img(c, c->player->sprites->awake);
+		p->is_awake = true;
+		return ;
+	}
 	tl = p->current_tile->local_pos;
-	p->is_idle = false;
+	p->is_tired = false;
+	p->played_anim = false;
+	p->sleep_frames_counter = 0;
 	time(&p->last_active_time);
 	if (c->world->tiles[tl->y][tl->x + 1].type != WALL)
 	{
@@ -59,8 +75,16 @@ void	up(t_ctx *c)
 	t_vector2	*tl;
 
 	p = c->player;
+	if (!p->is_awake)
+	{
+		put_img(c, c->player->sprites->awake);
+		p->is_awake = true;
+		return ;
+	}
 	tl = p->current_tile->local_pos;
-	p->is_idle = false;
+	p->is_tired = false;
+	p->played_anim = false;
+	p->sleep_frames_counter = 0;
 	time(&p->last_active_time);
 	if (c->world->tiles[tl->y - 1][tl->x].type != WALL)
 	{
@@ -77,8 +101,16 @@ void	down(t_ctx *c)
 	t_vector2	*tl;
 
 	p = c->player;
+	if (!p->is_awake)
+	{
+		put_img(c, c->player->sprites->awake);
+		p->is_awake = true;
+		return ;
+	}
 	tl = p->current_tile->local_pos;
-	p->is_idle = false;
+	p->is_tired = false;
+	p->played_anim = false;
+	p->sleep_frames_counter = 0;
 	time(&p->last_active_time);
 	if (c->world->tiles[tl->y + 1][tl->x].type != WALL)
 	{

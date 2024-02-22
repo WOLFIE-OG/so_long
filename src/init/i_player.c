@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:17:53 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:24:59 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	sprites(t_ctx *c, int w, int h)
 	c->player->sprites->right = lps(c, "right.xpm", w, h);
 	c->player->sprites->up_alt = lps(c, "up_alt.xpm", w, h);
 	c->player->sprites->up = lps(c, "up.xpm", w, h);
-	c->player->sprites->sleept_alt = lps(c, "sleep_alt.xpm", w, h);
+	c->player->sprites->sleep_alt = lps(c, "sleep_alt.xpm", w, h);
 	c->player->sprites->sleep = lps(c, "sleep.xpm", w, h);
 }
 
@@ -40,6 +40,9 @@ static void	sprites_extra(t_ctx *c, int w, int h)
 	c->player->sprites->down_right = lps(c, "down_right.xpm", w, h);
 	c->player->sprites->up_right_alt = lps(c, "up_right_alt.xpm", w, h);
 	c->player->sprites->up_right = lps(c, "up_right.xpm", w, h);
+	c->player->sprites->yawn = lps(c, "yawn.xpm", w, h);
+	c->player->sprites->lick = lps(c, "lick.xpm", w, h);
+	c->player->sprites->awake = lps(c, "awake.xpm", w, h);
 }
 
 static void	sprites_extra_extra(t_ctx *c, int w, int h)
@@ -52,6 +55,8 @@ static void	sprites_extra_extra(t_ctx *c, int w, int h)
 	c->player->sprites->side_r_alt = lps(c, "side_r_alt.xpm", w, h);
 	c->player->sprites->top = lps(c, "top.xpm", w, h);
 	c->player->sprites->top_alt = lps(c, "top_alt.xpm", w, h);
+	c->player->sprites->scratch = lps(c, "scratch.xpm", w, h);
+	c->player->sprites->scratch_alt = lps(c, "scratch_alt.xpm", w, h);
 }
 
 static void	player(t_ctx *c)
@@ -67,7 +72,11 @@ static void	player(t_ctx *c)
 	c->player->moves = 0;
 	c->player->current_tile = NULL;
 	c->player->coins_collected = 0;
-	c->player->is_idle = false;
+	c->player->is_tired = false;
+	c->player->played_anim = false;
+	c->player->is_awake = true;
+	c->player->sleep_frames_count = 19;
+	c->player->sleep_frames_counter = 0;
 	time(&c->player->last_active_time);
 	ft_printf("["BBLU"DEBUG"RESET"]		Created player\n");
 }
@@ -84,4 +93,5 @@ void	init_player(t_ctx *c)
 	check_sprites_extra(c);
 	sprites_extra_extra(c, w, h);
 	check_sprites_extra_extra(c);
+	init_frames(c);
 }

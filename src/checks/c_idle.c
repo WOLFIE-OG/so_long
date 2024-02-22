@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ho_idle.c                                          :+:      :+:    :+:   */
+/*   c_idle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:59:03 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:26:39 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 14:10:27 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@ void	idle_check(t_ctx *c)
 	time(&c_time);
 	t_diff = difftime(c_time, c->player->last_active_time);
 	if (t_diff >= c->max_idle)
-	{
-		if (!c->player->is_idle)
-			
-		c->player->is_idle = true;
-	}
+		c->player->is_tired = true;
 	else
-		c->player->is_idle = false;
+		c->player->is_tired = false;
 }
