@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 14:23:40 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 18:41:41 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,13 @@ int	update(t_ctx *c)
 	if (!c->game_running)
 		return (0);
 	mlx_clear_window(c->mlx_ctx, c->root);
+	ft_printf(
+		"%d x %d | %d x %d\n",
+		c->player->current_tile->pos->x,
+		c->player->current_tile->pos->y,
+		c->player->current_tile->local_pos->x,
+		c->player->current_tile->local_pos->y
+	);
 	draw_world(c);
 	if (c->player->direction == UP)
 		up(c);
