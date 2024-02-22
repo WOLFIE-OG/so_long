@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:43:38 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:17:53 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void	sprites(t_ctx *c, int w, int h)
 	c->player->sprites->right = lps(c, "right.xpm", w, h);
 	c->player->sprites->up_alt = lps(c, "up_alt.xpm", w, h);
 	c->player->sprites->up = lps(c, "up.xpm", w, h);
+	c->player->sprites->sleept_alt = lps(c, "sleep_alt.xpm", w, h);
+	c->player->sprites->sleep = lps(c, "sleep.xpm", w, h);
 }
 
 static void	sprites_extra(t_ctx *c, int w, int h)
@@ -65,6 +67,8 @@ static void	player(t_ctx *c)
 	c->player->moves = 0;
 	c->player->current_tile = NULL;
 	c->player->coins_collected = 0;
+	c->player->is_idle = false;
+	time(&c->player->last_active_time);
 	ft_printf("["BBLU"DEBUG"RESET"]		Created player\n");
 }
 

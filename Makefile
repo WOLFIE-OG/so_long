@@ -39,6 +39,7 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/memory/m_map.c 				\
 		$(SRC_DIR)/hooks/ho_input.c				\
 		$(SRC_DIR)/hooks/ho_update.c			\
+		$(SRC_DIR)/hooks/ho_idle.c				\
 		$(SRC_DIR)/map/ma_load.c				\
 		$(SRC_DIR)/map/ma_parse.c				\
 		$(SRC_DIR)/checks/c_check_images.c		\
@@ -71,6 +72,7 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/m_map.o 						\
 		$(OBJ_DIR)/ho_input.o					\
 		$(OBJ_DIR)/ho_update.o					\
+		$(OBJ_DIR)/ho_idle.o 					\
 		$(OBJ_DIR)/ma_load.o					\
 		$(OBJ_DIR)/ma_parse.o					\
 		$(OBJ_DIR)/c_check_images.o				\

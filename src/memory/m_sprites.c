@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:53:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:37:55 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:20:09 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	free_sprites(t_ctx *c)
 		c->des_i(c->mlx_ctx, c->player->sprites->up_alt);
 	if (c->player->sprites->up)
 		c->des_i(c->mlx_ctx, c->player->sprites->up);
+	if (c->player->sprites->sleept_alt)
+		c->des_i(c->mlx_ctx, c->player->sprites->sleept_alt);
+	if (c->player->sprites->sleep)
+		c->des_i(c->mlx_ctx, c->player->sprites->sleep);
 }
 
 void	free_sprites_extra(t_ctx *c)

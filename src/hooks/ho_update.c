@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 01:05:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:20:47 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static void	extended(t_ctx *c)
 {
 	alt_shift(c);
 	tile_detect(c);
+	idle_check(c);
 	ui_text(c);
 }
 

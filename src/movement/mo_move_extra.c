@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:12:29 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:12:44 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:12:20 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	up_left(t_ctx *c)
 
 	p = c->player;
 	tl = p->current_tile->local_pos;
+	p->is_idle = false;
+	time(&p->last_active_time);
 	if (c->world->tiles[tl->y - 1][tl->x - 1].type != WALL)
 	{
 		p->current_tile = &c->world->tiles[tl->y - 1][tl->x - 1];
@@ -36,6 +38,8 @@ void	up_right(t_ctx *c)
 
 	p = c->player;
 	tl = p->current_tile->local_pos;
+	p->is_idle = false;
+	time(&p->last_active_time);
 	if (c->world->tiles[tl->y - 1][tl->x + 1].type != WALL)
 	{
 		p->current_tile = &c->world->tiles[tl->y - 1][tl->x + 1];
@@ -53,6 +57,8 @@ void	down_left(t_ctx *c)
 
 	p = c->player;
 	tl = p->current_tile->local_pos;
+	p->is_idle = false;
+	time(&p->last_active_time);
 	if (c->world->tiles[tl->y + 1][tl->x - 1].type != WALL)
 	{
 		p->current_tile = &c->world->tiles[tl->y + 1][tl->x - 1];
@@ -70,6 +76,8 @@ void	down_right(t_ctx *c)
 
 	p = c->player;
 	tl = p->current_tile->local_pos;
+	p->is_idle = false;
+	time(&p->last_active_time);
 	if (c->world->tiles[tl->y + 1][tl->x + 1].type != WALL)
 	{
 		p->current_tile = &c->world->tiles[tl->y + 1][tl->x + 1];

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:18:23 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:36:45 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:18:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void	check_sprites(t_ctx *c)
 			destroy(c, "up_alt.xpm not found!", 1);
 		if (!c->player->sprites->up)
 			destroy(c, "up.xpm not found!", 1);
+		if (!c->player->sprites->sleept_alt)
+			destroy(c, "sleep_alt.xpm not found!", 1);
+		if (!c->player->sprites->sleep)
+			destroy(c, "sleep.xpm not found!", 1);
 	}
 }
 

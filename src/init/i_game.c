@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:31:52 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:14:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_ctx	*init_main(char *name)
 	c->des_i = &mlx_destroy_image;
 	c->n_win = &mlx_new_window;
 	c->mlx_ctx = mlx_init();
+	c->max_idle = 4;
 	init_map(c, name);
 	c->height = get_height(c) * SIZE;
 	c->width = get_width(c) * SIZE;

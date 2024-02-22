@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:44:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 21:54:41 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:21:49 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 
 void	render_idle(t_ctx *c)
 {
-	put_img(c, c->player->sprites->idle);
+	if (!c->player->is_idle)
+		put_img(c, c->player->sprites->idle);
+	else
+	{
+		usleep(500000);
+		if (c->player->frame)
+			put_img(c, c->player->sprites->sleept_alt);
+		else
+			put_img(c, c->player->sprites->sleep);
+	}
 }
 
 void	render_right(t_ctx *c)

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 23:23:19 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 11:17:24 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "../libs/libft/include/libft.h"
 # include "../libs/minilibx/mlx.h"
 # include "../libs/minilibx/mlx_int.h"
+# include <time.h>
 # include <stdbool.h>
 # ifndef TITLE
 #  define TITLE "Thanks for all the treats"
@@ -80,6 +81,8 @@ typedef struct s_player_sprites
 	void	*side_r_alt;
 	void	*top;
 	void	*top_alt;
+	void	*sleep;
+	void	*sleept_alt;
 }	t_player_sprites;
 
 typedef struct s_vector2
@@ -114,6 +117,8 @@ typedef struct s_player
 	t_tile				*current_tile;
 	int					moves;
 	int					coins_collected;
+	time_t				last_active_time;
+	bool				is_idle;
 }	t_player;
 
 typedef struct s_map
@@ -151,6 +156,7 @@ typedef struct s_ctx
 	int			(*des_i)(void *m, void *i);
 	void		*(*n_win)(void *m, int x, int y, char *t);
 	int			speed;
+	int			max_idle;
 }	t_ctx;
 
 void		idle(t_ctx *c);
@@ -209,4 +215,6 @@ void		render_down_left(t_ctx *c);
 void		render_down_right(t_ctx *c);
 void		put_img(t_ctx *c, void *img);
 void		init_array(t_ctx *c);
+void		idle_check(t_ctx *c);
+
 #endif
