@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:14:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:34:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/22 17:35:32 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	destroy(t_ctx *c, char *message, bool is_error)
 		free(c);
 	}
 	put_msg(is_error, message);
-	exit(EXIT_FAILURE);
+	if (is_error)
+		exit(EXIT_FAILURE);
 }
