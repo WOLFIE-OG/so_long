@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:04:50 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 17:45:11 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:18:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ void	draw_world(t_ctx *c)
 		while (j < c->map->columns)
 		{
 			if (!c->world->tiles[i][j].hidden)
-				c->put_i(
-					c->mlx_ctx,
-					c->root,
+				put_buf(
+					c,
 					c->world->tiles[i][j].sprite,
 					c->world->tiles[i][j].pos->x,
 					c->world->tiles[i][j].pos->y

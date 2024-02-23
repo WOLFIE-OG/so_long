@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 14:18:36 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:39:37 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ t_ctx	*init_main(char *name)
 	c->des_i = &mlx_destroy_image;
 	c->n_win = &mlx_new_window;
 	c->mlx_ctx = mlx_init();
-	c->max_idle = 3;
+	if (!c->mlx_ctx)
+		destroy(c, "Failed to create mlx instance!", 1);
 	init_map(c, name);
 	c->height = get_height(c) * SIZE;
 	c->width = get_width(c) * SIZE;
-	if (!c->mlx_ctx)
-		destroy(c, "Failed to create mlx instance!", 1);
+	c->buffer = mlx_new_image(c->mlx_ctx, c->width, c->height);
 	ft_printf("[DEBUG]		[%d x %d]\n", c->width, c->height);
 	c->root = c->n_win(c->mlx_ctx, c->width, c->height + SIZE / 2, TITLE);
 	if (!c->root)

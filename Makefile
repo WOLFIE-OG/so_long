@@ -31,7 +31,7 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/helpers/h_key_validator.c	\
 		$(SRC_DIR)/helpers/h_close.c			\
 		$(SRC_DIR)/helpers/h_dimensions.c		\
-		$(SRC_DIR)/helpers/h_rendering.c 		\
+		$(SRC_DIR)/memory/m_buffer.c 			\
 		$(SRC_DIR)/memory/m_sprites.c			\
 		$(SRC_DIR)/memory/m_player.c 			\
 		$(SRC_DIR)/memory/m_world.c				\
@@ -66,7 +66,7 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/h_key_validator.o			\
 		$(OBJ_DIR)/h_close.o					\
 		$(OBJ_DIR)/h_dimensions.o				\
-		$(OBJ_DIR)/h_rendering.o 				\
+		$(OBJ_DIR)/m_buffer.o 					\
 		$(OBJ_DIR)/m_sprites.o					\
 		$(OBJ_DIR)/m_player.o 					\
 		$(OBJ_DIR)/m_world.o					\

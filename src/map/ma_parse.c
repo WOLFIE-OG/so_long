@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:31:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:24:22 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:27:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ static void	populate(t_ctx *c)
 		{
 			position(c, i, j);
 			types(c, i, j);
-			c->world->init_x += 32;
+			c->world->init_x += SIZE;
 			++j;
 		}
-		c->world->init_y += 32;
+		c->world->init_y += SIZE;
 		++i;
 	}
 }

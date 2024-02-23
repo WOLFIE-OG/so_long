@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:14:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 17:35:32 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 13:40:46 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	destroy(t_ctx *c, char *message, bool is_error)
 	{
 		free_player(c);
 		free_world(c);
+		if (c->buffer)
+			c->des_i(c->mlx_ctx, c->buffer);
 		if (c->mlx_ctx)
 		{
 			if (c->root)

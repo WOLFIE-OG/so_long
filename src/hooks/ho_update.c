@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 19:49:09 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:52:30 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	extended(t_ctx *c)
 	tile_detect(c);
 	idle_check(c);
 	ui_text(c);
+	c->put_i(c->mlx_ctx, c->root, c->buffer, 0, 0);
 }
 
 int	update(t_ctx *c)
@@ -52,6 +53,7 @@ int	update(t_ctx *c)
 	if (!c->game_running)
 		return (0);
 	mlx_clear_window(c->mlx_ctx, c->root);
+	ft_bzero(c->buffer->data, c->buffer->size_line * c->height);
 	draw_world(c);
 	if (c->player->direction == UP)
 		up(c, true);

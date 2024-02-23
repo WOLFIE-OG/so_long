@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 19:48:27 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 14:23:43 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # endif
 # ifndef SIZE
 #  define SIZE 32
+# endif
+# ifndef MAX_IDLE
+#  define MAX_IDLE 3
 # endif
 
 enum e_key_binds
@@ -56,38 +59,38 @@ enum e_tiles
 
 typedef struct s_player_sprites
 {
-	void	*idle;
-	void	*up;
-	void	*up_alt;
-	void	*down;
-	void	*down_alt;
-	void	*left;
-	void	*left_alt;
-	void	*right;
-	void	*right_alt;
-	void	*up_left;
-	void	*up_left_alt;
-	void	*down_left;
-	void	*down_left_alt;
-	void	*up_right;
-	void	*up_right_alt;
-	void	*down_right;
-	void	*down_right_alt;
-	void	*bottom;
-	void	*bottom_alt;
-	void	*side_l;
-	void	*side_l_alt;
-	void	*side_r;
-	void	*side_r_alt;
-	void	*top;
-	void	*top_alt;
-	void	*sleep;
-	void	*sleep_alt;
-	void	*yawn;
-	void	*lick;
-	void	*scratch;
-	void	*scratch_alt;
-	void	*awake;
+	t_img	*idle;
+	t_img	*up;
+	t_img	*up_alt;
+	t_img	*down;
+	t_img	*down_alt;
+	t_img	*left;
+	t_img	*left_alt;
+	t_img	*right;
+	t_img	*right_alt;
+	t_img	*up_left;
+	t_img	*up_left_alt;
+	t_img	*down_left;
+	t_img	*down_left_alt;
+	t_img	*up_right;
+	t_img	*up_right_alt;
+	t_img	*down_right;
+	t_img	*down_right_alt;
+	t_img	*bottom;
+	t_img	*bottom_alt;
+	t_img	*side_l;
+	t_img	*side_l_alt;
+	t_img	*side_r;
+	t_img	*side_r_alt;
+	t_img	*top;
+	t_img	*top_alt;
+	t_img	*sleep;
+	t_img	*sleep_alt;
+	t_img	*yawn;
+	t_img	*lick;
+	t_img	*scratch;
+	t_img	*scratch_alt;
+	t_img	*awake;
 }	t_player_sprites;
 
 typedef struct s_vector2
@@ -98,15 +101,15 @@ typedef struct s_vector2
 
 typedef struct s_world_sprites
 {
-	void	*wall;
-	void	*coin;
-	void	*exit;
-	void	*spawn;
+	t_img	*wall;
+	t_img	*coin;
+	t_img	*exit;
+	t_img	*spawn;
 }	t_world_sprites;
 
 typedef struct s_tile
 {
-	void		*sprite;
+	t_img		*sprite;
 	int			type;
 	int			hidden;
 	t_vector2	*pos;
@@ -126,7 +129,7 @@ typedef struct s_player
 	bool				is_tired;
 	bool				is_awake;
 	bool				played_anim;
-	t_player_sprites	**sleep_frames;
+	t_img				**sleep_frames;
 	int					sleep_frames_count;
 	int					sleep_frames_counter;
 }	t_player;
@@ -167,6 +170,7 @@ typedef struct s_ctx
 	void		*(*n_win)(void *m, int x, int y, char *t);
 	int			speed;
 	int			max_idle;
+	t_img		*buffer;
 }	t_ctx;
 
 void		idle(t_ctx *c);
@@ -223,7 +227,8 @@ void		render_up_left(t_ctx *c);
 void		render_up_right(t_ctx *c);
 void		render_down_left(t_ctx *c);
 void		render_down_right(t_ctx *c);
-void		put_img(t_ctx *c, void *img);
+void		put_buf(t_ctx *c, t_img *img, int x, int y);
+void		put_img(t_ctx *c, t_img *img);
 void		init_array(t_ctx *c);
 void		idle_check(t_ctx *c);
 void		tile_detect(t_ctx *c);
