@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 16:29:01 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 18:51:47 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int	check_map(t_ctx *c)
 	if (!check_width(c))
 		return (0);
 	if (!check_borders(c))
+		return (0);
+	if (!check_paths(c))
 		return (0);
 	count_chars(c);
 	if (c->map->coin_count < 1)

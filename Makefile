@@ -46,6 +46,7 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/checks/c_map.c				\
 		$(SRC_DIR)/checks/c_idle.c				\
 		$(SRC_DIR)/checks/c_tiles.c				\
+		$(SRC_DIR)/checks/c_paths.c				\
 		$(SRC_DIR)/rendering/r_world.c			\
 		$(SRC_DIR)/rendering/r_borders.c		\
 		$(SRC_DIR)/rendering/r_player.c			\
@@ -81,6 +82,7 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/c_map.o 						\
 		$(OBJ_DIR)/c_idle.o 					\
 		$(OBJ_DIR)/c_tiles.o					\
+		$(OBJ_DIR)/c_paths.o 					\
 		$(OBJ_DIR)/r_world.o					\
 		$(OBJ_DIR)/r_borders.o					\
 		$(OBJ_DIR)/r_player.o					\

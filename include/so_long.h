@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 15:10:43 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 18:50:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,5 +233,6 @@ void		init_array(t_ctx *c);
 void		idle_check(t_ctx *c);
 void		tile_detect(t_ctx *c);
 void		init_frames(t_ctx *c);
+int			check_paths(t_ctx *c);
 
 #endif
