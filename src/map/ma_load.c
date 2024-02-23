@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:06:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/19 20:18:05 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 16:43:35 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ char	**load_map(char *path)
 		line = ft_get_next_line(fd);
 		if (!line)
 			break ;
-		m[i] = ft_strdup(line);
+		if (ft_strchr(line, '\n'))
+			m[i] = ft_strndup(line, ft_strlen(line) - 1);
+		else
+			m[i] = ft_strdup(line);
 		i++;
 		free(line);
 	}

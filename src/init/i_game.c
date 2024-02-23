@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 14:39:37 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 16:19:53 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_ctx	*init_main(char *name)
 	c->player = NULL;
 	c->world = NULL;
 	c->root = NULL;
+	c->buffer = NULL;
 	c->put_i = &mlx_put_image_to_window;
 	c->des_i = &mlx_destroy_image;
 	c->n_win = &mlx_new_window;

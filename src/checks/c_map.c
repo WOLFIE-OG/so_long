@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:36:01 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 16:29:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	check_width(t_ctx *c)
 
 	i = 0;
 	while (c->map->data[i])
-		if (((int)ft_strlen_n(c->map->data[i++])) != c->map->columns)
+		if (((int)ft_strlen(c->map->data[i++])) != c->map->columns)
 			return (0);
 	return (1);
 }
