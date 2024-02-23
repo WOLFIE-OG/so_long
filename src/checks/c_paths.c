@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:33:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 19:11:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/23 20:01:10 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,29 +49,44 @@ static t_vector2	*find_pos_char(t_ctx *c, char **data, char to_find)
 	return (pos);
 }
 
+static char	**dup_map(t_ctx *c)
+{
+	int			i;
+	char		**dup;
+
+	i = 0;
+	dup = malloc(sizeof(char *) * (c->map->columns * c->map->rows));
+	if (!dup)
+		return (NULL);
+	while (i < c->map->rows)
+	{
+		dup[i] = ft_strdup(c->map->data[i]);
+		i++;
+	}
+	return (dup);
+}
+
 int	check_paths(t_ctx *c)
 {
 	char		**map_dup;
 	t_vector2	*pos;
 	
-	map_dup = malloc(sizeof(char *) * (c->map->columns * c->map->rows));
+	map_dup = dup_map(c);
 	if (!map_dup)
-		destroy(c, "Failed to alloc map_dup!", 1);
-	if (!ft_memcpy(map_dup, c->map->data,
-		(c->map->columns * c->map->rows)))
-		{
-			free(map_dup);
-			destroy(c, "Failed to duplicate map!", 1);
-		}
+		destroy(c, "Failed to duplicate map!", 1);
+	ft_printf("%a\n", map_dup);
 	pos = find_pos_char(c, map_dup, 'P');
 	fill_paths(map_dup, pos->y, pos->x);
+	ft_printf("%a\n", map_dup);
 	free(pos);
-	pos = find_pos_char(c, map_dup, 'P');
+	pos = find_pos_char(c, map_dup, 'E');
 	if (pos)
 	{
+		free(map_dup);
 		free(pos);
 		return (0);
 	}
+	ft_free_array(map_dup, ft_strarraylen(map_dup));
 	free(map_dup);
 	return (1);
 }
