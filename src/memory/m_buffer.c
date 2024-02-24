@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:52:59 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 14:49:42 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/24 23:02:05 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	put_buf(t_ctx *c, t_img *img, int x, int y)
 	int	buffer_offset;
 	int	i;
 
-	buffer_offset = y * c->buffer->size_line + x * ((img->bpp / 8));
+	buffer_offset = y * c->buffer->size_line + x * (img->bpp / 8);
 	img_offset = 0;
 	i = 0;
 	while (i < SIZE)
