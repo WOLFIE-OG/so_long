@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:04:50 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 14:18:33 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/24 22:53:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	draw_world(t_ctx *c)
 					c->world->tiles[i][j].sprite,
 					c->world->tiles[i][j].pos->x,
 					c->world->tiles[i][j].pos->y
-				);
+					);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:33:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/24 02:55:52 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/24 22:53:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	check_paths(t_ctx *c)
 {
 	char		**map_dup;
 	t_vector2	*pos;
-	
+
 	map_dup = dup_map(c);
 	if (!map_dup)
 		destroy(c, "Failed to duplicate map!", 1);

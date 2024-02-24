@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 14:52:30 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/24 22:42:31 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	extended(t_ctx *c)
 	idle_check(c);
 	ui_text(c);
 	c->put_i(c->mlx_ctx, c->root, c->buffer, 0, 0);
+	usleep(166667);
 }
 
 int	update(t_ctx *c)
@@ -74,6 +75,5 @@ int	update(t_ctx *c)
 	else
 		idle(c);
 	extended(c);
-	usleep(166667);
 	return (0);
 }
