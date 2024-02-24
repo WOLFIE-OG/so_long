@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:33:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 20:01:10 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/24 02:55:52 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,8 @@ int	check_paths(t_ctx *c)
 	map_dup = dup_map(c);
 	if (!map_dup)
 		destroy(c, "Failed to duplicate map!", 1);
-	ft_printf("%a\n", map_dup);
 	pos = find_pos_char(c, map_dup, 'P');
 	fill_paths(map_dup, pos->y, pos->x);
-	ft_printf("%a\n", map_dup);
 	free(pos);
 	pos = find_pos_char(c, map_dup, 'E');
 	if (pos)
