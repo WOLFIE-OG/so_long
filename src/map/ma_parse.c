@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:31:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 18:31:56 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 13:31:54 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,14 @@ static void	types(t_ctx *c, int i, int j)
 	if (c->world->tiles[i][j].type == EMPTY)
 		c->world->tiles[i][j].hidden = 1;
 	else if (c->world->tiles[i][j].type == COLLECT)
+	{
 		c->world->tiles[i][j].sprite = c->world->sprites->coin;
+		c->world->tiles[i][j].sprite_alt = c->world->sprites->coin_alt;
+	}
 	else if (c->world->tiles[i][j].type == EXIT)
 		c->world->tiles[i][j].sprite = c->world->sprites->exit;
+	else if (c->world->tiles[i][j].type == FAKE)
+		c->world->tiles[i][j].sprite = c->world->sprites->wall;
 	else if (c->world->tiles[i][j].type == SPAWN)
 	{
 		c->player->pos->x = c->world->init_x;

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 22:24:37 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 22:26:56 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 13:23:04 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_array(t_ctx *c)
 		while (j < c->map->columns)
 		{
 			c->world->tiles[i][j].sprite = NULL;
+			c->world->tiles[i][j].sprite_alt = NULL;
 			c->world->tiles[i][j].type = EMPTY;
 			c->world->tiles[i][j].pos = init_vector2();
 			if (!c->world->tiles[i][j].pos)

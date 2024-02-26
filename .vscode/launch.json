@@ -10,7 +10,8 @@
 			"request": "launch",
 			"target": "./so_long",
 			"cwd": "${workspaceRoot}",
-			"valuesFormatting": "parseText"
+			"valuesFormatting": "parseText",
+			"arguments": "test.ber"
 		}
 	]
 }

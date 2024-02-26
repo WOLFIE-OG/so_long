@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:06:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 16:43:35 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 12:57:03 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,11 @@ static int	line_count(char *path)
 	return (line_c);
 }
 
-char	**load_map(char *path)
+static void	process_lines(int fd, char **m)
 {
-	int		fd;
-	char	*line;
-	char	**m;
 	int		i;
+	char	*line;
 
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		return (NULL);
-	m = malloc(sizeof(char *) * (line_count(path) + 1));
 	i = 0;
 	while (1)
 	{
@@ -62,6 +56,30 @@ char	**load_map(char *path)
 		free(line);
 	}
 	m[i] = NULL;
+}
+
+char	**load_map(char *path)
+{
+	int			fd;
+	char		**m;
+	const int	c = line_count(path);
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (NULL);
+	m = malloc(sizeof(char *) * (c + 1));
+	if (!m)
+	{
+		close(fd);
+		return (NULL);
+	}
+	if (c < 3)
+	{
+		free(m);
+		close(fd);
+		return (NULL);
+	}
+	process_lines(fd, m);
 	close(fd);
 	return (m);
 }

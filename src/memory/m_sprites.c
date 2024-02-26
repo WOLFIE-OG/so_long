@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:53:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 14:10:18 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 13:20:00 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	free_world_sprites(t_ctx *c)
 {
 	if (c->world->sprites->wall)
 		c->des_i(c->mlx_ctx, c->world->sprites->wall);
+	if (c->world->sprites->coin_alt)
+		c->des_i(c->mlx_ctx, c->world->sprites->coin_alt);
 	if (c->world->sprites->coin)
 		c->des_i(c->mlx_ctx, c->world->sprites->coin);
 	if (c->world->sprites->exit)

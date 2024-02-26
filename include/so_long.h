@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 18:50:51 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 13:38:55 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ enum e_tiles
 	WALL = '1',
 	COLLECT = 'C',
 	EXIT = 'E',
-	SPAWN = 'P'
+	SPAWN = 'P',
+	FAKE = 'F'
 };
 
 typedef struct s_player_sprites
@@ -103,6 +104,7 @@ typedef struct s_world_sprites
 {
 	t_img	*wall;
 	t_img	*coin;
+	t_img	*coin_alt;
 	t_img	*exit;
 	t_img	*spawn;
 }	t_world_sprites;
@@ -110,6 +112,7 @@ typedef struct s_world_sprites
 typedef struct s_tile
 {
 	t_img		*sprite;
+	t_img		*sprite_alt;
 	int			type;
 	int			hidden;
 	t_vector2	*pos;
@@ -152,6 +155,7 @@ typedef struct s_world
 	t_tile			**tiles;
 	int				init_x;
 	int				init_y;
+	bool			easter_egg;
 }	t_world;
 
 typedef struct s_ctx

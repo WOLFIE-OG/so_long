@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:33:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/24 22:53:33 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 12:42:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static char	**dup_map(t_ctx *c)
 		dup[i] = ft_strdup(c->map->data[i]);
 		i++;
 	}
+	dup[i] = NULL;
 	return (dup);
 }
 
