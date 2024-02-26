@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:39:24 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 14:46:22 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	alt_shift(t_ctx *c)
 static void	extended(t_ctx *c)
 {
 	alt_shift(c);
-	tile_detect(c);
+	tile_check(c);
 	idle_check(c);
 	ui_text(c);
 	mlx_put_image_to_window(c->mlx_ctx, c->root, c->buffer, 0, 0);

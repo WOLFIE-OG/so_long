@@ -26,10 +26,7 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/init/i_sleeping_frames.c 	\
 		$(SRC_DIR)/movement/mo_move.c			\
 		$(SRC_DIR)/movement/mo_move_extra.c		\
-		$(SRC_DIR)/movement/mo_check_border.c	\
 		$(SRC_DIR)/helpers/h_img_loader.c		\
-		$(SRC_DIR)/helpers/h_key_validator.c	\
-		$(SRC_DIR)/helpers/h_close.c			\
 		$(SRC_DIR)/helpers/h_dimensions.c		\
 		$(SRC_DIR)/memory/m_buffer.c 			\
 		$(SRC_DIR)/memory/m_sprites.c			\
@@ -40,6 +37,7 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/memory/m_map.c 				\
 		$(SRC_DIR)/hooks/ho_input.c				\
 		$(SRC_DIR)/hooks/ho_update.c			\
+		$(SRC_DIR)/hooks/ho_close.c				\
 		$(SRC_DIR)/map/ma_load.c				\
 		$(SRC_DIR)/map/ma_parse.c				\
 		$(SRC_DIR)/checks/c_check_images.c		\
@@ -47,6 +45,8 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/checks/c_idle.c				\
 		$(SRC_DIR)/checks/c_tiles.c				\
 		$(SRC_DIR)/checks/c_paths.c				\
+		$(SRC_DIR)/checks/c_keys.c 				\
+		$(SRC_DIR)/checks/c_check_border.c		\
 		$(SRC_DIR)/rendering/r_world.c			\
 		$(SRC_DIR)/rendering/r_borders.c		\
 		$(SRC_DIR)/rendering/r_player.c			\
@@ -62,10 +62,7 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/i_sleeping_frames.o 			\
 		$(OBJ_DIR)/mo_move.o					\
 		$(OBJ_DIR)/mo_move_extra.o				\
-		$(OBJ_DIR)/mo_check_border.o			\
 		$(OBJ_DIR)/h_img_loader.o				\
-		$(OBJ_DIR)/h_key_validator.o			\
-		$(OBJ_DIR)/h_close.o					\
 		$(OBJ_DIR)/h_dimensions.o				\
 		$(OBJ_DIR)/m_buffer.o 					\
 		$(OBJ_DIR)/m_sprites.o					\
@@ -76,6 +73,7 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/m_map.o 						\
 		$(OBJ_DIR)/ho_input.o					\
 		$(OBJ_DIR)/ho_update.o					\
+		$(OBJ_DIR)/ho_close.o					\
 		$(OBJ_DIR)/ma_load.o					\
 		$(OBJ_DIR)/ma_parse.o					\
 		$(OBJ_DIR)/c_check_images.o				\
@@ -83,6 +81,8 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/c_idle.o 					\
 		$(OBJ_DIR)/c_tiles.o					\
 		$(OBJ_DIR)/c_paths.o 					\
+		$(OBJ_DIR)/c_keys.o 					\
+		$(OBJ_DIR)/c_check_border.o				\
 		$(OBJ_DIR)/r_world.o					\
 		$(OBJ_DIR)/r_borders.o					\
 		$(OBJ_DIR)/r_player.o					\

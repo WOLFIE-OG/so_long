@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:14:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 13:39:56 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 14:46:10 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	tile_detect(t_ctx *c)
+void	tile_check(t_ctx *c)
 {
 	if (c->player->current_tile->type == FAKE && !c->world->easter_egg)
 	{
