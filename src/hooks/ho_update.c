@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 13:35:13 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 14:39:24 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	extended(t_ctx *c)
 	tile_detect(c);
 	idle_check(c);
 	ui_text(c);
-	c->put_i(c->mlx_ctx, c->root, c->buffer, 0, 0);
+	mlx_put_image_to_window(c->mlx_ctx, c->root, c->buffer, 0, 0);
 	usleep(166667);
 }
 

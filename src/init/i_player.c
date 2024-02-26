@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 19:56:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 14:20:56 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	player(t_ctx *c)
 	c->player->sleep_frames_count = 21;
 	c->player->sleep_frames_counter = 0;
 	time(&c->player->last_active_time);
-	ft_printf("["BBLU"DEBUG"RESET"]		Created player\n");
+	ft_printf("["BBLU"PLAYER"RESET"]	Created player\n");
 }
 
 void	init_player(t_ctx *c)
@@ -86,6 +86,7 @@ void	init_player(t_ctx *c)
 	const int	w = SIZE;
 	const int	h = SIZE;
 
+	c->player = NULL;
 	player(c);
 	sprites(c, w, h);
 	check_sprites(c);

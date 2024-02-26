@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:06:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/22 11:13:47 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 14:10:59 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	main(int arg_n, char **arg_a)
 	if (arg_n == 2)
 		name = arg_a[1];
 	c = init_main(name);
-	init_player(c);
-	init_world(c);
 	c->game_running = 1;
 	c->current_key = 0;
 	mlx_loop_hook(c->mlx_ctx, update, c);

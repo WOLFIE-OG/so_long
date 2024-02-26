@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 12:39:41 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 13:46:19 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 static void	check_char(t_ctx *c, char t)
 {
-	if (t == EMPTY)
-		c->map->empty_count++;
-	else if (t == COLLECT)
+	if (t == COLLECT)
 		c->map->coin_count++;
 	else if (t == WALL)
 		c->map->wall_count++;

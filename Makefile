@@ -17,12 +17,12 @@ LIBFT_D = $(LIBS_D)/libft
 MINI_LX_D = $(LIBS_D)/minilibx
 
 SRCS = 	$(SRC_DIR)/init.c						\
-		$(SRC_DIR)/init/i_game.c				\
+		$(SRC_DIR)/init/i_main.c				\
+		$(SRC_DIR)/init/i_mlx.c					\
 		$(SRC_DIR)/init/i_player.c				\
 		$(SRC_DIR)/init/i_world.c				\
 		$(SRC_DIR)/init/i_vector.c				\
 		$(SRC_DIR)/init/i_map.c					\
-		$(SRC_DIR)/init/i_map_data.c			\
 		$(SRC_DIR)/init/i_sleeping_frames.c 	\
 		$(SRC_DIR)/movement/mo_move.c			\
 		$(SRC_DIR)/movement/mo_move_extra.c		\
@@ -53,12 +53,12 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/rendering/r_player_extra.c
 
 OBJS = 	$(OBJ_DIR)/init.o						\
-		$(OBJ_DIR)/i_game.o						\
+		$(OBJ_DIR)/i_main.o						\
+		$(OBJ_DIR)/i_mlx.o						\
 		$(OBJ_DIR)/i_player.o					\
 		$(OBJ_DIR)/i_world.o					\
 		$(OBJ_DIR)/i_vector.o 					\
 		$(OBJ_DIR)/i_map.o 						\
-		$(OBJ_DIR)/i_map_data.o 				\
 		$(OBJ_DIR)/i_sleeping_frames.o 			\
 		$(OBJ_DIR)/mo_move.o					\
 		$(OBJ_DIR)/mo_move_extra.o				\

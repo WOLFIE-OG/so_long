@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 13:38:55 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 14:31:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <time.h>
 # include <stdbool.h>
 # ifndef TITLE
-#  define TITLE "Thanks for all the treats"
+#  define TITLE "Thanks for all the treats | "
 # endif
 # ifndef SIZE
 #  define SIZE 32
@@ -42,6 +42,7 @@ enum e_direction
 	LEFT = 'A',
 	DOWN = 'S',
 	RIGHT = 'D',
+	IDLE = '0',
 	UP_LEFT = '1',
 	UP_RIGHT = '2',
 	DOWN_LEFT = '3',
@@ -145,7 +146,6 @@ typedef struct s_map
 	int		exit_count;
 	int		coin_count;
 	int		wall_count;
-	int		empty_count;
 	char	**data;
 }	t_map;
 
@@ -163,13 +163,13 @@ typedef struct s_ctx
 	t_player	*player;
 	t_world		*world;
 	t_map		*map;
+	char		*win_title;
 	void		*root;
 	int			width;
 	int			height;
 	void		*mlx_ctx;
 	int			game_running;
 	int			current_key;
-	int			(*put_i)(void *m, void *w, void *i, int x, int y);
 	int			(*des_i)(void *m, void *i);
 	void		*(*n_win)(void *m, int x, int y, char *t);
 	int			speed;
@@ -233,10 +233,11 @@ void		render_down_left(t_ctx *c);
 void		render_down_right(t_ctx *c);
 void		put_buf(t_ctx *c, t_img *img, int x, int y);
 void		put_img(t_ctx *c, t_img *img);
-void		init_array(t_ctx *c);
+void		init_map_data(t_ctx *c);
 void		idle_check(t_ctx *c);
 void		tile_detect(t_ctx *c);
 void		init_frames(t_ctx *c);
 int			check_paths(t_ctx *c);
+void		init_mlx(t_ctx *c, char *name);
 
 #endif
