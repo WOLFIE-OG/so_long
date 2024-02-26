@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:00:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:20:25 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:53:01 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	init_map(t_ctx *c, char *name)
 	c->map->coin_count = 0;
 	c->map->exit_count = 0;
 	c->map->spawn_count = 0;
+	c->map->enemy_count = 0;
 	c->map->data = load_map(tmp);
 	if (!c->map->data)
 	{

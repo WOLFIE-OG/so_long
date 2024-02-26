@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:05:45 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:32:02 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void	sprites(t_ctx *c)
 	c->world->sprites->coin_alt = les(c, "coin_alt.xpm", w, h);
 	c->world->sprites->exit = les(c, "exit.xpm", w, h);
 	c->world->sprites->spawn = les(c, "spawn.xpm", w, h);
+	c->world->sprites->enemy = les(c, "enemy.xpm", w, h);
+	c->world->sprites->enemy_alt = les(c, "enemy_alt.xpm", w, h);
 }
 
 static void	world(t_ctx *c)
@@ -35,6 +37,7 @@ static void	world(t_ctx *c)
 	if (!c->world)
 		destroy(c, "Failed to alloc world!", 1);
 	c->world->easter_egg = false;
+	c->world->exit_msg = false;
 	ft_printf("["BBLU"WORLD"RESET"]		Created world\n");
 }
 

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:33:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 12:42:16 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:34:49 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	fill_paths(char	**data, int i, int j)
 {
-	if (data[i][j] == '1' || data[i][j] == 'x')
+	if (data[i][j] == '1' || data[i][j] == 'x' || data[i][j] == 'N')
 		return ;
 	data[i][j] = 'x';
 	fill_paths(data, i + 1, j);

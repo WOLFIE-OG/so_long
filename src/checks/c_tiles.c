@@ -6,11 +6,33 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:14:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:46:10 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:45:28 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
+
+static void	exit_check(t_ctx *c)
+{
+	if (c->player->coins_collected == c->map->coin_count)
+		close_program(c);
+	else
+	{
+		if (!c->world->exit_msg)
+		{
+			ft_printf("["BRED"INFO"RESET"]		");
+			ft_printf("You haven't collected all the coins!\n");
+			c->world->exit_msg = true;
+		}
+	}
+}
+
+static void	enemy_check(t_ctx *c)
+{
+	ft_printf("["BRED"INFO"RESET"]		");
+	ft_printf("You hit an enemy!\n");
+	close_program(c);
+}
 
 void	tile_check(t_ctx *c)
 {
@@ -35,5 +57,7 @@ void	tile_check(t_ctx *c)
 		}
 	}
 	else if (c->player->current_tile->type == EXIT)
-		close_program(c);
+		exit_check(c);
+	else if (c->player->current_tile->type == ENEMY)
+		enemy_check(c);
 }

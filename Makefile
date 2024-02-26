@@ -50,7 +50,8 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/rendering/r_world.c			\
 		$(SRC_DIR)/rendering/r_borders.c		\
 		$(SRC_DIR)/rendering/r_player.c			\
-		$(SRC_DIR)/rendering/r_player_extra.c
+		$(SRC_DIR)/rendering/r_player_extra.c	\
+		$(SRC_DIR)/rendering/r_ui.c
 
 OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/i_main.o						\
@@ -86,7 +87,8 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/r_world.o					\
 		$(OBJ_DIR)/r_borders.o					\
 		$(OBJ_DIR)/r_player.o					\
-		$(OBJ_DIR)/r_player_extra.o
+		$(OBJ_DIR)/r_player_extra.o				\
+		$(OBJ_DIR)/r_ui.o
 
 MINI_LX = $(MINI_LX_D)/libmlx_Linux.a
 LIBFT = $(LIBFT_D)/build/libft.a

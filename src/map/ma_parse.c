@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:31:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:19:14 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:43:31 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 static void	position(t_ctx *c, int i, int j)
 {
+	c->world->tiles[i][j].pos = init_vector2();
+	if (!c->world->tiles[i][j].pos)
+		destroy(c, "Failed to alloc pos!", 1);
+	c->world->tiles[i][j].local_pos = init_vector2();
+	if (!c->world->tiles[i][j].local_pos)
+		destroy(c, "Failed to alloc local_pos!", 1);
 	c->world->tiles[i][j].pos->x = c->world->init_x;
 	c->world->tiles[i][j].pos->y = c->world->init_y;
 	c->world->tiles[i][j].local_pos->x = j;
@@ -22,14 +28,17 @@ static void	position(t_ctx *c, int i, int j)
 
 static void	types(t_ctx *c, int i, int j)
 {
-	c->world->tiles[i][j].type = c->map->data[i][j];
-	c->world->tiles[i][j].hidden = 0;
 	if (c->world->tiles[i][j].type == EMPTY)
 		c->world->tiles[i][j].hidden = 1;
 	else if (c->world->tiles[i][j].type == COLLECT)
 	{
 		c->world->tiles[i][j].sprite = c->world->sprites->coin;
 		c->world->tiles[i][j].sprite_alt = c->world->sprites->coin_alt;
+	}
+	else if (c->world->tiles[i][j].type == ENEMY)
+	{
+		c->world->tiles[i][j].sprite = c->world->sprites->enemy;
+		c->world->tiles[i][j].sprite_alt = c->world->sprites->enemy_alt;
 	}
 	else if (c->world->tiles[i][j].type == EXIT)
 		c->world->tiles[i][j].sprite = c->world->sprites->exit;
@@ -63,12 +72,9 @@ static void	space(t_ctx *c)
 			c->world->tiles[i][j].sprite = NULL;
 			c->world->tiles[i][j].sprite_alt = NULL;
 			c->world->tiles[i][j].type = EMPTY;
-			c->world->tiles[i][j].pos = init_vector2();
-			if (!c->world->tiles[i][j].pos)
-				destroy(c, "Failed to alloc pos!", 1);
-			c->world->tiles[i][j].local_pos = init_vector2();
-			if (!c->world->tiles[i][j].local_pos)
-				destroy(c, "Failed to alloc local_pos!", 1);
+			c->world->tiles[i][j].pos = NULL;
+			c->world->tiles[i][j].local_pos = NULL;
+			c->world->tiles[i][j].hidden = 0;
 			j++;
 		}
 		i++;
@@ -89,6 +95,7 @@ static void	populate(t_ctx *c)
 		while (j < c->map->columns)
 		{
 			position(c, i, j);
+			c->world->tiles[i][j].type = c->map->data[i][j];
 			types(c, i, j);
 			c->world->init_x += SIZE;
 			++j;

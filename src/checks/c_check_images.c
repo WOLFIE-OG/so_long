@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:18:23 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 13:19:54 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:33:34 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,9 @@ void	check_world_sprites(t_ctx *c)
 			destroy(c, "exit.xpm not found!", 1);
 		if (!c->world->sprites->spawn)
 			destroy(c, "spawn.xpm not found!", 1);
+		if (!c->world->sprites->enemy)
+			destroy(c, "enemy.xpm not found!", 1);
+		if (!c->world->sprites->enemy_alt)
+			destroy(c, "enemy_alt.xpm not found!", 1);
 	}
 }

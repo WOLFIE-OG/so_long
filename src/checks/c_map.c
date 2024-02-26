@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 13:46:19 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:52:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	check_char(t_ctx *c, char t)
 		c->map->coin_count++;
 	else if (t == WALL)
 		c->map->wall_count++;
+	else if (t == ENEMY)
+		c->map->enemy_count++;
 	else if (t == SPAWN)
 		c->map->spawn_count++;
 	else if (t == EXIT)

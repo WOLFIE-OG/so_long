@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 15:02:29 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:58:32 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ enum e_tiles
 	COLLECT = 'C',
 	EXIT = 'E',
 	SPAWN = 'P',
-	FAKE = 'F'
+	FAKE = 'F',
+	ENEMY = 'N'
 };
 
 typedef struct s_player_sprites
@@ -108,6 +109,8 @@ typedef struct s_world_sprites
 	t_img	*coin_alt;
 	t_img	*exit;
 	t_img	*spawn;
+	t_img	*enemy;
+	t_img	*enemy_alt;
 }	t_world_sprites;
 
 typedef struct s_tile
@@ -143,6 +146,7 @@ typedef struct s_map
 	int		rows;
 	int		columns;
 	int		spawn_count;
+	int		enemy_count;
 	int		exit_count;
 	int		coin_count;
 	int		wall_count;
@@ -156,6 +160,7 @@ typedef struct s_world
 	int				init_x;
 	int				init_y;
 	bool			easter_egg;
+	bool			exit_msg;
 }	t_world;
 
 typedef struct s_ctx
@@ -262,5 +267,8 @@ void		render_up_left(t_ctx *c);
 void		render_up_right(t_ctx *c);
 void		render_down_left(t_ctx *c);
 void		render_down_right(t_ctx *c);
+void		moves_text(t_ctx *c);
+void		enemys_text(t_ctx *c);
+void		coins_text(t_ctx *c);
 
 #endif

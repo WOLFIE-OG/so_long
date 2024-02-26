@@ -6,30 +6,11 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:46:22 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 16:58:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
-
-static void	ui_text(t_ctx *c)
-{
-	char	*a;
-	char	*b;
-
-	a = ft_itoa(c->player->moves);
-	b = ft_strjoin("Moves: ", a);
-	free(a);
-	mlx_string_put(
-		c->mlx_ctx,
-		c->root,
-		(c->width / 2) - SIZE,
-		(c->height + SIZE / 2) - 5,
-		0xFFFFFF,
-		b
-		);
-	free(b);
-}
 
 static void	alt_shift(t_ctx *c)
 {
@@ -44,7 +25,9 @@ static void	extended(t_ctx *c)
 	alt_shift(c);
 	tile_check(c);
 	idle_check(c);
-	ui_text(c);
+	moves_text(c);
+	enemys_text(c);
+	coins_text(c);
 	mlx_put_image_to_window(c->mlx_ctx, c->root, c->buffer, 0, 0);
 	usleep(166667);
 }
