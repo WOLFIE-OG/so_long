@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 16:32:02 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 19:52:35 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static void	world(t_ctx *c)
 
 void	init_world(t_ctx *c)
 {
-	c->world = NULL;
 	world(c);
 	sprites(c);
 	check_world_sprites(c);

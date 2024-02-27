@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:06:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:19:11 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 19:54:23 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	line_count(char *path)
 	bytes = 1;
 	c = 0;
 	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return (0);
 	line_c = 1;
 	while (bytes)
 	{

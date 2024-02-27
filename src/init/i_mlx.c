@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:58:58 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:22:24 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 19:52:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	init_mlx(t_ctx *c, char *name)
 {
-	c->root = NULL;
-	c->buffer = NULL;
 	c->win_title = ft_strjoin(TITLE, name);
 	if (!c->win_title)
 		destroy(c, "Failed to join and make title!", 1);

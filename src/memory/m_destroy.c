@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:14:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 13:50:52 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/26 19:53:36 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	destroy(t_ctx *c, char *message, bool is_error)
 {
 	if (c)
 	{
-		free(c->win_title);
 		free_player(c);
 		free_world(c);
 		if (c->buffer)
@@ -33,6 +32,7 @@ void	destroy(t_ctx *c, char *message, bool is_error)
 		{
 			if (c->root)
 			{
+				free(c->win_title);
 				mlx_clear_window(c->mlx_ctx, c->root);
 				mlx_destroy_window(c->mlx_ctx, c->root);
 			}
