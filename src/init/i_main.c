@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 19:52:25 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/27 12:29:00 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ t_ctx	*init_main(char *name)
 	init_mlx(c, name);
 	init_player(c);
 	init_world(c);
+	init_ui(c);
 	return (c);
 }

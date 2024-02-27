@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 16:58:40 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/27 14:03:11 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static void	extended(t_ctx *c)
 	alt_shift(c);
 	tile_check(c);
 	idle_check(c);
+	mlx_put_image_to_window(c->mlx_ctx, c->root, c->buffer, 0, 0);
 	moves_text(c);
 	enemys_text(c);
 	coins_text(c);
-	mlx_put_image_to_window(c->mlx_ctx, c->root, c->buffer, 0, 0);
 	usleep(166667);
 }
 

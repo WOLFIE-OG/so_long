@@ -24,6 +24,7 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/init/i_vector.c				\
 		$(SRC_DIR)/init/i_map.c					\
 		$(SRC_DIR)/init/i_sleeping_frames.c 	\
+		$(SRC_DIR)/init/i_ui.c 					\
 		$(SRC_DIR)/movement/mo_move.c			\
 		$(SRC_DIR)/movement/mo_move_extra.c		\
 		$(SRC_DIR)/helpers/h_img_loader.c		\
@@ -61,6 +62,7 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/i_vector.o 					\
 		$(OBJ_DIR)/i_map.o 						\
 		$(OBJ_DIR)/i_sleeping_frames.o 			\
+		$(OBJ_DIR)/i_ui.o						\
 		$(OBJ_DIR)/mo_move.o					\
 		$(OBJ_DIR)/mo_move_extra.o				\
 		$(OBJ_DIR)/h_img_loader.o				\

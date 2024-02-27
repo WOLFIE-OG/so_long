@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/27 11:08:53 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/27 15:39:25 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <time.h>
 # include <stdbool.h>
 # ifndef TITLE
-#  define TITLE "Thanks for all the treats | "
+#  define TITLE "Thanks for all the treats :3 | "
 # endif
 # ifndef SIZE
 #  define SIZE 32
@@ -220,6 +220,7 @@ void		init_mlx(t_ctx *c, char *name);
 void		init_world(t_ctx *c);
 void		init_world(t_ctx *c);
 void		init_map(t_ctx *c, char *name);
+void		init_ui(t_ctx *c);
 
 // Map
 
