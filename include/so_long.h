@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/27 15:39:25 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/27 16:22:22 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,14 +170,13 @@ typedef struct s_ctx
 	t_world		*world;
 	t_map		*map;
 	char		*win_title;
-	void		*root;
+	t_win_list	*root;
 	int			width;
 	int			height;
-	void		*mlx_ctx;
+	t_xvar		*mlx_ctx;
 	int			game_running;
 	int			current_key;
 	int			(*des_i)(void *m, void *i);
-	void		*(*n_win)(void *m, int x, int y, char *t);
 	int			speed;
 	int			max_idle;
 	t_img		*buffer;
