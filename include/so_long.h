@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 16:58:32 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/27 11:08:53 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,7 @@ typedef struct s_map
 	int		exit_count;
 	int		coin_count;
 	int		wall_count;
+	int		invalid_count;
 	char	**data;
 }	t_map;
 

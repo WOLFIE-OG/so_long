@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 16:52:40 by otodd            ###   ########.fr       */
+/*   Updated: 2024/02/27 11:10:24 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ static void	check_char(t_ctx *c, char t)
 		c->map->spawn_count++;
 	else if (t == EXIT)
 		c->map->exit_count++;
+	else if (t == FAKE)
+		return ;
+	else if (t == EMPTY)
+		return ;
+	else
+		c->map->invalid_count++;
 	return ;
 }
 
@@ -92,6 +98,8 @@ int	check_map(t_ctx *c)
 	else if (c->map->exit_count != 1)
 		return (0);
 	else if (c->map->spawn_count != 1)
+		return (0);
+	else if (c->map->invalid_count > 0)
 		return (0);
 	if (!check_paths(c))
 		return (0);
