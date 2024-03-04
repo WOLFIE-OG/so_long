@@ -29,6 +29,7 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/movement/mo_move_extra.c		\
 		$(SRC_DIR)/helpers/h_img_loader.c		\
 		$(SRC_DIR)/helpers/h_dimensions.c		\
+		$(SRC_DIR)/helpers/h_variant_name.c		\
 		$(SRC_DIR)/memory/m_buffer.c 			\
 		$(SRC_DIR)/memory/m_sprites.c			\
 		$(SRC_DIR)/memory/m_player.c 			\
@@ -67,6 +68,7 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/mo_move_extra.o				\
 		$(OBJ_DIR)/h_img_loader.o				\
 		$(OBJ_DIR)/h_dimensions.o				\
+		$(OBJ_DIR)/h_variant_name.o 			\
 		$(OBJ_DIR)/m_buffer.o 					\
 		$(OBJ_DIR)/m_sprites.o					\
 		$(OBJ_DIR)/m_player.o 					\

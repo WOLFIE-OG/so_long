@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 19:52:30 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/04 17:23:44 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	init_player(t_ctx *c)
 	const int	h = SIZE;
 
 	player(c);
+	set_variant_name(c);
 	sprites(c, w, h);
 	check_sprites(c);
 	sprites_extra(c, w, h);

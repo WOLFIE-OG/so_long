@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/27 16:22:22 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/04 17:01:16 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,15 @@ enum e_tiles
 	SPAWN = 'P',
 	FAKE = 'F',
 	ENEMY = 'N'
+};
+
+enum e_variant
+{
+	CAT = 0,
+	TABBY_CAT = 1,
+	DOG = 2,
+	DEVIL = 3,
+	CAT_GIRL = 4
 };
 
 typedef struct s_player_sprites
@@ -180,6 +189,8 @@ typedef struct s_ctx
 	int			speed;
 	int			max_idle;
 	t_img		*buffer;
+	int			variant;
+	char		*variant_name;	
 }	t_ctx;
 
 // Checks
@@ -201,6 +212,7 @@ int			get_height(t_ctx *c);
 int			get_width(t_ctx *c);
 void		*lps(t_ctx *c, char *n, int w, int h);
 void		*les(t_ctx *c, char *n, int w, int h);
+void		set_variant_name(t_ctx *c);
 
 // Hooks
 
@@ -211,7 +223,7 @@ int			update(t_ctx *c);
 
 // Init
 
-t_ctx		*init_main(char *name);
+t_ctx		*init_main(char *name, int variant);
 void		init_player(t_ctx *c);
 t_vector2	*init_vector2(void);
 void		init_frames(t_ctx *c);

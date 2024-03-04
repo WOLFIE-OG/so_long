@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/27 12:29:00 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/04 16:59:12 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-t_ctx	*init_main(char *name)
+t_ctx	*init_main(char *name, int variant)
 {
 	t_ctx		*c;
 
@@ -25,6 +25,7 @@ t_ctx	*init_main(char *name)
 	c->world = NULL;
 	c->player = NULL;
 	c->map = NULL;
+	c->variant = variant;
 	ft_printf("["BBLU"CTX"RESET"]		Created CTX\n");
 	init_map(c, name);
 	init_mlx(c, name);
