@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:33:51 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 16:34:49 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 13:23:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	check_paths(t_ctx *c)
 	pos = find_pos_char(c, map_dup, 'E');
 	if (pos)
 	{
+		ft_free_array(map_dup, ft_strarraylen(map_dup));
 		free(map_dup);
 		free(pos);
 		return (0);
