@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/27 14:03:07 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 16:59:12 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static void	check_char(t_ctx *c, char t)
 {
-	if (t == COLLECT)
+	if (t == T_COLLECT)
 		c->map->coin_count++;
-	else if (t == WALL)
+	else if (t == T_WALL)
 		c->map->wall_count++;
-	else if (t == ENEMY)
+	else if (t == T_ENEMY)
 		c->map->enemy_count++;
-	else if (t == SPAWN)
+	else if (t == T_SPAWN)
 		c->map->spawn_count++;
-	else if (t == EXIT)
+	else if (t == T_EXIT)
 		c->map->exit_count++;
-	else if (t == FAKE)
+	else if (t == T_FAKE)
 		return ;
-	else if (t == EMPTY)
+	else if (t == T_EMPTY)
 		return ;
 	else
 		c->map->invalid_count++;
@@ -53,15 +53,15 @@ static int	check_borders(t_ctx *c)
 	j = 1;
 	while (i < c->map->columns)
 	{
-		if (c->map->data[0][i] != WALL ||
-			c->map->data[c->map->rows - 1][i] != WALL)
+		if (c->map->data[0][i] != T_WALL ||
+			c->map->data[c->map->rows - 1][i] != T_WALL)
 			return (0);
 		++i;
 	}
 	while (j < c->map->rows - 1)
 	{
-		if (c->map->data[j][0] != WALL ||
-			c->map->data[j][c->map->columns - 1] != WALL)
+		if (c->map->data[j][0] != T_WALL ||
+			c->map->data[j][c->map->columns - 1] != T_WALL)
 			return (0);
 		++j;
 	}

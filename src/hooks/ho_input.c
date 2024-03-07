@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:29:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 14:34:56 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 18:37:28 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 static void	set_direction(t_ctx *c)
 {
 	if (c->current_key == KEY_UP)
-		c->player->direction = UP;
+		c->player->direction = M_UP;
 	else if (c->current_key == KEY_DOWN)
-		c->player->direction = DOWN;
+		c->player->direction = M_DOWN;
 	else if (c->current_key == KEY_LEFT)
-		c->player->direction = LEFT;
+		c->player->direction = M_LEFT;
 	else if (c->current_key == KEY_RIGHT)
-		c->player->direction = RIGHT;
+		c->player->direction = M_RIGHT;
 	else if (c->current_key == KEY_UP + KEY_LEFT)
-		c->player->direction = UP_LEFT;
+		c->player->direction = M_UP_LEFT;
 	else if (c->current_key == KEY_UP + KEY_RIGHT)
-		c->player->direction = UP_RIGHT;
+		c->player->direction = M_UP_RIGHT;
 	else if (c->current_key == KEY_DOWN + KEY_LEFT)
-		c->player->direction = DOWN_LEFT;
+		c->player->direction = M_DOWN_LEFT;
 	else if (c->current_key == KEY_DOWN + KEY_RIGHT)
-		c->player->direction = DOWN_RIGHT;
+		c->player->direction = M_DOWN_RIGHT;
 	else
-		c->player->direction = IDLE;
+		c->player->direction = M_IDLE;
 }
 
 int	key_press_handler(int key, t_ctx *c)

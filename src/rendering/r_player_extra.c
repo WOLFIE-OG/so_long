@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:44:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 13:59:40 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 17:16:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,31 @@
 void	render_up_left(t_ctx *c)
 {
 	if (c->player->frame)
-		put_img(c, c->player->sprites->up_left_alt);
+		put_img(c, c->sprites[UP_LEFT_ALT]);
 	else
-		put_img(c, c->player->sprites->up_left);
+		put_img(c, c->sprites[UP_LEFT]);
 }
 
 void	render_up_right(t_ctx *c)
 {
 	if (c->player->frame)
-		put_img(c, c->player->sprites->up_right_alt);
+		put_img(c, c->sprites[UP_RIGHT_ALT]);
 	else
-		put_img(c, c->player->sprites->up_right);
+		put_img(c, c->sprites[UP_RIGHT]);
 }
 
 void	render_down_left(t_ctx *c)
 {
 	if (c->player->frame)
-		put_img(c, c->player->sprites->down_left_alt);
+		put_img(c, c->sprites[DOWN_LEFT_ALT]);
 	else
-		put_img(c, c->player->sprites->down_left);
+		put_img(c, c->sprites[DOWN_LEFT]);
 }
 
 void	render_down_right(t_ctx *c)
 {
 	if (c->player->frame)
-		put_img(c, c->player->sprites->down_right_alt);
+		put_img(c, c->sprites[DOWN_RIGHT_ALT]);
 	else
-		put_img(c, c->player->sprites->down_right);
+		put_img(c, c->sprites[DOWN_RIGHT]);
 }

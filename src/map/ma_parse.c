@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:31:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/05 19:15:17 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 17:20:32 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,45 @@
 
 static void	position(t_ctx *c, int i, int j)
 {
-	c->world->tiles[i][j].pos = init_vector2();
-	if (!c->world->tiles[i][j].pos)
+	c->world->tiles[i][j].win_pos = vector2();
+	if (!c->world->tiles[i][j].win_pos)
 		destroy(c, "Failed to alloc pos!", true);
-	c->world->tiles[i][j].local_pos = init_vector2();
-	if (!c->world->tiles[i][j].local_pos)
-		destroy(c, "Failed to alloc local_pos!", true);
-	c->world->tiles[i][j].pos->x = c->world->init_x;
-	c->world->tiles[i][j].pos->y = c->world->init_y;
-	c->world->tiles[i][j].local_pos->x = j;
-	c->world->tiles[i][j].local_pos->y = i;
+	c->world->tiles[i][j].map_pos = vector2();
+	if (!c->world->tiles[i][j].map_pos)
+		destroy(c, "Failed to alloc map_pos!", true);
+	c->world->tiles[i][j].win_pos->x = c->world->init_x;
+	c->world->tiles[i][j].win_pos->y = c->world->init_y;
+	c->world->tiles[i][j].map_pos->x = j;
+	c->world->tiles[i][j].map_pos->y = i;
 }
 
 static void	types(t_ctx *c, int i, int j)
 {
-	if (c->world->tiles[i][j].type == EMPTY)
+	if (c->world->tiles[i][j].type == T_EMPTY)
 		c->world->tiles[i][j].hidden = true;
-	else if (c->world->tiles[i][j].type == COLLECT)
+	else if (c->world->tiles[i][j].type == T_COLLECT)
 	{
-		c->world->tiles[i][j].sprite = c->world->sprites->coin;
-		c->world->tiles[i][j].sprite_alt = c->world->sprites->coin_alt;
+		c->world->tiles[i][j].sprite = c->sprites[COIN];
+		c->world->tiles[i][j].sprite_alt = c->sprites[COIN_ALT];
 	}
-	else if (c->world->tiles[i][j].type == ENEMY)
+	else if (c->world->tiles[i][j].type == T_ENEMY)
 	{
-		c->world->tiles[i][j].sprite = c->world->sprites->enemy;
-		c->world->tiles[i][j].sprite_alt = c->world->sprites->enemy_alt;
+		c->world->tiles[i][j].sprite = c->sprites[ENEMY];
+		c->world->tiles[i][j].sprite_alt = c->sprites[ENEMY_ALT];
 	}
-	else if (c->world->tiles[i][j].type == EXIT)
-		c->world->tiles[i][j].sprite = c->world->sprites->exit;
-	else if (c->world->tiles[i][j].type == FAKE)
-		c->world->tiles[i][j].sprite = c->world->sprites->wall;
-	else if (c->world->tiles[i][j].type == SPAWN)
+	else if (c->world->tiles[i][j].type == T_EXIT)
+		c->world->tiles[i][j].sprite = c->sprites[EXIT];
+	else if (c->world->tiles[i][j].type == T_FAKE)
+		c->world->tiles[i][j].sprite = c->sprites[WALL];
+	else if (c->world->tiles[i][j].type == T_SPAWN)
 	{
-		c->player->pos->x = c->world->init_x;
-		c->player->pos->y = c->world->init_y;
+		c->player->win_pos->x = c->world->init_x;
+		c->player->win_pos->y = c->world->init_y;
 		c->player->current_tile = &c->world->tiles[i][j];
-		c->world->tiles[i][j].sprite = c->world->sprites->spawn;
+		c->world->tiles[i][j].sprite = c->sprites[SPAWN];
 	}
 	else
-		c->world->tiles[i][j].sprite = c->world->sprites->wall;
+		c->world->tiles[i][j].sprite = c->sprites[WALL];
 }
 
 static void	space(t_ctx *c)
@@ -71,9 +71,9 @@ static void	space(t_ctx *c)
 		{
 			c->world->tiles[i][j].sprite = NULL;
 			c->world->tiles[i][j].sprite_alt = NULL;
-			c->world->tiles[i][j].type = EMPTY;
-			c->world->tiles[i][j].pos = NULL;
-			c->world->tiles[i][j].local_pos = NULL;
+			c->world->tiles[i][j].type = T_EMPTY;
+			c->world->tiles[i][j].win_pos = NULL;
+			c->world->tiles[i][j].map_pos = NULL;
 			c->world->tiles[i][j].hidden = 0;
 			j++;
 		}

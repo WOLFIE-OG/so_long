@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:04:50 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 13:33:05 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 17:14:55 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 static void	put(t_ctx *c, int i, int j)
 {
-	t_img	*s;
-
-	s = c->world->tiles[i][j].sprite;
 	if (!c->player->frame)
 	{
 		if (c->world->tiles[i][j].sprite_alt)
-			s = c->world->tiles[i][j].sprite_alt;
+			c->world->tiles[i][j].sprite = c->world->tiles[i][j].sprite_alt;
 	}
 	put_buf(
 		c,
-		s,
-		c->world->tiles[i][j].pos->x,
-		c->world->tiles[i][j].pos->y
+		c->world->tiles[i][j].sprite,
+		c->world->tiles[i][j].win_pos->x,
+		c->world->tiles[i][j].win_pos->y
 		);
 }
 

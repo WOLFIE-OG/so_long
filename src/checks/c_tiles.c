@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:14:11 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 16:45:28 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 16:58:29 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ static void	enemy_check(t_ctx *c)
 
 void	tile_check(t_ctx *c)
 {
-	if (c->player->current_tile->type == FAKE && !c->world->easter_egg)
+	if (c->player->current_tile->type == T_FAKE && !c->world->easter_egg)
 	{
 		c->world->easter_egg = true;
 		ft_printf("["BMAG"????"RESET"]		OMG Developer easter egg??\n");
 	}
-	if (c->player->current_tile->type == COLLECT)
+	if (c->player->current_tile->type == T_COLLECT)
 	{
 		if (!c->player->current_tile->hidden)
 		{
@@ -56,8 +56,8 @@ void	tile_check(t_ctx *c)
 			}
 		}
 	}
-	else if (c->player->current_tile->type == EXIT)
+	else if (c->player->current_tile->type == T_EXIT)
 		exit_check(c);
-	else if (c->player->current_tile->type == ENEMY)
+	else if (c->player->current_tile->type == T_ENEMY)
 		enemy_check(c);
 }

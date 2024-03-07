@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:44:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 13:59:33 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 17:28:37 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	render_idle(t_ctx *c)
 {
 	if (!c->player->is_tired)
-		put_img(c, c->player->sprites->idle);
+		put_img(c, c->sprites[IDLE]);
 	else
 	{
 		if (!c->player->played_anim)
 		{
 			if (c->player->sleep_frames_counter
 				!= c->player->sleep_frames_count)
-				put_img(c, c->player->sleep_frames[
-					c->player->sleep_frames_counter++]);
+				put_img(c, c->sprites[c->player->sleep_frames[
+					c->player->sleep_frames_counter++]]);
 			else
 			{
 				c->player->played_anim = true;
@@ -33,9 +33,9 @@ void	render_idle(t_ctx *c)
 		if (c->player->played_anim)
 		{
 			if (c->player->frame)
-				put_img(c, c->player->sprites->sleep_alt);
+				put_img(c, c->sprites[SLEEP_ALT]);
 			else
-				put_img(c, c->player->sprites->sleep);
+				put_img(c, c->sprites[SLEEP]);
 			usleep(50000);
 		}
 	}
@@ -46,9 +46,9 @@ void	render_right(t_ctx *c)
 	if (!check_border(c))
 	{
 		if (c->player->frame)
-			put_img(c, c->player->sprites->right_alt);
+			put_img(c, c->sprites[RIGHT_ALT]);
 		else
-			put_img(c, c->player->sprites->right);
+			put_img(c, c->sprites[RIGHT]);
 	}
 }
 
@@ -57,9 +57,9 @@ void	render_left(t_ctx *c)
 	if (!check_border(c))
 	{
 		if (c->player->frame)
-			put_img(c, c->player->sprites->left_alt);
+			put_img(c, c->sprites[LEFT_ALT]);
 		else
-			put_img(c, c->player->sprites->left);
+			put_img(c, c->sprites[LEFT]);
 	}
 }
 
@@ -68,9 +68,9 @@ void	render_up(t_ctx *c)
 	if (!check_border(c))
 	{
 		if (c->player->frame)
-			put_img(c, c->player->sprites->up_alt);
+			put_img(c, c->sprites[UP_ALT]);
 		else
-			put_img(c, c->player->sprites->up);
+			put_img(c, c->sprites[UP]);
 	}
 }
 
@@ -79,8 +79,8 @@ void	render_down(t_ctx *c)
 	if (!check_border(c))
 	{
 		if (c->player->frame)
-			put_img(c, c->player->sprites->down_alt);
+			put_img(c, c->sprites[DOWN_ALT]);
 		else
-			put_img(c, c->player->sprites->down);
+			put_img(c, c->sprites[DOWN]);
 	}
 }

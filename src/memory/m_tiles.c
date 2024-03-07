@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:33:52 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:33:36 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 17:09:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	free_tiles(t_ctx *c)
 		j = 0;
 		while (j < c->map->columns)
 		{
-			free(c->world->tiles[i][j].pos);
-			free(c->world->tiles[i][j].local_pos);
+			free(c->world->tiles[i][j].win_pos);
+			free(c->world->tiles[i][j].map_pos);
 			j++;
 		}
 		free(c->world->tiles[i]);

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:06:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/05 19:15:40 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 18:24:18 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int arg_n, char **arg_a)
 	name = "map.ber";
 	if (arg_n >= 2)
 		name = arg_a[1];
-	ft_printf("%d\n", arg_n);
 	if (arg_n >= 3)
 		if (ft_ischeck_str(arg_a[2], ft_isdigit))
 			variant = ft_atoi(arg_a[2]);

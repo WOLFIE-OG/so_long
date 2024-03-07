@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/04 17:01:16 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 18:54:24 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,26 @@ enum e_key_binds
 
 enum e_direction
 {
-	UP = 'W',
-	LEFT = 'A',
-	DOWN = 'S',
-	RIGHT = 'D',
-	IDLE = '0',
-	UP_LEFT = '1',
-	UP_RIGHT = '2',
-	DOWN_LEFT = '3',
-	DOWN_RIGHT = '4'
+	M_UP = 'W',
+	M_LEFT = 'A',
+	M_DOWN = 'S',
+	M_RIGHT = 'D',
+	M_IDLE = '0',
+	M_UP_LEFT = '1',
+	M_UP_RIGHT = '2',
+	M_DOWN_LEFT = '3',
+	M_DOWN_RIGHT = '4'
 };
 
 enum e_tiles
 {
-	EMPTY = '0',
-	WALL = '1',
-	COLLECT = 'C',
-	EXIT = 'E',
-	SPAWN = 'P',
-	FAKE = 'F',
-	ENEMY = 'N'
+	T_EMPTY = '0',
+	T_WALL = '1',
+	T_COLLECT = 'C',
+	T_EXIT = 'E',
+	T_SPAWN = 'P',
+	T_FAKE = 'F',
+	T_ENEMY = 'N'
 };
 
 enum e_variant
@@ -69,58 +69,55 @@ enum e_variant
 	CAT_GIRL = 4
 };
 
-typedef struct s_player_sprites
+enum e_sprites
 {
-	t_img	*idle;
-	t_img	*up;
-	t_img	*up_alt;
-	t_img	*down;
-	t_img	*down_alt;
-	t_img	*left;
-	t_img	*left_alt;
-	t_img	*right;
-	t_img	*right_alt;
-	t_img	*up_left;
-	t_img	*up_left_alt;
-	t_img	*down_left;
-	t_img	*down_left_alt;
-	t_img	*up_right;
-	t_img	*up_right_alt;
-	t_img	*down_right;
-	t_img	*down_right_alt;
-	t_img	*bottom;
-	t_img	*bottom_alt;
-	t_img	*side_l;
-	t_img	*side_l_alt;
-	t_img	*side_r;
-	t_img	*side_r_alt;
-	t_img	*top;
-	t_img	*top_alt;
-	t_img	*sleep;
-	t_img	*sleep_alt;
-	t_img	*yawn;
-	t_img	*lick;
-	t_img	*scratch;
-	t_img	*scratch_alt;
-	t_img	*awake;
-}	t_player_sprites;
+	IDLE,
+	UP,
+	UP_ALT,
+	DOWN,
+	DOWN_ALT,
+	LEFT,
+	LEFT_ALT,
+	RIGHT,
+	RIGHT_ALT,
+	UP_LEFT,
+	UP_LEFT_ALT,
+	DOWN_LEFT,
+	DOWN_LEFT_ALT,
+	UP_RIGHT,
+	UP_RIGHT_ALT,
+	DOWN_RIGHT,
+	DOWN_RIGHT_ALT,
+	TOP,
+	TOP_ALT,
+	BOTTOM,
+	BOTTOM_ALT,
+	SIDE_L,
+	SIDE_L_ALT,
+	SIDE_R,
+	SIDE_R_ALT,
+	SLEEP,
+	SLEEP_ALT,
+	YAWN,
+	LICK,
+	SCRATCH,
+	SCRATCH_ALT,
+	AWAKE,
+	WALL,
+	COIN,
+	COIN_ALT,
+	EXIT,
+	SPAWN,
+	ENEMY,
+	ENEMY_ALT,
+	NUM_SPRITES
+};
 
-typedef struct s_vector2
+typedef struct s_sprite_item
 {
-	int	x;
-	int	y;
-}	t_vector2;
-
-typedef struct s_world_sprites
-{
-	t_img	*wall;
-	t_img	*coin;
-	t_img	*coin_alt;
-	t_img	*exit;
-	t_img	*spawn;
-	t_img	*enemy;
-	t_img	*enemy_alt;
-}	t_world_sprites;
+	enum e_sprites	sprite;
+	char			*file_name;
+}	t_sprite_item;
 
 typedef struct s_tile
 {
@@ -128,26 +125,25 @@ typedef struct s_tile
 	t_img		*sprite_alt;
 	int			type;
 	int			hidden;
-	t_vector2	*pos;
-	t_vector2	*local_pos;
+	t_vector2	*win_pos;
+	t_vector2	*map_pos;
 }	t_tile;
 
 typedef struct s_player
 {
-	t_player_sprites	*sprites;
-	t_vector2			*pos;
-	char				direction;
-	int					frame;
-	t_tile				*current_tile;
-	int					moves;
-	int					coins_collected;
-	time_t				last_active_time;
-	bool				is_tired;
-	bool				is_awake;
-	bool				played_anim;
-	t_img				**sleep_frames;
-	int					sleep_frames_count;
-	int					sleep_frames_counter;
+	t_vector2		*win_pos;
+	char			direction;
+	int				frame;
+	t_tile			*current_tile;
+	int				moves;
+	int				coins_collected;
+	time_t			last_active_time;
+	bool			is_tired;
+	bool			is_awake;
+	bool			played_anim;
+	enum e_sprites	sleep_frames[21];
+	int				sleep_frames_count;
+	int				sleep_frames_counter;
 }	t_player;
 
 typedef struct s_map
@@ -165,32 +161,33 @@ typedef struct s_map
 
 typedef struct s_world
 {
-	t_world_sprites	*sprites;
-	t_tile			**tiles;
-	int				init_x;
-	int				init_y;
-	bool			easter_egg;
-	bool			exit_msg;
+	t_tile	**tiles;
+	int		init_x;
+	int		init_y;
+	bool	easter_egg;
+	bool	exit_msg;
 }	t_world;
 
 typedef struct s_ctx
 {
-	t_player	*player;
-	t_world		*world;
-	t_map		*map;
-	char		*win_title;
-	t_win_list	*root;
-	int			width;
-	int			height;
-	t_xvar		*mlx_ctx;
-	int			game_running;
-	int			current_key;
-	int			(*des_i)(void *m, void *i);
-	int			speed;
-	int			max_idle;
-	t_img		*buffer;
-	int			variant;
-	char		*variant_name;	
+	t_img			**sprites;
+	t_player		*player;
+	t_world			*world;
+	t_map			*map;
+	char			*win_title;
+	t_win_list		*root;
+	int				width;
+	int				height;
+	t_xvar			*mlx_ctx;
+	int				game_running;
+	int				current_key;
+	int				(*des_i)(void *m, void *i);
+	int				speed;
+	int				max_idle;
+	t_img			*buffer;
+	int				variant;
+	char			*variant_name;
+	t_sprite_item	sprite_table[NUM_SPRITES];
 }	t_ctx;
 
 // Checks
@@ -210,8 +207,8 @@ int			key_check(int key);
 
 int			get_height(t_ctx *c);
 int			get_width(t_ctx *c);
-void		*lps(t_ctx *c, char *n, int w, int h);
-void		*les(t_ctx *c, char *n, int w, int h);
+t_img		*lps(t_ctx *c, const char *n, int w, int h);
+t_img		*lws(t_ctx *c, const char *n, int w, int h);
 void		set_variant_name(t_ctx *c);
 
 // Hooks
@@ -225,11 +222,11 @@ int			update(t_ctx *c);
 
 t_ctx		*init_main(char *name, int variant);
 void		init_player(t_ctx *c);
-t_vector2	*init_vector2(void);
+t_vector2	*vector2(void);
 void		init_frames(t_ctx *c);
 void		init_mlx(t_ctx *c, char *name);
 void		init_world(t_ctx *c);
-void		init_world(t_ctx *c);
+void		init_sprite_table(t_ctx *c);
 void		init_map(t_ctx *c, char *name);
 void		init_ui(t_ctx *c);
 
@@ -241,9 +238,6 @@ void		parse_map(t_ctx *c);
 // Memory
 
 void		free_sprites(t_ctx *c);
-void		free_sprites_extra(t_ctx *c);
-void		free_sprites_extra_extra(t_ctx *c);
-void		free_world_sprites(t_ctx *c);
 void		free_player(t_ctx *c);
 void		free_world(t_ctx *c);
 void		free_tiles(t_ctx *c);

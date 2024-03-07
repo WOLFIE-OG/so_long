@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:28:32 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/21 18:33:22 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 16:53:54 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ void	free_world(t_ctx *c)
 {
 	if (c->world)
 	{
-		if (c->world->sprites)
-		{
-			free_world_sprites(c);
-			free(c->world->sprites);
-		}
 		if (c->world->tiles)
 			free_tiles(c);
 		free(c->world);

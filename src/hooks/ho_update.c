@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:30:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/27 14:03:11 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 17:01:05 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ int	update(t_ctx *c)
 	mlx_clear_window(c->mlx_ctx, c->root);
 	ft_bzero(c->buffer->data, c->buffer->size_line * c->height);
 	draw_world(c);
-	if (c->player->direction == UP)
+	if (c->player->direction == M_UP)
 		up(c, true);
-	else if (c->player->direction == LEFT)
+	else if (c->player->direction == M_LEFT)
 		left(c, true);
-	else if (c->player->direction == DOWN)
+	else if (c->player->direction == M_DOWN)
 		down(c, true);
-	else if (c->player->direction == RIGHT)
+	else if (c->player->direction == M_RIGHT)
 		right(c, true);
-	else if (c->player->direction == UP_LEFT)
+	else if (c->player->direction == M_UP_LEFT)
 		up_left(c);
-	else if (c->player->direction == UP_RIGHT)
+	else if (c->player->direction == M_UP_RIGHT)
 		up_right(c);
-	else if (c->player->direction == DOWN_LEFT)
+	else if (c->player->direction == M_DOWN_LEFT)
 		down_left(c);
-	else if (c->player->direction == DOWN_RIGHT)
+	else if (c->player->direction == M_DOWN_RIGHT)
 		down_right(c);
 	else
 		idle(c);

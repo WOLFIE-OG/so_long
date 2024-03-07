@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 18:55:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 13:59:47 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 16:49:50 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,32 @@
 
 void	render_border_top(t_ctx *c)
 {
-	t_player			*p;
-	t_player_sprites	*s;
-
-	p = c->player;
-	s = p->sprites;
-	if (p->frame)
-		put_img(c, s->top_alt);
+	if (c->player->frame)
+		put_img(c, c->sprites[TOP_ALT]);
 	else
-		put_img(c, s->top);
+		put_img(c, c->sprites[TOP]);
 }
 
 void	render_border_bottom(t_ctx *c)
 {
-	t_player			*p;
-	t_player_sprites	*s;
-
-	p = c->player;
-	s = p->sprites;
-	if (p->frame)
-		put_img(c, s->bottom_alt);
+	if (c->player->frame)
+		put_img(c, c->sprites[BOTTOM_ALT]);
 	else
-		put_img(c, s->bottom);
+		put_img(c, c->sprites[BOTTOM]);
 }
 
 void	render_border_side_l(t_ctx *c)
 {
-	t_player			*p;
-	t_player_sprites	*s;
-
-	p = c->player;
-	s = p->sprites;
-	if (p->frame)
-		put_img(c, s->side_l_alt);
+	if (c->player->frame)
+		put_img(c, c->sprites[SIDE_L_ALT]);
 	else
-		put_img(c, s->side_l);
+		put_img(c, c->sprites[SIDE_L]);
 }
 
 void	render_border_side_r(t_ctx *c)
 {
-	t_player			*p;
-	t_player_sprites	*s;
-
-	p = c->player;
-	s = p->sprites;
-	if (p->frame)
-		put_img(c, s->side_r_alt);
+	if (c->player->frame)
+		put_img(c, c->sprites[SIDE_R_ALT]);
 	else
-		put_img(c, s->side_r);
+		put_img(c, c->sprites[SIDE_R]);
 }

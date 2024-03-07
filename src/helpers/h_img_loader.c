@@ -6,13 +6,13 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 19:03:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/04 17:08:36 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 17:13:09 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	*lps(t_ctx *c, char *n, int w, int h)
+t_img	*lps(t_ctx *c, const char *n, int w, int h)
 {
 	void	*i;
 	char	*p;
@@ -38,7 +38,7 @@ void	*lps(t_ctx *c, char *n, int w, int h)
 	return (i);
 }
 
-void	*les(t_ctx *c, char *n, int w, int h)
+t_img	*lws(t_ctx *c, const char *n, int w, int h)
 {
 	void	*i;
 	char	*p;

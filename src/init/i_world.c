@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/05 18:46:37 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 18:24:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 static void	sprites(t_ctx *c)
 {
-	int				w;
-	int				h;
+	const int	w = SIZE;
+	const int	h = SIZE;
+	int			i;
 
-	c->world->sprites = malloc(sizeof(t_world_sprites));
-	if (!c->world->sprites)
-		destroy(c, "Failed to alloc sprites!", true);
-	w = SIZE;
-	h = SIZE;
-	c->world->sprites->wall = les(c, "wall.xpm", w, h);
-	c->world->sprites->coin = les(c, "coin.xpm", w, h);
-	c->world->sprites->coin_alt = les(c, "coin_alt.xpm", w, h);
-	c->world->sprites->exit = les(c, "exit.xpm", w, h);
-	c->world->sprites->spawn = les(c, "spawn.xpm", w, h);
-	c->world->sprites->enemy = les(c, "enemy.xpm", w, h);
-	c->world->sprites->enemy_alt = les(c, "enemy_alt.xpm", w, h);
+	i = NUM_SPRITES - 7;
+	while (i < NUM_SPRITES)
+	{
+		c->sprites[c->sprite_table[i].sprite]
+			= lws(c, c->sprite_table[i].file_name, w, h);
+		i++;
+	}
 }
+
 
 static void	world(t_ctx *c)
 {
@@ -45,6 +42,5 @@ void	init_world(t_ctx *c)
 {
 	world(c);
 	sprites(c);
-	check_world_sprites(c);
 	parse_map(c);
 }

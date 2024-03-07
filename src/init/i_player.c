@@ -6,57 +6,25 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/05 18:35:35 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 18:35:21 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-static void	sprites(t_ctx *c, int w, int h)
+static void	sprites(t_ctx *c)
 {
-	c->player->sprites = malloc(sizeof(t_player_sprites));
-	if (!c->player->sprites)
-		destroy(c, "Failed to alloc player sprites!", true);
-	c->player->sprites->down_alt = lps(c, "down_alt.xpm", w, h);
-	c->player->sprites->down = lps(c, "down.xpm", w, h);
-	c->player->sprites->idle = lps(c, "idle.xpm", w, h);
-	c->player->sprites->left_alt = lps(c, "left_alt.xpm", w, h);
-	c->player->sprites->left = lps(c, "left.xpm", w, h);
-	c->player->sprites->right_alt = lps(c, "right_alt.xpm", w, h);
-	c->player->sprites->right = lps(c, "right.xpm", w, h);
-	c->player->sprites->up_alt = lps(c, "up_alt.xpm", w, h);
-	c->player->sprites->up = lps(c, "up.xpm", w, h);
-	c->player->sprites->sleep_alt = lps(c, "sleep_alt.xpm", w, h);
-	c->player->sprites->sleep = lps(c, "sleep.xpm", w, h);
-}
+	const int	w = SIZE;
+	const int	h = SIZE;
+	int			i;
 
-static void	sprites_extra(t_ctx *c, int w, int h)
-{
-	c->player->sprites->down_left_alt = lps(c, "down_left_alt.xpm", w, h);
-	c->player->sprites->down_left = lps(c, "down_left.xpm", w, h);
-	c->player->sprites->up_left_alt = lps(c, "up_left_alt.xpm", w, h);
-	c->player->sprites->up_left = lps(c, "up_left.xpm", w, h);
-	c->player->sprites->down_right_alt = lps(c, "down_right_alt.xpm", w, h);
-	c->player->sprites->down_right = lps(c, "down_right.xpm", w, h);
-	c->player->sprites->up_right_alt = lps(c, "up_right_alt.xpm", w, h);
-	c->player->sprites->up_right = lps(c, "up_right.xpm", w, h);
-	c->player->sprites->yawn = lps(c, "yawn.xpm", w, h);
-	c->player->sprites->lick = lps(c, "lick.xpm", w, h);
-	c->player->sprites->awake = lps(c, "awake.xpm", w, h);
-}
-
-static void	sprites_extra_extra(t_ctx *c, int w, int h)
-{
-	c->player->sprites->bottom = lps(c, "bottom.xpm", w, h);
-	c->player->sprites->bottom_alt = lps(c, "bottom_alt.xpm", w, h);
-	c->player->sprites->side_l = lps(c, "side_l.xpm", w, h);
-	c->player->sprites->side_l_alt = lps(c, "side_l_alt.xpm", w, h);
-	c->player->sprites->side_r = lps(c, "side_r.xpm", w, h);
-	c->player->sprites->side_r_alt = lps(c, "side_r_alt.xpm", w, h);
-	c->player->sprites->top = lps(c, "top.xpm", w, h);
-	c->player->sprites->top_alt = lps(c, "top_alt.xpm", w, h);
-	c->player->sprites->scratch = lps(c, "scratch.xpm", w, h);
-	c->player->sprites->scratch_alt = lps(c, "scratch_alt.xpm", w, h);
+	i = 0;
+	while (i < (NUM_SPRITES - 7))
+	{
+		c->sprites[c->sprite_table[i].sprite]
+			= lps(c, c->sprite_table[i].file_name, w, h);
+		i++;
+	}
 }
 
 static void	player(t_ctx *c)
@@ -64,8 +32,8 @@ static void	player(t_ctx *c)
 	c->player = malloc(sizeof(t_player));
 	if (!c->player)
 		destroy(c, "Failed to alloc player!", true);
-	c->player->pos = init_vector2();
-	if (!c->player->pos)
+	c->player->win_pos = vector2();
+	if (!c->player->win_pos)
 		destroy(c, "Failed to alloc vector2", true);
 	c->player->direction = '0';
 	c->player->frame = 0;
@@ -83,16 +51,8 @@ static void	player(t_ctx *c)
 
 void	init_player(t_ctx *c)
 {
-	const int	w = SIZE;
-	const int	h = SIZE;
-
 	player(c);
 	set_variant_name(c);
-	sprites(c, w, h);
-	check_sprites(c);
-	sprites_extra(c, w, h);
-	check_sprites_extra(c);
-	sprites_extra_extra(c, w, h);
-	check_sprites_extra_extra(c);
+	sprites(c);
 	init_frames(c);
 }
