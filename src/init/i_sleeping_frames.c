@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:32:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/23 14:23:36 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 18:35:44 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_frames(t_ctx *c)
 	c->player->sleep_frames = malloc(c->player->sleep_frames_count
 			* sizeof(t_img *));
 	if (!c->player->sleep_frames)
-		destroy(c, "Failed to alloc frames!", 1);
+		destroy(c, "Failed to alloc frames!", true);
 	c->player->sleep_frames[0] = c->player->sprites->lick;
 	c->player->sleep_frames[1] = c->player->sprites->idle;
 	c->player->sleep_frames[2] = c->player->sprites->lick;

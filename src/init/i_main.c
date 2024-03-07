@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/04 16:59:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 19:18:28 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_ctx	*init_main(char *name, int variant)
 
 	c = malloc(sizeof(t_ctx));
 	if (!c)
-		destroy(c, "Failed to alloc ctx!", 1);
+		destroy(c, "Failed to alloc ctx!", true);
 	c->mlx_ctx = NULL;
 	c->root = NULL;
 	c->buffer = NULL;

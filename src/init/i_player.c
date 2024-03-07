@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/04 17:23:44 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 18:35:35 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	sprites(t_ctx *c, int w, int h)
 {
 	c->player->sprites = malloc(sizeof(t_player_sprites));
 	if (!c->player->sprites)
-		destroy(c, "Failed to alloc player sprites!", 1);
+		destroy(c, "Failed to alloc player sprites!", true);
 	c->player->sprites->down_alt = lps(c, "down_alt.xpm", w, h);
 	c->player->sprites->down = lps(c, "down.xpm", w, h);
 	c->player->sprites->idle = lps(c, "idle.xpm", w, h);
@@ -63,10 +63,10 @@ static void	player(t_ctx *c)
 {
 	c->player = malloc(sizeof(t_player));
 	if (!c->player)
-		destroy(c, "Failed to alloc player!", 1);
+		destroy(c, "Failed to alloc player!", true);
 	c->player->pos = init_vector2();
 	if (!c->player->pos)
-		destroy(c, "Failed to alloc vector2", 1);
+		destroy(c, "Failed to alloc vector2", true);
 	c->player->direction = '0';
 	c->player->frame = 0;
 	c->player->moves = 0;

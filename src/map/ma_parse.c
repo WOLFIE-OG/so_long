@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:31:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 16:43:31 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 19:15:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static void	position(t_ctx *c, int i, int j)
 {
 	c->world->tiles[i][j].pos = init_vector2();
 	if (!c->world->tiles[i][j].pos)
-		destroy(c, "Failed to alloc pos!", 1);
+		destroy(c, "Failed to alloc pos!", true);
 	c->world->tiles[i][j].local_pos = init_vector2();
 	if (!c->world->tiles[i][j].local_pos)
-		destroy(c, "Failed to alloc local_pos!", 1);
+		destroy(c, "Failed to alloc local_pos!", true);
 	c->world->tiles[i][j].pos->x = c->world->init_x;
 	c->world->tiles[i][j].pos->y = c->world->init_y;
 	c->world->tiles[i][j].local_pos->x = j;
@@ -29,7 +29,7 @@ static void	position(t_ctx *c, int i, int j)
 static void	types(t_ctx *c, int i, int j)
 {
 	if (c->world->tiles[i][j].type == EMPTY)
-		c->world->tiles[i][j].hidden = 1;
+		c->world->tiles[i][j].hidden = true;
 	else if (c->world->tiles[i][j].type == COLLECT)
 	{
 		c->world->tiles[i][j].sprite = c->world->sprites->coin;
@@ -65,7 +65,7 @@ static void	space(t_ctx *c)
 	{
 		c->world->tiles[i] = malloc(c->map->columns * sizeof(t_tile));
 		if (!c->world->tiles[i])
-			destroy(c, "Failed to tile!", 1);
+			destroy(c, "Failed to tile!", true);
 		j = 0;
 		while (j < c->map->columns)
 		{
@@ -109,7 +109,7 @@ void	parse_map(t_ctx *c)
 {
 	c->world->tiles = malloc(sizeof(t_tile *) * c->map->rows);
 	if (!c->world->tiles)
-		destroy(c, "Failed to tiles!", 1);
+		destroy(c, "Failed to tiles!", true);
 	space(c);
 	populate(c);
 }

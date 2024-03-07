@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:06:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/04 17:47:19 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 19:15:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	main(int arg_n, char **arg_a)
 	mlx_hook(c->root, KeyRelease, KeyReleaseMask, key_release_handler, c);
 	mlx_hook(c->root, DestroyNotify, 0, close_program, c);
 	mlx_loop(c->mlx_ctx);
-	destroy(c, "Exiting...", 0);
+	destroy(c, "Exiting...", false);
 	return (0);
 }

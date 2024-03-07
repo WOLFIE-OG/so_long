@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/02/26 19:52:35 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/05 18:46:37 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	sprites(t_ctx *c)
 
 	c->world->sprites = malloc(sizeof(t_world_sprites));
 	if (!c->world->sprites)
-		destroy(c, "Failed to alloc sprites!", 1);
+		destroy(c, "Failed to alloc sprites!", true);
 	w = SIZE;
 	h = SIZE;
 	c->world->sprites->wall = les(c, "wall.xpm", w, h);
@@ -35,7 +35,7 @@ static void	world(t_ctx *c)
 {
 	c->world = malloc(sizeof(t_world));
 	if (!c->world)
-		destroy(c, "Failed to alloc world!", 1);
+		destroy(c, "Failed to alloc world!", true);
 	c->world->easter_egg = false;
 	c->world->exit_msg = false;
 	ft_printf("["BBLU"WORLD"RESET"]		Created world\n");
