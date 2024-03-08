@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 17:24:14 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 16:30:51 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ t_ctx	*init_main(char *name, int variant)
 
 	c = malloc(sizeof(t_ctx));
 	if (!c)
-		destroy(c, ft_strdup("Failed to alloc ctx!"), true);
+		destroy(c, "Failed to alloc ctx!", true);
 	c->sprites = malloc(sizeof(t_img *) * NUM_SPRITES);
 	if (!c->sprites)
-		destroy(c, ft_strdup("Failed to alloc sprites!"), true);
+		destroy(c, "Failed to alloc sprites!", true);
 	init_sprite_table(c);
 	c->mlx_ctx = NULL;
 	c->root = NULL;

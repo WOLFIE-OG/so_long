@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:31:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 17:20:32 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 16:35:08 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	position(t_ctx *c, int i, int j)
 {
-	c->world->tiles[i][j].win_pos = vector2();
+	c->world->tiles[i][j].win_pos = vector2(0, 0);
 	if (!c->world->tiles[i][j].win_pos)
 		destroy(c, "Failed to alloc pos!", true);
-	c->world->tiles[i][j].map_pos = vector2();
+	c->world->tiles[i][j].map_pos = vector2(0, 0);
 	if (!c->world->tiles[i][j].map_pos)
 		destroy(c, "Failed to alloc map_pos!", true);
 	c->world->tiles[i][j].win_pos->x = c->world->init_x;

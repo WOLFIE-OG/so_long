@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 18:35:21 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 16:34:42 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	player(t_ctx *c)
 	c->player = malloc(sizeof(t_player));
 	if (!c->player)
 		destroy(c, "Failed to alloc player!", true);
-	c->player->win_pos = vector2();
+	c->player->win_pos = vector2(0, 0);
 	if (!c->player->win_pos)
 		destroy(c, "Failed to alloc vector2", true);
 	c->player->direction = '0';
