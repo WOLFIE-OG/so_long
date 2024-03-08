@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 17:55:15 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 19:41:40 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ typedef struct s_player
 	bool			is_tired;
 	bool			is_awake;
 	bool			played_anim;
-	enum e_sprites	sleep_frames[21];
+	enum e_sprites	sleep_frames[41];
 	int				sleep_frames_count;
 	int				sleep_frames_counter;
 }	t_player;

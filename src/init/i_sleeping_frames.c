@@ -6,54 +6,44 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:32:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 18:49:03 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 19:33:48 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-static void	lick_frames(t_ctx *c, int offset)
+static void	lick_frames(t_ctx *c, int *offset)
 {
 	int	i;
 
 	i = 0;
-	while (i <= 4)
+	while (++i <= 7)
 	{
-		c->player->sleep_frames[offset] = LICK;
-		offset++;
-		c->player->sleep_frames[offset] = IDLE;
-		offset++;
-		i++;
+		c->player->sleep_frames[(*offset)++] = LICK;
+		c->player->sleep_frames[(*offset)++] = IDLE;
 	}
 }
 
-static void	scratch_frames(t_ctx *c, int offset)
+static void	scratch_frames(t_ctx *c, int *offset)
 {
 	int	i;
 
 	i = 0;
-	while (i <= 4)
+	while (++i <= 7)
 	{
-		c->player->sleep_frames[offset] = SCRATCH;
-		offset++;
-		c->player->sleep_frames[offset] = SCRATCH_ALT;
-		offset++;
-		i++;
+		c->player->sleep_frames[(*offset)++] = SCRATCH;
+		c->player->sleep_frames[(*offset)++] = SCRATCH_ALT;
 	}
 }
 
 
-static void	yawn_frames(t_ctx *c, int offset)
+static void	yawn_frames(t_ctx *c, int *offset)
 {
 	int	i;
 
 	i = 0;
-	while (i <= 7)
-	{
-		c->player->sleep_frames[offset] = YAWN;
-		offset++;
-		i++;
-	}
+	while (++i <= 14)
+		c->player->sleep_frames[(*offset)++] = YAWN;
 }
 
 void	init_frames(t_ctx *c)
@@ -61,7 +51,7 @@ void	init_frames(t_ctx *c)
 	int	offset;
 
 	offset = 0;
-	lick_frames(c, offset);
-	scratch_frames(c, offset);
-	yawn_frames(c, offset);
+	lick_frames(c, &offset);
+	scratch_frames(c, &offset);
+	yawn_frames(c, &offset);
 }

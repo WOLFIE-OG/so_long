@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:44:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 17:28:37 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 19:45:59 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	render_idle(t_ctx *c)
 	{
 		if (!c->player->played_anim)
 		{
+			ft_printf("%d\n", c->player->sleep_frames_count);
 			if (c->player->sleep_frames_counter
 				!= c->player->sleep_frames_count)
 				put_img(c, c->sprites[c->player->sleep_frames[

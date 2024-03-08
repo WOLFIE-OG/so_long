@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 16:34:42 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 19:41:34 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	player(t_ctx *c)
 	c->player->is_tired = false;
 	c->player->played_anim = false;
 	c->player->is_awake = true;
-	c->player->sleep_frames_count = 21;
+	c->player->sleep_frames_count = 41;
 	c->player->sleep_frames_counter = 0;
 	time(&c->player->last_active_time);
 	ft_printf("["BBLU"PLAYER"RESET"]	Created player\n");
