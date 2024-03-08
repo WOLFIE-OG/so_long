@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:45:34 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 18:54:51 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 19:20:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,11 @@ static void	second_sprite_table(t_ctx *c)
 
 void	init_sprite_table(t_ctx *c)
 {
+	int	i;
+
+	i = 0;
+	while (i < NUM_SPRITES)
+		c->sprites[i++] = NULL;
 	c->sprite_table[IDLE] = (t_sprite_item){IDLE, "idle.xpm"};
 	c->sprite_table[UP] = (t_sprite_item){UP, "up.xpm"};
 	c->sprite_table[UP_ALT] = (t_sprite_item){UP_ALT, "up_alt.xpm"};

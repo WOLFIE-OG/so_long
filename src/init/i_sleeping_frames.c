@@ -6,33 +6,62 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:32:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 16:38:52 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 18:49:03 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
+static void	lick_frames(t_ctx *c, int offset)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 4)
+	{
+		c->player->sleep_frames[offset] = LICK;
+		offset++;
+		c->player->sleep_frames[offset] = IDLE;
+		offset++;
+		i++;
+	}
+}
+
+static void	scratch_frames(t_ctx *c, int offset)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 4)
+	{
+		c->player->sleep_frames[offset] = SCRATCH;
+		offset++;
+		c->player->sleep_frames[offset] = SCRATCH_ALT;
+		offset++;
+		i++;
+	}
+}
+
+
+static void	yawn_frames(t_ctx *c, int offset)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 7)
+	{
+		c->player->sleep_frames[offset] = YAWN;
+		offset++;
+		i++;
+	}
+}
+
 void	init_frames(t_ctx *c)
 {
-	c->player->sleep_frames[0] = LICK;
-	c->player->sleep_frames[1] = IDLE;
-	c->player->sleep_frames[2] = LICK;
-	c->player->sleep_frames[3] = IDLE;
-	c->player->sleep_frames[4] = LICK;
-	c->player->sleep_frames[5] = IDLE;
-	c->player->sleep_frames[6] = LICK;
-	c->player->sleep_frames[7] = IDLE;
-	c->player->sleep_frames[8] = SCRATCH;
-	c->player->sleep_frames[9] = SCRATCH_ALT;
-	c->player->sleep_frames[10] = SCRATCH;
-	c->player->sleep_frames[11] = SCRATCH_ALT;
-	c->player->sleep_frames[12] = SCRATCH;
-	c->player->sleep_frames[13] = SCRATCH_ALT;
-	c->player->sleep_frames[14] = SCRATCH;
-	c->player->sleep_frames[15] = SCRATCH_ALT;
-	c->player->sleep_frames[16] = YAWN;
-	c->player->sleep_frames[17] = YAWN;
-	c->player->sleep_frames[18] = YAWN;
-	c->player->sleep_frames[19] = YAWN;
-	c->player->sleep_frames[20] = YAWN;
+	int	offset;
+
+	offset = 0;
+	lick_frames(c, offset);
+	scratch_frames(c, offset);
+	yawn_frames(c, offset);
 }

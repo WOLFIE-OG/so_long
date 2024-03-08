@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 19:56:29 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/08 17:55:15 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,9 +194,6 @@ typedef struct s_ctx
 
 int			check_border(t_ctx *c);
 void		check_sprites(t_ctx *c);
-void		check_sprites_extra(t_ctx *c);
-void		check_sprites_extra_extra(t_ctx *c);
-void		check_world_sprites(t_ctx *c);
 int			check_paths(t_ctx *c);
 void		idle_check(t_ctx *c);
 void		tile_check(t_ctx *c);
