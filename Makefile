@@ -21,7 +21,6 @@ SRCS = 	$(SRC_DIR)/init.c						\
 		$(SRC_DIR)/init/i_mlx.c					\
 		$(SRC_DIR)/init/i_player.c				\
 		$(SRC_DIR)/init/i_world.c				\
-		$(SRC_DIR)/init/i_vector.c				\
 		$(SRC_DIR)/init/i_map.c					\
 		$(SRC_DIR)/init/i_sleeping_frames.c 	\
 		$(SRC_DIR)/init/i_ui.c 					\
@@ -61,7 +60,6 @@ OBJS = 	$(OBJ_DIR)/init.o						\
 		$(OBJ_DIR)/i_mlx.o						\
 		$(OBJ_DIR)/i_player.o					\
 		$(OBJ_DIR)/i_world.o					\
-		$(OBJ_DIR)/i_vector.o 					\
 		$(OBJ_DIR)/i_map.o 						\
 		$(OBJ_DIR)/i_sleeping_frames.o 			\
 		$(OBJ_DIR)/i_sprite_table.o 			\

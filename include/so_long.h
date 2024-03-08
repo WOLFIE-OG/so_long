@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 18:54:24 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/07 19:56:29 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,7 +222,6 @@ int			update(t_ctx *c);
 
 t_ctx		*init_main(char *name, int variant);
 void		init_player(t_ctx *c);
-t_vector2	*vector2(void);
 void		init_frames(t_ctx *c);
 void		init_mlx(t_ctx *c, char *name);
 void		init_world(t_ctx *c);
