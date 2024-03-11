@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:31:45 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 16:35:08 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 14:53:32 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ static void	types(t_ctx *c, int i, int j)
 	}
 	else if (c->world->tiles[i][j].type == T_EXIT)
 		c->world->tiles[i][j].sprite = c->sprites[EXIT];
-	else if (c->world->tiles[i][j].type == T_FAKE)
-		c->world->tiles[i][j].sprite = c->sprites[WALL];
 	else if (c->world->tiles[i][j].type == T_SPAWN)
 	{
 		c->player->win_pos->x = c->world->init_x;

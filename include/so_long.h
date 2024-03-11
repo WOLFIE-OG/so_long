@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 00:51:47 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 14:53:02 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ enum e_tiles
 	T_COLLECT = 'C',
 	T_EXIT = 'E',
 	T_SPAWN = 'P',
-	T_FAKE = 'F',
 	T_ENEMY = 'N'
 };
 

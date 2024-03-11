@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 16:59:12 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 14:53:13 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static void	check_char(t_ctx *c, char t)
 		c->map->spawn_count++;
 	else if (t == T_EXIT)
 		c->map->exit_count++;
-	else if (t == T_FAKE)
-		return ;
 	else if (t == T_EMPTY)
 		return ;
 	else
