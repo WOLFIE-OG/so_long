@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 14:53:02 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 15:07:17 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,7 +254,7 @@ void		down_right(t_ctx *c);
 
 // Rendering
 
-void		draw_world(t_ctx *c);
+void		calculate_world(t_ctx *c);
 void		render_border_top(t_ctx *c);
 void		render_border_bottom(t_ctx *c);
 void		render_border_side_l(t_ctx *c);

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:04:50 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 00:56:58 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 15:03:49 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	put(t_ctx *c, int i, int j)
 		);
 }
 
-void	draw_world(t_ctx *c)
+void	calculate_world(t_ctx *c)
 {
 	int	i;
 	int	j;

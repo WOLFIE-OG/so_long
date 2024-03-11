@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 18:24:45 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 16:34:45 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	sprites(t_ctx *c)
 		i++;
 	}
 }
-
 
 static void	world(t_ctx *c)
 {

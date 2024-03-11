@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:32:35 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 19:33:48 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 16:34:38 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void	scratch_frames(t_ctx *c, int *offset)
 		c->player->sleep_frames[(*offset)++] = SCRATCH_ALT;
 	}
 }
-
 
 static void	yawn_frames(t_ctx *c, int *offset)
 {

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 21:18:23 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 18:56:58 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 16:36:13 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_sprites(t_ctx *c)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < NUM_SPRITES)
 	{
