@@ -39,10 +39,10 @@ name_table = {
     "utogi1": "top",
     "utogi2": "top_alt"
 }
-name = "bsd"
-mask_name = "bsd"
-map_dir = pathlib.Path("/home/wolfie/Downloads/onekoC/bitmaps")
-mask_dir = pathlib.Path("/home/wolfie/Downloads/onekoC/bitmasks")
+name = "neko"
+mask_name = "neko"
+map_dir = pathlib.Path("/home/otodd/oneko/bitmaps")
+mask_dir = pathlib.Path("/home/otodd/oneko/bitmasks")
 xpm_dir = pathlib.Path(f"{name}_xpm")
 
 if not os.path.exists(name):
