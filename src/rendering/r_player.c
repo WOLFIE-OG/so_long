@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:44:15 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 00:47:20 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/11 19:44:52 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	render_idle(t_ctx *c)
 				put_img(c, c->sprites[SLEEP_ALT]);
 			else
 				put_img(c, c->sprites[SLEEP]);
-			usleep(50000);
 		}
 	}
 }
