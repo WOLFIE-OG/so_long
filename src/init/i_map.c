@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:00:36 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/08 19:28:34 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/15 13:40:39 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	init_map(t_ctx *c, char *name)
 	char	*tmp;
 
 	tmp = path(c, name);
+	if (!ft_isvalid_file_path(tmp))
+	{
+		free(tmp);
+		destroy(c, "Map path not valid!", true);
+	}
 	c->map = malloc(sizeof(t_map));
 	if (!c->map)
 		destroy(c, "Failed to alloc map!", true);
-	c->map->coin_count = 0;
-	c->map->exit_count = 0;
-	c->map->spawn_count = 0;
-	c->map->enemy_count = 0;
-	c->map->invalid_count = 0;
 	c->map->data = load_map(tmp);
 	if (!c->map->data)
 	{

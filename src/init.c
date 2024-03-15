@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:06:06 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 15:07:32 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/15 13:41:48 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ static void	check_ext(char *name)
 
 	ext = ft_file_extension(name);
 	if (!ext)
+	{
+		ft_printf("["BRED"ERROR"RESET"]		File has no extension!\n");
 		exit(EXIT_FAILURE);
+	}
 	if (ft_strcmp(ext, ".ber") != 0)
 	{
 		ft_printf("["BRED"ERROR"RESET"]		Not a valid map extension: %s\n",

@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 17:06:07 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 14:53:13 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/15 13:39:33 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,11 @@ static void	count_chars(t_ctx *c)
 
 int	check_map(t_ctx *c)
 {
+	c->map->coin_count = 0;
+	c->map->exit_count = 0;
+	c->map->spawn_count = 0;
+	c->map->enemy_count = 0;
+	c->map->invalid_count = 0;
 	if (!check_width(c))
 		return (0);
 	if (!check_borders(c))
