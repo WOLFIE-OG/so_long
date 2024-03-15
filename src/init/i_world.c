@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:22:01 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 16:34:45 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/15 12:50:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	world(t_ctx *c)
 	c->world = malloc(sizeof(t_world));
 	if (!c->world)
 		destroy(c, "Failed to alloc world!", true);
-	c->world->easter_egg = false;
 	c->world->exit_msg = false;
 	ft_printf("["BBLU"WORLD"RESET"]		Created world\n");
 }

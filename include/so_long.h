@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:04:38 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/11 15:07:17 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/15 12:48:26 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,6 @@ typedef struct s_world
 	t_tile	**tiles;
 	int		init_x;
 	int		init_y;
-	bool	easter_egg;
 	bool	exit_msg;
 }	t_world;
 

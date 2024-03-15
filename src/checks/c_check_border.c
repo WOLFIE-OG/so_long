@@ -6,7 +6,7 @@
 /*   By: otodd <otodd@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:59:21 by otodd             #+#    #+#             */
-/*   Updated: 2024/03/07 17:32:38 by otodd            ###   ########.fr       */
+/*   Updated: 2024/03/15 12:49:55 by otodd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,32 @@
 
 static int	top(t_ctx *c)
 {
-	t_vector2	*tl;
-
-	tl = c->player->current_tile->map_pos;
-	if (c->world->tiles[tl->y - 1][tl->x].type == T_WALL)
+	if (c->world->tiles[c->player->current_tile->map_pos->y - 1]
+		[c->player->current_tile->map_pos->x].type == T_WALL)
 		return (1);
 	return (0);
 }
 
 static int	side_l(t_ctx *c)
 {
-	t_vector2	*tl;
-
-	tl = c->player->current_tile->map_pos;
-	if (c->world->tiles[tl->y][tl->x - 1].type == T_WALL)
+	if (c->world->tiles[c->player->current_tile->map_pos->y]
+		[c->player->current_tile->map_pos->x - 1].type == T_WALL)
 		return (1);
 	return (0);
 }
 
 static int	bottom(t_ctx *c)
 {
-	t_vector2	*tl;
-
-	tl = c->player->current_tile->map_pos;
-	if (c->world->tiles[tl->y + 1][tl->x].type == T_WALL)
+	if (c->world->tiles[c->player->current_tile->map_pos->y + 1]
+		[c->player->current_tile->map_pos->x].type == T_WALL)
 		return (1);
 	return (0);
 }
 
 static int	side_r(t_ctx *c)
 {
-	t_vector2	*tl;
-
-	tl = c->player->current_tile->map_pos;
-	if (c->world->tiles[tl->y][tl->x + 1].type == T_WALL)
+	if (c->world->tiles[c->player->current_tile->map_pos->y]
+		[c->player->current_tile->map_pos->x + 1].type == T_WALL)
 		return (1);
 	return (0);
 }
