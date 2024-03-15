@@ -5,7 +5,7 @@ GREEN=\033[1;32m
 BLUE=\033[0;34m
 NC=\033[0m
 
-CC = clang
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 
