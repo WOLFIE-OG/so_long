@@ -1,12 +1,24 @@
-# Define colors
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/19 12:14:04 by otodd             #+#    #+#              #
+#    Updated: 2024/03/19 12:14:35 by otodd            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 YELLOW=\033[1;33m
 RED=\033[1;31m
 GREEN=\033[1;32m
-BLUE=\033[0;34m
+BLUE=\033[1;34m
+CYAN=\033[1;36m
 NC=\033[0m
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 
 SRC_DIR = src
@@ -103,7 +115,7 @@ HEADERS = -I$(INC_DIR) -I$(LIBFT_D) -I$(MINI_LX_D)
 all: dir $(MINI_LX) $(NAME)
 
 $(MINI_LX):
-	@echo "[$(YELLOW)SO_LONG$(NC)]   Building minilibX..."
+	@echo "[$(BLUE)SO_LONG$(NC)]   Building minilibX..."
 	@echo "[======================================================================================]"
 	@$(MAKE) -s -C $(MINI_LX_D)
 	@echo "[======================================================================================]"
@@ -116,15 +128,15 @@ dir:
 	fi
 
 $(NAME): $(LIBFT) $(OBJS)
-	@echo "[$(GREEN)SO_LONG$(NC)]   Building $@..."
+	@echo "[$(BLUE)SO_LONG$(NC)]   Building $@..."
 	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@echo "[$(GREEN)SO_LONG$(NC)]   Compiling $< --> $@"
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c
-	@echo "[$(GREEN)SO_LONG$(NC)]   Compiling $< --> $@"
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(LIBFT):
@@ -137,7 +149,7 @@ clean:
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "[$(YELLOW)SO_LONG$(NC)]   Cleaning executable file..."
+	@echo "[$(RED)SO_LONG$(NC)]   Cleaning executable file..."
 	@$(MAKE) -s -C $(LIBFT_D) fclean
 	@rm -rf $(NAME)
 
