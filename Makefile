@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 12:14:04 by otodd             #+#    #+#              #
-#    Updated: 2024/03/19 12:14:35 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/19 12:22:25 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,13 +143,13 @@ $(LIBFT):
 	@$(MAKE) -s -C $(LIBFT_D)
 
 clean:
-	@echo "[$(YELLOW)SO_LONG$(NC)]   Cleaning object files..."
+	@echo "[$(YELLOW)SO_LONG$(NC)]   Cleaning object directory..."
 	@$(MAKE) -s -C $(LIBFT_D) clean
 	@$(MAKE) -s -C $(MINI_LX_D) clean
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "[$(RED)SO_LONG$(NC)]   Cleaning executable file..."
+	@echo "[$(RED)SO_LONG$(NC)]   Cleaning executable directory..."
 	@$(MAKE) -s -C $(LIBFT_D) fclean
 	@rm -rf $(NAME)
 
