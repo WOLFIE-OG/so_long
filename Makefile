@@ -6,105 +6,112 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 12:14:04 by otodd             #+#    #+#              #
-#    Updated: 2024/03/19 12:22:25 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/20 13:27:30 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-YELLOW=\033[1;33m
-RED=\033[1;31m
-GREEN=\033[1;32m
-BLUE=\033[1;34m
-CYAN=\033[1;36m
-NC=\033[0m
+YELLOW			= 	\033[1;33m
+RED				= 	\033[1;31m
+GREEN			= 	\033[1;32m
+BLUE			= 	\033[1;34m
+CYAN			= 	\033[1;36m
+NC				= 	\033[0m
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-NAME = so_long
+CC 				= 	cc
+CFLAGS 			= 	-Wall -Wextra -Werror
+NAME 			= 	so_long
 
-SRC_DIR = src
-OBJ_DIR = obj
-LIBS_D = libs
-INC_DIR = include
-LIBFT_D = $(LIBS_D)/libft
-MINI_LX_D = $(LIBS_D)/minilibx
+SRC_DIR 		= 	src
+OBJ_DIR 		= 	obj
+BUILD_DIR		=	build
+LIBS_D 			= 	libs
+INC_DIR 		= 	include
+LIBFT_D 		= 	$(LIBS_D)/libft
+MINI_LX_D 		= 	$(LIBS_D)/minilibx
 
-SRCS = 	$(SRC_DIR)/init.c						\
-		$(SRC_DIR)/init/i_main.c				\
-		$(SRC_DIR)/init/i_mlx.c					\
-		$(SRC_DIR)/init/i_player.c				\
-		$(SRC_DIR)/init/i_world.c				\
-		$(SRC_DIR)/init/i_map.c					\
-		$(SRC_DIR)/init/i_sleeping_frames.c 	\
-		$(SRC_DIR)/init/i_ui.c 					\
-		$(SRC_DIR)/init/i_sprite_table.c 		\
-		$(SRC_DIR)/movement/mo_move.c			\
-		$(SRC_DIR)/movement/mo_move_extra.c		\
-		$(SRC_DIR)/helpers/h_img_loader.c		\
-		$(SRC_DIR)/helpers/h_dimensions.c		\
-		$(SRC_DIR)/helpers/h_variant_name.c		\
-		$(SRC_DIR)/memory/m_buffer.c 			\
-		$(SRC_DIR)/memory/m_sprites.c			\
-		$(SRC_DIR)/memory/m_player.c 			\
-		$(SRC_DIR)/memory/m_world.c				\
-		$(SRC_DIR)/memory/m_destroy.c 			\
-		$(SRC_DIR)/memory/m_tiles.c 			\
-		$(SRC_DIR)/memory/m_map.c 				\
-		$(SRC_DIR)/hooks/ho_input.c				\
-		$(SRC_DIR)/hooks/ho_update.c			\
-		$(SRC_DIR)/hooks/ho_close.c				\
-		$(SRC_DIR)/map/ma_load.c				\
-		$(SRC_DIR)/map/ma_parse.c				\
-		$(SRC_DIR)/checks/c_check_images.c		\
-		$(SRC_DIR)/checks/c_map.c				\
-		$(SRC_DIR)/checks/c_idle.c				\
-		$(SRC_DIR)/checks/c_tiles.c				\
-		$(SRC_DIR)/checks/c_paths.c				\
-		$(SRC_DIR)/checks/c_keys.c 				\
-		$(SRC_DIR)/checks/c_check_border.c		\
-		$(SRC_DIR)/rendering/r_world.c			\
-		$(SRC_DIR)/rendering/r_borders.c		\
-		$(SRC_DIR)/rendering/r_player.c			\
-		$(SRC_DIR)/rendering/r_player_extra.c	\
-		$(SRC_DIR)/rendering/r_ui.c
+INIT_DIR		= 	$(SRC_DIR)/init
+MOVEMENT_DIR 	= 	$(SRC_DIR)/movement
+HELPERS_DIR 	= 	$(SRC_DIR)/helpers
+MEMORY_DIR 		= 	$(SRC_DIR)/memory
+HOOKS_DIR 		= 	$(SRC_DIR)/hooks
+MAP_DIR 		= 	$(SRC_DIR)/map
+CHECKS_DIR      = 	$(SRC_DIR)/checks
+RENDERING_DIR	= 	$(SRC_DIR)/rendering
 
-OBJS = 	$(OBJ_DIR)/init.o						\
-		$(OBJ_DIR)/i_main.o						\
-		$(OBJ_DIR)/i_mlx.o						\
-		$(OBJ_DIR)/i_player.o					\
-		$(OBJ_DIR)/i_world.o					\
-		$(OBJ_DIR)/i_map.o 						\
-		$(OBJ_DIR)/i_sleeping_frames.o 			\
-		$(OBJ_DIR)/i_sprite_table.o 			\
-		$(OBJ_DIR)/i_ui.o						\
-		$(OBJ_DIR)/mo_move.o					\
-		$(OBJ_DIR)/mo_move_extra.o				\
-		$(OBJ_DIR)/h_img_loader.o				\
-		$(OBJ_DIR)/h_dimensions.o				\
-		$(OBJ_DIR)/h_variant_name.o 			\
-		$(OBJ_DIR)/m_buffer.o 					\
-		$(OBJ_DIR)/m_sprites.o					\
-		$(OBJ_DIR)/m_player.o 					\
-		$(OBJ_DIR)/m_world.o					\
-		$(OBJ_DIR)/m_destroy.o		 			\
-		$(OBJ_DIR)/m_tiles.o 					\
-		$(OBJ_DIR)/m_map.o 						\
-		$(OBJ_DIR)/ho_input.o					\
-		$(OBJ_DIR)/ho_update.o					\
-		$(OBJ_DIR)/ho_close.o					\
-		$(OBJ_DIR)/ma_load.o					\
-		$(OBJ_DIR)/ma_parse.o					\
-		$(OBJ_DIR)/c_check_images.o				\
-		$(OBJ_DIR)/c_map.o 						\
-		$(OBJ_DIR)/c_idle.o 					\
-		$(OBJ_DIR)/c_tiles.o					\
-		$(OBJ_DIR)/c_paths.o 					\
-		$(OBJ_DIR)/c_keys.o 					\
-		$(OBJ_DIR)/c_check_border.o				\
-		$(OBJ_DIR)/r_world.o					\
-		$(OBJ_DIR)/r_borders.o					\
-		$(OBJ_DIR)/r_player.o					\
-		$(OBJ_DIR)/r_player_extra.o				\
-		$(OBJ_DIR)/r_ui.o
+INIT_OBJ		= 	$(OBJ_DIR)/init
+MOVEMENT_OBJ 	= 	$(OBJ_DIR)/movement
+HELPERS_OBJ 	= 	$(OBJ_DIR)/helpers
+MEMORY_OBJ 		= 	$(OBJ_DIR)/memory
+HOOKS_OBJ 		= 	$(OBJ_DIR)/hooks
+MAP_OBJ 		= 	$(OBJ_DIR)/map
+CHECKS_OBJ      = 	$(OBJ_DIR)/checks
+RENDERING_OBJ	= 	$(OBJ_DIR)/rendering
+
+OBJ_DIRS 		= 	$(OBJ_DIR)													\
+					$(INIT_OBJ)													\
+					$(MOVEMENT_OBJ) 											\
+					$(HELPERS_OBJ)												\
+					$(MEMORY_OBJ)												\
+					$(HOOKS_OBJ)												\
+					$(MAP_OBJ)													\
+					$(CHECKS_OBJ)												\
+					$(RENDERING_OBJ)
+
+INIT_SRCS 		=	$(INIT_DIR)/i_main.c										\
+					$(INIT_DIR)/i_mlx.c											\
+					$(INIT_DIR)/i_player.c										\
+					$(INIT_DIR)/i_world.c										\
+					$(INIT_DIR)/i_map.c											\
+					$(INIT_DIR)/i_sleeping_frames.c 							\
+					$(INIT_DIR)/i_ui.c 											\
+					$(INIT_DIR)/i_sprite_table.c
+
+MOVMENT_SRCS	=	$(MOVEMENT_DIR)/mo_move.c									\
+			  		$(MOVEMENT_DIR)/mo_move_extra.c
+
+HELPERS_SRCS	=	$(HELPERS_DIR)/h_img_loader.c								\
+			  		$(HELPERS_DIR)/h_dimensions.c								\
+			  		$(HELPERS_DIR)/h_variant_name.c
+
+MEMORY_SRCS		=	$(MEMORY_DIR)/m_buffer.c 									\
+			  		$(MEMORY_DIR)/m_sprites.c									\
+			  		$(MEMORY_DIR)/m_player.c 									\
+			  		$(MEMORY_DIR)/m_world.c										\
+			  		$(MEMORY_DIR)/m_destroy.c 									\
+			  		$(MEMORY_DIR)/m_tiles.c 									\
+			  		$(MEMORY_DIR)/m_map.c
+
+HOOKS_SRCS		=	$(HOOKS_DIR)/ho_input.c										\
+			  		$(HOOKS_DIR)/ho_update.c									\
+			  		$(HOOKS_DIR)/ho_close.c										\
+
+MAP_SRCS		=	$(MAP_DIR)/ma_load.c										\
+			  		$(MAP_DIR)/ma_parse.c
+
+CHECKS_SRCS		=  	$(CHECKS_DIR)/c_check_images.c								\
+			  		$(CHECKS_DIR)/c_map.c										\
+			  		$(CHECKS_DIR)/c_idle.c										\
+			  		$(CHECKS_DIR)/c_tiles.c										\
+			  		$(CHECKS_DIR)/c_paths.c										\
+			  		$(CHECKS_DIR)/c_keys.c 										\
+			  		$(CHECKS_DIR)/c_check_border.c
+
+RENDERING_SRCS	=	$(RENDERING_DIR)/r_world.c									\
+			  		$(RENDERING_DIR)/r_borders.c								\
+			  		$(RENDERING_DIR)/r_player.c									\
+			  		$(RENDERING_DIR)/r_player_extra.c							\
+			  		$(RENDERING_DIR)/r_ui.c
+
+OBJS 			= 	$(OBJ_DIR)/init.o											\
+					$(INIT_SRCS:$(INIT_DIR)/%.c=$(INIT_OBJ)/%.o)				\
+					$(MOVMENT_SRCS:$(MOVEMENT_DIR)/%.c=$(MOVEMENT_OBJ)/%.o)		\
+					$(HELPERS_SRCS:$(HELPERS_DIR)/%.c=$(HELPERS_OBJ)/%.o)		\
+					$(MEMORY_SRCS:$(MEMORY_DIR)/%.c=$(MEMORY_OBJ)/%.o)			\
+					$(HOOKS_SRCS:$(HOOKS_DIR)/%.c=$(HOOKS_OBJ)/%.o)				\
+					$(MAP_SRCS:$(MAP_DIR)/%.c=$(MAP_OBJ)/%.o)					\
+					$(CHECKS_SRCS:$(CHECKS_DIR)/%.c=$(CHECKS_OBJ)/%.o)			\
+					$(RENDERING_SRCS:$(RENDERING_DIR)/%.c=$(RENDERING_OBJ)/%.o)	\
+
 
 MINI_LX = $(MINI_LX_D)/libmlx_Linux.a
 LIBFT = $(LIBFT_D)/build/libft.a
@@ -122,21 +129,51 @@ $(MINI_LX):
 	@echo "[$(BLUE)SO_LONG$(NC)]   Done bulding minilibX..."
 
 dir:
-	@if [ ! -d "obj" ]; then \
-		echo "[$(GREEN)SO_LONG$(NC)]   Creating obj directory..."; \
-		mkdir -p obj; \
-	fi
+	@for dir in $(OBJ_DIRS) $(BUILD_DIR); do 									\
+		if [ ! -d "$$dir" ]; then												\
+			echo "[$(GREEN)SO_LONG$(NC)]   Creating obj directory: $$dir"; 		\
+			mkdir -p $$dir; 													\
+		fi; 																	\
+	done
 
 $(NAME): $(LIBFT) $(OBJS)
 	@echo "[$(BLUE)SO_LONG$(NC)]   Building $@..."
 	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@"
+$(OBJ_DIR)/init.o: $(SRC_DIR)/init.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling main program $< --> $@"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/*/%.c
-	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@"
+$(INIT_OBJ)/%.o: $(INIT_DIR)/%.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@ from $(INIT_DIR)"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+
+$(MOVEMENT_OBJ)/%.o: $(MOVEMENT_DIR)/%.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@ from $(MOVEMENT_DIR)"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+
+$(HELPERS_OBJ)/%.o: $(HELPERS_DIR)/%.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@ from $(HELPERS_DIR)"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+
+$(MEMORY_OBJ)/%.o: $(MEMORY_DIR)/%.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@ from $(MEMORY_DIR)"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+
+$(HOOKS_OBJ)/%.o: $(HOOKS_DIR)/%.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@ from $(HOOKS_DIR)"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+
+$(MAP_OBJ)/%.o: $(MAP_DIR)/%.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@ from $(MAP_DIR)"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+
+$(CHECKS_OBJ)/%.o: $(CHECKS_DIR)/%.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@ from $(CHECKS_DIR)"
+	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+
+$(RENDERING_OBJ)/%.o: $(RENDERING_DIR)/%.c
+	@echo "[$(CYAN)SO_LONG$(NC)]   Compiling $< --> $@ from $(RENDERING_DIR)"
 	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(LIBFT):
