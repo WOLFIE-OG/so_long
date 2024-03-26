@@ -6,7 +6,7 @@
 #    By: otodd <otodd@student.42london.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 12:14:04 by otodd             #+#    #+#              #
-#    Updated: 2024/03/20 13:27:30 by otodd            ###   ########.fr        #
+#    Updated: 2024/03/26 17:24:54 by otodd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CYAN			= 	\033[1;36m
 NC				= 	\033[0m
 
 CC 				= 	cc
-CFLAGS 			= 	-Wall -Wextra -Werror
+CFLAGS 			= 	-Wall -Wextra -Werror -g
 NAME 			= 	so_long
 
 SRC_DIR 		= 	src
@@ -117,7 +117,7 @@ MINI_LX = $(MINI_LX_D)/libmlx_Linux.a
 LIBFT = $(LIBFT_D)/build/libft.a
 LIBS = -L$(LIBFT_D)/build -lft -L$(MINI_LX_D) -lmlx -lXext -lX11
 
-HEADERS = -I$(INC_DIR) -I$(LIBFT_D) -I$(MINI_LX_D)
+HEADERS = -I$(INC_DIR) -I$(MINI_LX_D)
 
 all: dir $(MINI_LX) $(NAME)
 
