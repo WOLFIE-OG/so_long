@@ -14,14 +14,23 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Update
-      run: sudo apt-get update
-    
-    - name: Get libs
-      run: sudo apt-get install gcc make xorg libxext-dev libbsd-dev
-
     - name: Get submodules
       run: git submodule update --init --recursive
+
+    - name: Update apt
+      run: sudo apt-get update --fix-missing
+    
+    - name: Install tree, gcc, make, xorg, libxext-dev & libbsd-dev
+      run: sudo apt-get install tree gcc make xorg libxext-dev libbsd-dev
+
+    - name: Install norminette
+      run: pip install norminette
+
+    - name: Tree
+      run: tree
+
+    - name: Run norminette
+      run: norminette src include libs/libft/src libs/libft/include
 
     - name: Make program
       run: make
