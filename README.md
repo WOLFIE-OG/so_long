@@ -15,5 +15,5 @@ To install and build
   cd so_long
   git submodule update --init --recursive
   make
-  ./so_long
+  ./so_long <v [0 - 5]> <map name>
 ```
